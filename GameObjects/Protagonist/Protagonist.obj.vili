@@ -1,0 +1,32 @@
+Collider:
+    points:[
+        { x:0.0, y:0.0 },
+        { x:64.0, y:0.0 },
+        { x:64.0, y:64.0 },
+        { x:0.0, y:64.0 }
+    ]
+    unit:ScenePixels
+
+Sprite:
+    path:"sprites://GameObjects/Protagonist/Walk_Down/down1_all_transparent.png"
+    xTransform:"Camera"
+    yTransform:"Camera"
+    rect:Rect{
+        x:0.0,
+        y:0.0,
+        width:64.0,
+        height:64.0,
+        unit:ScenePixels
+    }
+    rotation:0.0
+    layer:1
+    zdepth:0
+
+Animator:
+    path:"sprites://GameObjects/Protagonist"
+    default:"Walk_Down"
+
+Script:
+    source:"objects://Protagonist/Protagonist.lua"
+
+

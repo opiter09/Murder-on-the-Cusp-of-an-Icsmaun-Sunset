@@ -1,0 +1,32 @@
+# Each string within a table is a line, and each line can have only 58 or so characters. 
+# Use "/" to mark a place where the player must input to continue. Since the game can 
+# only display three lines at a time, it is generally a good idea to have one at those 
+# points, unless, I suppose, you want to represent fast-moving dialogue or the like.
+#                                                              "should be here max.
+introText: [
+    "Icsmaun. A land of mystery. The deep, dark forests",
+    "suffocating the land with their impregnable canopies,",
+    "shielding its people from the harsh light of the sun, >",
+    "yet too from its loving warmth. Despite its penninsular",
+    "situation, few dare to enter Icsmaun, save the odd trader",
+    "who leaves as soon as he arrives. But that is not to say >",
+    "the land is a backwater. For necessity is the mother of",
+    "invention, and thanks to the many ports at the edges of",
+    "the forest grounds, the people of Icsmaun have seen all >",
+    "sorts of magic pass through their land. Like the tide,",
+    "these conjurers leave as soon as they arrive, but their",
+    "knowledge is never forgotten. Thus it is that a grand >",
+    "academy has been recently constructed in the center of",
+    "the darkest woodland, daring the creatures of the night",
+    "to expend their might trying in vain to batter this >",
+    "fortress of wisdom down. And it is to this academy that",
+    "our heroes now journey, having spent many moons weary",
+    "but determined to see beyond the coasts of Ixlima... >"
+]
+
+# To make a footnote, all you need to do is create a subdivider with the same name as a block
+# of text, and then put a table of strings in that. Then, in the text you want a footnote 
+# for, simply end a line with "FNXX /" (this, of course, means that that line will be a
+# button presser). Thence, the footnote will take the reader to the XX'th string in the
+# aforementioned table, allowing for many footnotes to the one block of text.
+Footnotes:[]

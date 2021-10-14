@@ -1,0 +1,36 @@
+Input:
+    game:
+        Up:["Hold:W", "Hold:GP_0_AXIS_PovY_UP", "Hold:GP_0_AXIS_Y_UP"]
+        Left:["Hold:A", "Hold:GP_0_AXIS_PovX_LEFT", "Hold:GP_0_AXIS_X_LEFT"]
+        Down:["Hold:S", "Hold:GP_0_AXIS_PovY_DOWN", "Hold:GP_0_AXIS_Y_DOWN"]
+        Right:["Hold:D", "Hold:GP_0_AXIS_PovX_RIGHT", "Hold:GP_0_AXIS_X_RIGHT"]
+        Accept:["Pressed:K", "Pressed:GP_0_BTN_0"]
+        Back:["Pressed:L", "Pressed:GP_0_BTN_1"]
+        Inventory:["Pressed:I", "Pressed:GP_0_BTN_3"]
+        Run:["Pressed:J", "Pressed:GP_0_BTN_2"]
+        PauseOrMap:["Pressed:Space", "Pressed:GP_0_BTN_7", "Pressed:GP_0_BTN_6"]
+        EnterFootnote:["Pressed:O", "Pressed:GP_0_BTN_5", "Pressed:GP_0_AXIS_Z_RIGHT"]
+        ExitFootnote:["Pressed:U", "Pressed:GP_0_BTN_4", "Pressed:GP_0_AXIS_Z_LEFT"]
+
+        testBlank:[]
+
+Framerate:
+    framerateLimit:true
+    framerateTarget:60
+    vsync:false
+
+GameConfig:
+    antiAliasing:false
+
+Window:
+    Game:
+        title:"Murder on the Cusp of an Icsmaun Sunset"
+        fullscreen:true
+        width:"fill"
+        height:"fill"
+        resizeable:true
+
+Camera:
+    zoom:1.333
+    xOffsetRight:0.0
+    yOffsetDown:65.0

@@ -1,0 +1,15 @@
+Meta:
+    name:"Idle_Up"
+    clock:3.0
+    mode:"Loop"
+Images:
+    images:[
+        "up1_all_transparent.png"
+    ]
+Groups:
+    main:
+        content:[0]
+Animation:
+    code:[
+        play_group { group:"main" }
+    ]

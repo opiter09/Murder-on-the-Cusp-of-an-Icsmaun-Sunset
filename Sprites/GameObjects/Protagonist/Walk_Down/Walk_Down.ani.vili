@@ -1,0 +1,16 @@
+Meta:
+    name:"Walk_Down"
+    clock:0.2
+    mode:"Loop"
+Images:
+    images:[
+        "down1_all_transparent.png",
+        "down2_all_transparent.png"
+    ]
+Groups:
+    main:
+        content:[0, 1]
+Animation:
+    code:[
+        play_group { group:"main" }
+    ]

@@ -1,0 +1,19 @@
+Sprite:
+    path:""
+    xTransform:"Camera"
+    yTransform:"Camera"
+    rect:Rect{
+        x:448.0,
+        y:864.0,
+        width:1024.0,
+        height:640.0,
+        unit:ScenePixels
+    }
+    rotation:0.0
+    layer:1
+    zdepth:0
+
+Script:
+    source:"objects://TextCanvas/TextCanvas.lua"
+
+

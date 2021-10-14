@@ -1,0 +1,17 @@
+id: "myProject"
+name: "Murder on the Cusp of an Icsmaun Sunset"
+authors: ["O. E. Academicus"]
+description: "It's a JRPG, but good"
+obengine_version: "0.5.0"
+keywords: ["JRPG", "RPG", "ATB", "Magic"]
+categories: ["RPG", "JRPG"]
+license: "CC Share-Alike"
+exclude: [".gitignore"]
+source:""
+version:"0.1.0"
+
+mounts:
+    scenes: "root://Scenes"
+    objects: "root://GameObjects"
+    sprites: "root://Sprites"
+    text: "root://Data/Text"

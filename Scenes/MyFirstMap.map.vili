@@ -1,0 +1,66 @@
+Meta:
+    name:"MyFirstMap"
+
+View:
+    size:1.0
+    position:
+        x:0.0
+        y:0.0
+        unit:SceneUnits
+    referential:TopLeft
+
+Collisions:
+    topBoundary:
+        points:[
+            {x:448.0, y:160.0},
+            {x:1472.0, y:160.0},
+            {x:1472.0, y:224.0},
+            {x:448.0, y:224.0}
+        ]
+        unit:ScenePixels
+    bottomBoundary:
+        points:[
+            {x:448.0, y:864.0},
+            {x:1472.0, y:864.0},
+            {x:1472.0, y:928.0},
+            {x:448.0, y:928.0}
+        ]
+        unit:ScenePixels
+    leftBoundary:
+        points:[
+            {x:384.0, y:224.0},
+            {x:448.0, y:224.0},
+            {x:448.0, y:864.0},
+            {x:384.0, y:864.0}
+        ]
+        unit:ScenePixels
+    rightBoundary:
+        points:[
+            {x:1472.0, y:224.0},
+            {x:1536.0, y:224.0},
+            {x:1536.0, y:864.0},
+            {x:1472.0, y:864.0}
+        ]
+        unit:ScenePixels
+
+Sprites:
+    background:
+        path:"sprites://LevelSprites/Maps/MyFirstMap.png"
+        rect:Rect{
+            x:448.0,
+            y:224.0,
+            width:1024.0,
+            height:640.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
+        zdepth:1
+        xTransform:"Camera"
+        yTransform:"Camera"
+
+GameObjects:
+    Protagonist:
+        type:"Protagonist"
+    Camera:
+        type:"Camera"

@@ -1,0 +1,34 @@
+Meta:
+    name:"Intro_Narration"
+
+View:
+    size:1.0
+    position:
+        x:0.0
+        y:0.0
+        unit:SceneUnits
+    referential:TopLeft
+
+Sprites:
+    background:
+        path:"sprites://LevelSprites/Maps/WorldMap.png"
+        rect:Rect{
+            x:448.0,
+            y:224.0,
+            width:1024.0,
+            height:640.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
+        zdepth:1
+        xTransform:"Camera"
+        yTransform:"Camera"
+
+GameObjects:
+    TextCanvas:
+        type:"TextCanvas"
+    ExtraObject:
+        type:"ExtraObject"
+    Camera:
+        type:"Camera"
