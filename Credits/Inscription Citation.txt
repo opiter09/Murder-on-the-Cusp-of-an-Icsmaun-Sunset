@@ -1,0 +1,5 @@
+The image used for my "presents" screen is based upon the image of a Roman rock etching 
+found at the following Wikipedia page: 
+https://commons.wikimedia.org/wiki/File:Rome_Colosseum_inscription_2.jpg. Since one of 
+the possible licenses attached to it is Share-Alike, that is what this game will 
+use in general. The license can be found at https://creativecommons.org/licenses/by-sa/3.0/deed.en

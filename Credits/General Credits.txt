@@ -1,0 +1,22 @@
+﻿- 8-bit graphics pack was found at http://www.slimesalad.com/forum/viewgame.php?p=125406
+
+- The font used is Dogica, found at https://www.dafont.com/dogica.font
+
+- Extracted graphics using OhrGfx, found at
+  https://rpg.hamsterrepublic.com/ohrrpgce/Ohrgfx
+
+- Split images using the Multi-Purpose Graphics Splitter, found at
+  https://www.ascensiongamedev.com/files/file/16-multi-purpose-graphic-splitter/
+
+- Created map backgrounds out of tilesets using Tiled, found at
+  https://thorbjorn.itch.io/tiled
+
+- Decided upon theme (Murder Mystery) and setting (Dark Fantasy), using the Story Theme
+  and Setting Generator, found at https://letsmakeagame.net/story-theme-and-setting-generator/
+
+- Made image backgrounds transparent for all manner of object sprites using the
+  Transparent Background Tool, found at https://www12.lunapic.com/editor/?action=transparent
+
+- The fictional name used in the game title, Icsmaun, is derived from an output of the
+  Random Letter Generator (namely “Icksmawn”), while the names of the protagonists are
+  unmodified outputs of it. This can be found at https://randomwordgenerator.com/letter.php
