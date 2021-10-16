@@ -7,7 +7,7 @@ keywords: ["JRPG", "RPG", "ATB", "Magic"]
 categories: ["RPG", "JRPG"]
 license: "CC Share-Alike"
 exclude: [".gitignore"]
-source:""
+source:"https://github.com/opiter09/Murder-on-the-Cusp-of-an-Icsmaun-Sunset"
 version:"0.1.0"
 
 mounts:
