@@ -15,10 +15,10 @@ function Local.Init()
     canvas:render(This.Sprite)
 end
 
-function Event.Actions.Back(event)
+function Event.Actions.Back()
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end
 
-function Event.Actions.PauseOrMap(event)
+function Event.Actions.PauseOrMap()
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end

@@ -100,7 +100,7 @@ function Local.Init()
     drawInventory()
 end
 
-function Event.Actions.Up(event)
+function Event.Actions.Up()
     if (canvas == nil) or (cursor == nil) then
         return
     end
@@ -131,7 +131,7 @@ function Event.Actions.Up(event)
     end
 end
 
-function Event.Actions.Down(event)
+function Event.Actions.Down()
     if (canvas == nil) or (cursor == nil) then
         return
     end
@@ -163,12 +163,12 @@ function Event.Actions.Down(event)
     end
 end
 
-function Event.Actions.Back(event)
+function Event.Actions.Back()
     local vars = vili.from_file("root://saveData.vili")
 
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end
 
-function Event.Actions.Inventory(event)
+function Event.Actions.Inventory()
     Engine.Scene:loadFromFile("Scenes/Equipment_Menu.map.vili")
 end

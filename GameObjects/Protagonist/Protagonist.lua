@@ -1,7 +1,7 @@
 local lastDirection = 0
 local runToggle = 32/30
 
-function Event.Actions.PauseOrMap(event)
+function Event.Actions.PauseOrMap()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -21,7 +21,7 @@ function Event.Actions.PauseOrMap(event)
     Engine.Scene:loadFromFile("scenes://Map_Menu.map.vili")
 end
 
-function Event.Actions.Inventory(event)
+function Event.Actions.Inventory()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -48,7 +48,7 @@ function Local.Init()
     This.Animator:setKey(vars.currentKey)
 end
 
-function Event.Actions.Up(event)
+function Event.Actions.Up()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -75,7 +75,7 @@ function Event.Actions.Up(event)
     This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle), obe.Transform.Units.ScenePixels))
 end
 
-function Event.Actions.Down(event)
+function Event.Actions.Down()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -102,7 +102,7 @@ function Event.Actions.Down(event)
     This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle), obe.Transform.Units.ScenePixels))
 end
 
-function Event.Actions.Left(event)
+function Event.Actions.Left()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -129,7 +129,7 @@ function Event.Actions.Left(event)
     This.SceneNode:move(obe.Transform.UnitVector(-(runToggle), 0, obe.Transform.Units.ScenePixels))
 end
 
-function Event.Actions.Right(event)
+function Event.Actions.Right()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -156,7 +156,7 @@ function Event.Actions.Right(event)
     This.SceneNode:move(obe.Transform.UnitVector((runToggle), 0, obe.Transform.Units.ScenePixels))
 end
 
-function Event.Actions.Run(event)
+function Event.Actions.Run()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -170,7 +170,7 @@ function Event.Actions.Run(event)
     end
 end
 
-function Event.Game.Update(event)
+function Event.Game.Update()
     local inputs = Engine.Input:getPressedInputs()
     if (#inputs ~= 1) and (lastDirection ~= nil) and (lastDirection ~= 0) then
         if (#inputs == 0) then

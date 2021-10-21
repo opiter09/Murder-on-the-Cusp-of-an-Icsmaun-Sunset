@@ -1,7 +1,7 @@
 local accept = 0
 local song
 
-function Event.Actions.Accept(event)
+function Event.Actions.Accept()
     if (accept == 1) then
         local vars = vili.from_file("root://saveData.vili")
         song:stop()

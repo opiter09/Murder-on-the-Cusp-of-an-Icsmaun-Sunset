@@ -199,7 +199,7 @@ local function moveCursor()
     canvas:render(This.Sprite)
 end
 
-function Event.Actions.Up(event)
+function Event.Actions.Up()
     timerUp = timerUp + 1
     if (timerUp < 10) then
         return
@@ -210,7 +210,7 @@ function Event.Actions.Up(event)
     moveCursor()
 end
 
-function Event.Actions.Down(event)
+function Event.Actions.Down()
     timerDown = timerDown + 1
     if (timerDown < 10) then
         return
@@ -221,7 +221,7 @@ function Event.Actions.Down(event)
     moveCursor()
 end
 
-function Event.Actions.Left(event)
+function Event.Actions.Left()
     timerLeft = timerLeft + 1
     if (timerLeft < 10) then
         return
@@ -232,7 +232,7 @@ function Event.Actions.Left(event)
     moveCursor()
 end
 
-function Event.Actions.Right(event)
+function Event.Actions.Right()
     timerRight = timerRight + 1
     if (timerRight < 10) then
         return
@@ -243,6 +243,6 @@ function Event.Actions.Right(event)
     moveCursor()
 end
 
-function Event.Actions.Back(event)
+function Event.Actions.Back()
     Engine.Scene:loadFromFile("Scenes/Inventory_Menu.map.vili")
 end
