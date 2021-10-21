@@ -79,7 +79,7 @@ function Event.Actions.Accept(event)
             textObject3.text = ""
             canvas:render(This.Sprite)
 
-            local CustomGroup = UserEvent.Custom()
+            local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
             CustomGroup:trigger("endText")
         end
     end

@@ -4,7 +4,7 @@ function Game.Start()
     --Engine.Scene:setRenderOptions(renderOptions)
     Engine.Window:setClearColor(obe.Graphics.Color("#2C4DFF"))
 
-    local CustomGroup = UserEvent.Custom()
+    local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:add("beginText")
     CustomGroup:add("endText")
 
