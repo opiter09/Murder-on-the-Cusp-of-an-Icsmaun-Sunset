@@ -3,6 +3,7 @@ local allTexts = vili.from_file("text://texts.vili")
 local canvas
 local footnoteOn = false
 local H = {}
+local ID
 local index = 1
 local letter = 0
 local newPrint = "0"
@@ -12,6 +13,7 @@ local tempDial = {}
 local textObject
 
 function UserEvent.Custom.beginText(evt)
+    ID = evt.id
     startingPoint = evt.theText
 
     footnoteOn = false
@@ -71,7 +73,7 @@ function Event.Actions.Accept(event)
         currentPlace = allTexts.Footnotes[startingPoint]
     end
 
-    if (newPrint == ">") and (index < #currentPlace) then
+    if (newPrint == ">") then
         newPrint = "_"
         if (footnoteOn == false) and (index >= #allTexts[startingPoint]) then
             textObject.text = ""
@@ -80,7 +82,7 @@ function Event.Actions.Accept(event)
             canvas:render(This.Sprite)
 
             local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
-            CustomGroup:trigger("endText")
+            CustomGroup:trigger("endText", { id = ID })
         end
     end
 end

@@ -1,16 +1,16 @@
 function Local.Init()
-    local vars = vili.from_file("root://saveData")
+    local vars = vili.from_file("root://saveData.vili")
 
-    if (vars.currentMap == "IntroText") then
+    if (vars.currentMap == "Intro_Narration") then
         local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
         CustomGroup:trigger("beginText", { theText = "introText" })
     end
 end
 
 function UserEvent.Custom.endText(evt)
-    local vars = vili.from_file("root://saveData")
+    local vars = vili.from_file("root://saveData.vili")
 
-    if (vars.currentMap == "IntroText") then
+    if (vars.currentMap == "Intro_Narration") then
         Engine.Scene:loadFromFile("scenes://myFirstMap.map.vili")
     end
 end
