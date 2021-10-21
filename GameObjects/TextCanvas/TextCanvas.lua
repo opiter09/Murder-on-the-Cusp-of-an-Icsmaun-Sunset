@@ -11,9 +11,8 @@ local startingPoint
 local tempDial = {}
 local textObject
 
-local function TC_beginNewText()
-    local vars = vili.from_file("root://saveData.vili")
-    startingPoint = vars.textString
+function UserEvent.Custom.beginText(evt)
+    startingPoint = evt.theText
 
     footnoteOn = false
     index = 1
@@ -79,6 +78,9 @@ function Event.Actions.Accept(event)
             textObject2.text = ""
             textObject3.text = ""
             canvas:render(This.Sprite)
+
+            local CustomGroup = UserEvent.Custom()
+            CustomGroup:trigger("endText")
         end
     end
 end

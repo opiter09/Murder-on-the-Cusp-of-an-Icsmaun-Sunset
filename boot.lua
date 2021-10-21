@@ -1,11 +1,14 @@
-function Game.Start(event)
+function Game.Start()
     --local renderOptions = obe.Scene.SceneRenderOptions()
     --renderOptions.collisions = true
     --Engine.Scene:setRenderOptions(renderOptions)
     Engine.Window:setClearColor(obe.Graphics.Color("#2C4DFF"))
 
+    local CustomGroup = UserEvent.Custom()
+    CustomGroup:add("beginText")
+    CustomGroup:add("endText")
+
     local H = {
-        textString = "introText",
         currentMap = "Intro_Narration",
         currentX = 928.0,
         currentY = 800.0,
