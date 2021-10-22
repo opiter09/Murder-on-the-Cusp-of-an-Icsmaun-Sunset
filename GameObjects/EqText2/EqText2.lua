@@ -14,6 +14,7 @@ local Type
 
 function Local.Init()
     canvas = obe.Canvas.Canvas(1024, 1280)
+    This.Sprite:setVisible(false)
 end
 
 local function drawSelection()
@@ -100,6 +101,7 @@ function UserEvent.Custom.equipmentSelect(evt)
     Type = evt.theType
 
     This.Sprite:setZDepth(0)
+    This.Sprite:setVisible(true)
     cursorPlace = 1
     page = 1
     drawSelection()

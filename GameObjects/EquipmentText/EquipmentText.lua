@@ -16,6 +16,7 @@ local mappingTable = {
     ["2, 5"] = { Person = "Agwemnco", Thing = "Cloak" },
     ["2, 6"] = { Person = "Agwemnco", Thing = "Shoes" },
 }
+local itemTexts = vili.from_file("text://items.vili")
 local picking = false
 local posTable = {
     ["1, 1"] = { x = 052, y = 114 },
@@ -31,6 +32,9 @@ local posTable = {
     ["2, 5"] = { x = 602, y = 480 },
     ["2, 6"] = { x = 602, y = 510 }
 }
+local textObject
+local textObject2
+local textObject3
 local timerUp = 0
 local timerDown = 0
 local timerLeft = 0
@@ -40,7 +44,6 @@ local function drawEquipment()
     canvas:clear()
 
     local vars = vili.from_file("root://saveData.vili")
-    local itemTexts = vili.from_file("text://items.vili")
     local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
 
     canvas:Text("nameTL"){
@@ -201,17 +204,56 @@ local function drawEquipment()
         text = ">"
     }
 
+    local map = mappingTable[("%s, %s"):format(cursorX, cursorY)]
+    textObject = canvas:Text("It"){
+        font = fontString,
+        x = 8.0,
+        y = 648.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        layer = 1,
+        color = "#FAFAFA",
+        text = itemTexts[vars.equipment[map.Person][map.Thing]][2]
+    }
+    textObject2 = canvas:Text("It2"){
+        font = fontString,
+        x = 8.0,
+        y = 688.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        layer = 1,
+        color = "#FAFAFA",
+        text = itemTexts[vars.equipment[map.Person][map.Thing]][3]
+    }
+    textObject3 = canvas:Text("It3"){
+        font = fontString,
+        x = 8.0,
+        y = 728.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        layer = 1,
+        color = "#FAFAFA",
+        text = itemTexts[vars.equipment[map.Person][map.Thing]][4]
+    }
+
     canvas:render(This.Sprite)
 end
 
 local function moveCursor()
     cursor.x = posTable[("%s, %s"):format(cursorX, cursorY)].x
     cursor.y = posTable[("%s, %s"):format(cursorX, cursorY)].y
+
+    local vars = vili.from_file("root://saveData.vili")
+    local map = mappingTable[("%s, %s"):format(cursorX, cursorY)]
+    textObject.text = itemTexts[vars.equipment[map.Person][map.Thing]][2]
+    textObject2.text = itemTexts[vars.equipment[map.Person][map.Thing]][3]
+    textObject3.text = itemTexts[vars.equipment[map.Person][map.Thing]][4]
+
     canvas:render(This.Sprite)
 end
 
 function Local.Init()
-    canvas = obe.Canvas.Canvas(1024, 640)
+    canvas = obe.Canvas.Canvas(1024, 1280)
     drawEquipment()
 end
 
