@@ -11,6 +11,9 @@ local placeIndex = 1
 local startingPoint
 local tempDial = {}
 local textObject
+local textObject2
+local textObject3
+local wordSound
 
 function UserEvent.Custom.beginText(evt)
     ID = evt.id
@@ -22,6 +25,7 @@ function UserEvent.Custom.beginText(evt)
     newPrint = "0"
     placeIndex = 1
     tempDial = {}
+    wordSound:play()
 end
 
 function Local.Init()
@@ -61,16 +65,13 @@ function Local.Init()
     canvas:render(This.Sprite)
 
     H = { [1] = textObject, [2] = textObject2, [3] = textObject3 }
+    wordSound = Engine.Audio:load(obe.System.Path("root://Data/Music/Owl's Typewriter Loop 3.wav"), obe.Audio.LoadPolicy.Stream)
+    wordSound:setLooping(true)
 end
 
 function Event.Actions.Accept(event)
     if (startingPoint == nil) or (canvas == nil) then
         return
-    end
-
-    local currentPlace = allTexts[startingPoint]
-    if (footnoteOn == true) then
-        currentPlace = allTexts.Footnotes[startingPoint]
     end
 
     if (newPrint == ">") then
@@ -80,6 +81,9 @@ function Event.Actions.Accept(event)
             textObject2.text = ""
             textObject3.text = ""
             canvas:render(This.Sprite)
+
+            wordSound:stop()
+            startingPoint = nil
 
             local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
             CustomGroup:trigger("endText", { id = ID })
@@ -155,6 +159,7 @@ function Event.Game.Update()
         return
     end
     if (newPrint == ">") then
+        wordSound:stop()
         return
     end
     if (newPrint == "_") then
@@ -165,6 +170,7 @@ function Event.Game.Update()
         index = index + 1
         placeIndex = 1
         letter = 0
+        wordSound:play()
         return
     end
 
