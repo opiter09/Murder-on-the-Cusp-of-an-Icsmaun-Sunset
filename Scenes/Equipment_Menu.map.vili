@@ -36,14 +36,14 @@ Sprites:
         rotation:0.0
         scale:4.0
         layer:1
-        zdepth:1
+        zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
 
 GameObjects:
-    EquipmentText:
-        type:"EquipmentText"
     EqText2:
         type:"EqText2"
+    EquipmentText:
+        type:"EquipmentText"
     Camera:
         type:"Camera"

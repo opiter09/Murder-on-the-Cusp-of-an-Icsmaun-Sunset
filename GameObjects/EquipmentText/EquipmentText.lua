@@ -2,6 +2,21 @@ local canvas
 local cursor
 local cursorX = 1
 local cursorY = 1
+local mappingTable = {
+    ["1, 1"] = { Person = "Vlyoaz", Thing = "Hat" },
+    ["1, 2"] = { Person = "Vlyoaz", Thing = "Cloak" },
+    ["1, 3"] = { Person = "Vlyoaz", Thing = "Shoes" },
+    ["1, 4"] = { Person = "Aclor", Thing = "Hat" },
+    ["1, 5"] = { Person = "Aclor", Thing = "Cloak" },
+    ["1, 6"] = { Person = "Aclor", Thing = "Shoes" },
+    ["2, 1"] = { Person = "Ypvua", Thing = "Hat" },
+    ["2, 2"] = { Person = "Ypvua", Thing = "Cloak" },
+    ["2, 3"] = { Person = "Ypvua", Thing = "Shoes" },
+    ["2, 4"] = { Person = "Agwemnco", Thing = "Hat" },
+    ["2, 5"] = { Person = "Agwemnco", Thing = "Cloak" },
+    ["2, 6"] = { Person = "Agwemnco", Thing = "Shoes" },
+}
+local picking = false
 local posTable = {
     ["1, 1"] = { x = 052, y = 114 },
     ["1, 2"] = { x = 052, y = 144 },
@@ -16,19 +31,16 @@ local posTable = {
     ["2, 5"] = { x = 602, y = 480 },
     ["2, 6"] = { x = 602, y = 510 }
 }
-
 local timerUp = 0
 local timerDown = 0
 local timerLeft = 0
 local timerRight = 0
 
-function Local.Init()
+local function drawEquipment()
+    canvas:clear()
+
     local vars = vili.from_file("root://saveData.vili")
-
     local itemTexts = vili.from_file("text://items.vili")
-
-    canvas = obe.Canvas.Canvas(1024, 640)
-
     local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
 
     canvas:Text("nameTL"){
@@ -198,7 +210,16 @@ local function moveCursor()
     canvas:render(This.Sprite)
 end
 
+function Local.Init()
+    canvas = obe.Canvas.Canvas(1024, 640)
+    drawEquipment()
+end
+
 function Event.Actions.Up()
+    if (picking == true) then
+        return
+    end
+
     timerUp = timerUp + 1
     if (timerUp < 10) then
         return
@@ -210,6 +231,10 @@ function Event.Actions.Up()
 end
 
 function Event.Actions.Down()
+    if (picking == true) then
+        return
+    end
+
     timerDown = timerDown + 1
     if (timerDown < 10) then
         return
@@ -221,6 +246,10 @@ function Event.Actions.Down()
 end
 
 function Event.Actions.Left()
+    if (picking == true) then
+        return
+    end
+
     timerLeft = timerLeft + 1
     if (timerLeft < 10) then
         return
@@ -232,6 +261,10 @@ function Event.Actions.Left()
 end
 
 function Event.Actions.Right()
+    if (picking == true) then
+        return
+    end
+
     timerRight = timerRight + 1
     if (timerRight < 10) then
         return
@@ -243,19 +276,45 @@ function Event.Actions.Right()
 end
 
 function Event.Actions.Accept()
-    local thing
-    if (cursorX == 1) or (cursorX == 4) then
-        thing = "Hat"
-    elseif (cursorX == 2) or (cursorX == 5) then
-        thing = "Cloak"
-    elseif (cursorX == 3) or (cursorX == 6) then
-        thing = "Shoes"
+    if (picking == true) then
+        picking = false
+        This.Sprite:setZDepth(0)
+        Engine.Scene:getSprite("players"):setZDepth(0)
+        drawEquipment()
+        moveCursor()
+        return
     end
 
+    local vars = vili.from_file("root://saveData.vili")
+    local map = mappingTable[("%s, %s"):format(cursorX, cursorY)]
+
+    local check
+    for i = 1, #vars.inventory do
+        if (vars.inventory[i] == vars.equipment[map.Person][map.Thing]) then
+            check = i
+            break
+        end
+    end
+    if (check ~= nil) then
+        vars.inventory[check + 1] = vars.inventory[check + 1] + 1
+    elseif (check == nil)  and (vars.equipment[map.Person][map.Thing] ~= "None") then
+        table.insert(vars.inventory, vars.equipment[map.Person][map.Thing])
+        table.insert(vars.inventory, 1)
+    end
+
+    vars.equipment[map.Person][map.Thing] = "None"
+    vili.to_file("root://saveData.vili", vars)
+    picking = true
+    This.Sprite:setZDepth(3)
+    Engine.Scene:getSprite("players"):setZDepth(3)
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
-    CustomGroup:trigger("equipmentSelect", { theType = thing })
+    CustomGroup:trigger("equipmentSelect", { thePerson = map.Person, theType = map.Thing })
 end
 
 function Event.Actions.Back()
+    if (picking == true) then
+        return
+    end
+
     Engine.Scene:loadFromFile("Scenes/Inventory_Menu.map.vili")
 end

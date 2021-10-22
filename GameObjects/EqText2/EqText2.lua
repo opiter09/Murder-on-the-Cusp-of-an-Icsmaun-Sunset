@@ -1,8 +1,9 @@
 local canvas
 local cursor
-local cursorPlace
-local page
+local cursorPlace = 1
+local page = 1
 local pageMax
+local Person
 local relevantItems = { [1] = "None" }
 local textObject
 local textObject2
@@ -59,7 +60,7 @@ local function drawSelection()
         text = ">"
     }
 
-    local thing = (10 * (page - 1)) + (cursorPlace - 1)
+    local thing = (10 * (page - 1)) + cursorPlace
     textObject = canvas:Text("It"){
         font = fontString,
         x = 8.0,
@@ -95,8 +96,12 @@ local function drawSelection()
 end
 
 function UserEvent.Custom.equipmentSelect(evt)
+    Person = evt.thePerson
     Type = evt.theType
-    This.Sprite:setZDepth(-1 * This.Sprite:getZDepth())
+
+    This.Sprite:setZDepth(0)
+    cursorPlace = 1
+    page = 1
     drawSelection()
 end
 
@@ -118,7 +123,7 @@ function Event.Actions.Up()
         cursorPlace = cursorPlace - 1
         cursor.y = (50 * cursorPlace)
 
-        local thing = (10 * (page - 1)) + (cursorPlace - 1)
+        local thing = (10 * (page - 1)) + cursorPlace
         textObject.text = itemTexts[relevantItems[thing]][2]
         textObject2.text = itemTexts[relevantItems[thing]][3]
         textObject3.text = itemTexts[relevantItems[thing]][4]
@@ -148,11 +153,11 @@ function Event.Actions.Down()
 
     local endThing = #relevantItems - (10 * (page - 1))
 
-    if (cursorPlace < 10) and ((cursorPlace * 2) < endThing) then
+    if (cursorPlace < 10) and (cursorPlace < endThing) then
         cursorPlace = cursorPlace + 1
         cursor.y = (50 * cursorPlace)
 
-        local thing = (10 * (page - 1)) + (cursorPlace - 1)
+        local thing = (10 * (page - 1)) + cursorPlace
         textObject.text = itemTexts[relevantItems[thing]][2]
         textObject2.text = itemTexts[relevantItems[thing]][3]
         textObject3.text = itemTexts[relevantItems[thing]][4]
@@ -167,4 +172,32 @@ function Event.Actions.Down()
 end
 
 function Event.Actions.Accept()
+    if (canvas == nil) or (cursor == nil) or (This.Sprite:getZDepth() == 3) then
+        return
+    end
+
+    local vars = vili.from_file("root://saveData.vili")
+    local thing = (10 * (page - 1)) + cursorPlace
+    local map = relevantItems[thing]
+
+    local check
+    for i = 1, #vars.inventory do
+        if (vars.inventory[i] == map) then
+            check = i
+            break
+        end
+    end
+    if (check ~= nil) then
+        vars.inventory[check + 1] = vars.inventory[check + 1] - 1
+        if (vars.inventory[check + 1] <= 0) then
+            table.remove(vars.inventory, (check + 1))
+            table.remove(vars.inventory, check)
+        end
+    end
+
+    vars.equipment[Person][Type] = map
+    vili.to_file("root://saveData.vili", vars)
+
+    canvas:clear()
+    This.Sprite:setZDepth(3)
 end

@@ -11,6 +11,7 @@ Sprite:
     }
     rotation:0.0
     layer:1
+    zdepth:0
 
 Script:
     source:"objects://EquipmentText/EquipmentText.lua"
