@@ -1,5 +1,5 @@
 Sprite:
-    path:""
+    path:"sprites://LevelSprites/Maps/InventoryBackground.png"
     xTransform:"Camera"
     yTransform:"Camera"
     rect:Rect{
@@ -11,8 +11,9 @@ Sprite:
     }
     rotation:0.0
     layer:1
-
+    zdepth:3
+    
 Script:
-    source:"objects://EquipmentText/EquipmentText.lua"
+    source:"objects://EqText2/EqText2.lua"
 
 

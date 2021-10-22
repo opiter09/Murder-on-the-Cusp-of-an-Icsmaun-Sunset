@@ -43,5 +43,7 @@ Sprites:
 GameObjects:
     EquipmentText:
         type:"EquipmentText"
+    EqText2:
+        type:"EqText2"
     Camera:
         type:"Camera"

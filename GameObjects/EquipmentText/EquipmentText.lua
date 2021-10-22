@@ -27,8 +27,7 @@ function Local.Init()
 
     local itemTexts = vili.from_file("text://items.vili")
 
-    cursorPlace = { "Top", "Left", 1 }
-    canvas = obe.Canvas.Canvas(1024, 1280)
+    canvas = obe.Canvas.Canvas(1024, 640)
 
     local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
 
@@ -241,6 +240,20 @@ function Event.Actions.Right()
 
     cursorX = math.min((cursorX + 1), 2)
     moveCursor()
+end
+
+function Event.Actions.Accept()
+    local thing
+    if (cursorX == 1) or (cursorX == 4) then
+        thing = "Hat"
+    elseif (cursorX == 2) or (cursorX == 5) then
+        thing = "Cloak"
+    elseif (cursorX == 3) or (cursorX == 6) then
+        thing = "Shoes"
+    end
+
+    local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
+    CustomGroup:trigger("equipmentSelect", { theType = thing })
 end
 
 function Event.Actions.Back()

@@ -7,6 +7,7 @@ function Game.Start()
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:add("beginText")
     CustomGroup:add("endText")
+    CustomGroup:add("equipmentSelect")
 
     local H = {
         currentMap = "Intro_Narration",
@@ -16,7 +17,7 @@ function Game.Start()
         currentSquare = { x = 25, y = 8 },
         currentKey = "Idle_Up",
         noMove = true,
-        inventory = {"Vulnerary", 4, "Hat_of_Reportage_E", 1 },
+        inventory = {"Vulnerary", 4 },
         equipment = { --order of sprites is left to right, top to bottom
             Vlyoaz = {Hat = "None", Cloak = "None", Shoes = "None"},
             Ypvua = {Hat = "None", Cloak = "None", Shoes = "None"},
