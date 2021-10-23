@@ -25,6 +25,7 @@ function UserEvent.Custom.beginText(evt)
     newPrint = "0"
     placeIndex = 1
     tempDial = {}
+    wordSound:stop()
     wordSound:play()
 end
 
@@ -65,8 +66,9 @@ function Local.Init()
     canvas:render(This.Sprite)
 
     H = { [1] = textObject, [2] = textObject2, [3] = textObject3 }
-    wordSound = Engine.Audio:load(obe.System.Path("root://Data/Music/Owl's Typewriter Loop 3.wav"), obe.Audio.LoadPolicy.Stream)
-    wordSound:setLooping(true)
+    local soundPath = "root://Data/Music/SomeGuy22 TextSound.wav"
+    wordSound = Engine.Audio:load(obe.System.Path(soundPath), obe.Audio.LoadPolicy.Stream)
+    wordSound:setVolume(0.2)
 end
 
 function Event.Actions.Accept(event)
@@ -170,7 +172,6 @@ function Event.Game.Update()
         index = index + 1
         placeIndex = 1
         letter = 0
-        wordSound:play()
         return
     end
 
@@ -187,6 +188,9 @@ function Event.Game.Update()
         letter = 0
         return
     end
+
+    wordSound:stop()
+    wordSound:play()
 
     newPrint = string.sub(currentPlace[index], letter, letter)
     H[placeIndex].text = ("%s%s"):format(H[placeIndex].text, newPrint)
