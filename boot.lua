@@ -8,6 +8,7 @@ function Game.Start()
     CustomGroup:add("beginText")
     CustomGroup:add("endText")
     CustomGroup:add("equipmentSelect")
+    CustomGroup:add("spellsSelect")
 
     local H = {
         currentMap = "Intro_Narration",
@@ -32,18 +33,24 @@ function Game.Start()
         magiqueRegen = 50,
         magiqueMax = 200,
         stats = { --stats out of 100, levels go up to 25, absolute max Vitality is 300. APRegen is how many AP out of 100 you regain every second.
-            Vlyoaz = {APRegen = 14, XP = 0, Vitality = 22, Level = 1, Class = "Silvalis", numbers = 
-                {Might = 10, Agility = 25, Guard = 10, Intelligence = 20, Communication = 10}
+            Vlyoaz = {APRegen = 14, XP = 0, Vitality = 22, Level = 1, Class = "Silvalis", numbers =
+                {Might = 10, Agility = 25, Guard = 10, Insight = 20, Communication = 10}
             },
-            Ypvua = {APRegen = 8, XP = 0, Vitality = 26, Level = 1, Class = "Amuletalis", numbers = 
+            Ypvua = {APRegen = 8, XP = 0, Vitality = 26, Level = 1, Class = "Amuletalis", numbers =
                 {Might = 15, Agility = 15, Guard = 15, Insight = 15, Communication = 15}
             },
-            Aclor = {APRegen = 4, XP = 0, Vitality = 34, Level = 1, Class = "Sanguinalis", numbers = 
+            Aclor = {APRegen = 4, XP = 0, Vitality = 34, Level = 1, Class = "Sanguinalis", numbers =
                 {Might = 20, Agility = 20, Guard = 15, Insight= 15, Communication = 5}
             },
-            Agwemnco = {APRegen = 18, XP = 0, Vitality = 17, Level = 1, Class = "Actadiurnalis", numbers = 
+            Agwemnco = {APRegen = 18, XP = 0, Vitality = 17, Level = 1, Class = "Actadiurnalis", numbers =
                 {Might = 5, Agility = 15, Guard = 15, Insight = 20, Communication = 20}
             }
+        },
+        spells = {
+            Vlyoaz = {"Magic_Hand", "Camouflage"},
+            Ypvua = {"Magic_Hand", "Shift_Object"},
+            Aclor = {"Magic_Hand", "Blood_Pact"},
+            Agwemnco = {"Magic_Hand", "Investigate"}
         },
         defeated = {}
     }

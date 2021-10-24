@@ -1,0 +1,19 @@
+Sprite:
+    path:""
+    xTransform:"Camera"
+    yTransform:"Camera"
+    rect:Rect{
+        x:448.0,
+        y:224.0,
+        width:1024.0,
+        height:1280.0,
+        unit:ScenePixels
+    }
+    rotation:0.0
+    layer:1
+    zdepth:3
+    
+Script:
+    source:"objects://StatsText2/StatsText2.lua"
+
+

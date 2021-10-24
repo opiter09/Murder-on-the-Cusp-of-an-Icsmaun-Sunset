@@ -41,6 +41,26 @@ function Event.Actions.Inventory()
     Engine.Scene:loadFromFile("scenes://Inventory_Menu.map.vili")
 end
 
+function Event.Actions.Statistics()
+    local vars = vili.from_file("root://saveData.vili")
+    if (vars.noMove == true) then
+        return
+    end
+
+    local config = vili.from_file("root://config.vili")
+    local xThing = (-1) * config.Camera.xOffsetRight
+    local yThing = (-1) * config.Camera.yOffsetDown
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
+    Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+
+    local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
+    vars.currentX = position.x
+    vars.currentY = position.y
+    vars.currentKey = This.Animator:getKey()
+    vili.to_file("root://saveData.vili", vars)
+    Engine.Scene:loadFromFile("scenes://Statistics_Menu.map.vili")
+end
+
 function Local.Init()
     local vars = vili.from_file("root://saveData.vili")
 

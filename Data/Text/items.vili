@@ -5,11 +5,32 @@ None: [
     " "
 ]
 
-Vulnerary: [
-    "Vulnerary",
-    "Restores 20 Vitality. This bitter ointment is a common",
-    "form of healing magic, creating a localized chronomantic",
-    "acceleration bubble in order to quickly mend wounds."
+Hat_of_Reportage_A: [
+    "Hat of Reportage A",
+    "Increases Insight by 8. This hat is of the distinctive",
+    "form associated with journalists everywhere, and holds",
+    "a special magic that helps them discern central truths."
+]
+
+Hat_of_Reportage_B: [
+    "Hat of Reportage B",
+    "Increases Insight by 5. This hat is of the distinctive",
+    "form associated with journalists everywhere, and holds",
+    "a special magic that helps them discern central truths."
+]
+
+Hat_of_Reportage_C: [
+    "Hat of Reportage C",
+    "Increases Insight by 3. This hat is of the distinctive",
+    "form associated with journalists everywhere, and holds",
+    "a special magic that helps them discern central truths."
+]
+
+Hat_of_Reportage_D: [
+    "Hat of Reportage D",
+    "Increases Insight by 2. This hat is of the distinctive",
+    "form associated with journalists everywhere, and holds",
+    "a special magic that helps them discern central truths."
 ]
 
 Hat_of_Reportage_E: [
@@ -17,4 +38,11 @@ Hat_of_Reportage_E: [
     "Increases Insight by 1. This hat is of the distinctive",
     "form associated with journalists everywhere, and holds",
     "a special magic that helps them discern central truths."
+]
+
+Vulnerary: [
+    "Vulnerary",
+    "Restores 20 Vitality. This bitter ointment is a common",
+    "form of healing magic, creating a localized chronomantic",
+    "acceleration bubble in order to quickly mend wounds."
 ]

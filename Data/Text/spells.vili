@@ -1,0 +1,34 @@
+Blood_Pact: [
+    "Blood Pact",
+    "Cost: 0. The caster spends 1/4 of their Vitality to deal",
+    "damage equal to twice their Might at the beginning of",
+    "their next turn."
+]
+
+Camouflage: [
+    "Camouflage",
+    "Cost: 25. The user calls upon the ground to cover them and",
+    "keep them hidden. If the user is not attacked this turn,",
+    "They will be ignored until they perform an action."
+]
+
+Investigate: [
+    "Investigate",
+    "Cost: 50. The user probes into the heart of the enemy,",
+    "uncovering the truthes they wish to hide away. This grants",
+    "them knowledge of that enemy's spells and statistics."
+]
+
+Magic_Hand: [
+    "Magic Hand",
+    "Cost: 10. This spell summons a floating, spectral hand,",
+    "directly operated by the caster as though part of their",
+    "own body. It can do anything a hand can do--get creative!"
+]
+
+Shift_Object: [
+    "Shift Object",
+    "Cost: 15. The Amulet spirit moves an object just enough",
+    "to be noticeable, and lead the nearest enemy to attack",
+    "it in vain. Flying enemies will be grounded for a turn."
+]

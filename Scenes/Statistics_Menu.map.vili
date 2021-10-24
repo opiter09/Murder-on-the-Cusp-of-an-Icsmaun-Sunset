@@ -1,0 +1,49 @@
+Meta:
+    name:"Statistics_Menu"
+
+View:
+    size:1.0
+    position:
+        x:0.0
+        y:0.0
+        unit:SceneUnits
+    referential:TopLeft
+
+Sprites:
+    background:
+        path:"sprites://LevelSprites/Maps/InventoryBackground.png"
+        rect:Rect{
+            x:448.0,
+            y:224.0,
+            width:1024.0,
+            height:640.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
+        zdepth:1
+        xTransform:"Camera"
+        yTransform:"Camera"
+    players:
+        path:"sprites://GameObjects/Protagonist/Idle_Down/down1_all_transparent.png"
+        rect:Rect{
+            x:800.0,
+            y:430.0,
+            width:192.0,
+            height:192.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        scale:4.0
+        layer:1
+        zdepth:0
+        xTransform:"Camera"
+        yTransform:"Camera"
+
+GameObjects:
+    StatsText2:
+        type:"StatsText2"
+    StatisticsText:
+        type:"StatisticsText"
+    Camera:
+        type:"Camera"
