@@ -260,7 +260,7 @@ function Event.Actions.Back()
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end
 
-function Event.Actions.Statistics()
+function Event.Actions.PauseOrStats()
     local vars = vili.from_file("root://saveData.vili")
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end

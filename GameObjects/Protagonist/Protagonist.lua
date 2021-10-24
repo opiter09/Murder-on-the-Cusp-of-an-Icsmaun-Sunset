@@ -1,7 +1,7 @@
 local lastDirection = 0
 local runToggle = 32/30
 
-function Event.Actions.PauseOrMap()
+function Event.Actions.ShowMap()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return
@@ -41,7 +41,7 @@ function Event.Actions.Inventory()
     Engine.Scene:loadFromFile("scenes://Inventory_Menu.map.vili")
 end
 
-function Event.Actions.Statistics()
+function Event.Actions.PauseOrStats()
     local vars = vili.from_file("root://saveData.vili")
     if (vars.noMove == true) then
         return

@@ -8,8 +8,8 @@ Input:
         Back:["Pressed:L", "Pressed:GP_0_BTN_1"]
         Inventory:["Pressed:I", "Pressed:GP_0_BTN_3"]
         Run:["Pressed:J", "Pressed:GP_0_BTN_2"]
-        PauseOrMap:["Pressed:Space", "Pressed:GP_0_BTN_7"]
-        Statistics:["Pressed:Return", "Pressed:GP_0_BTN_6"]
+        PauseOrStats:["Pressed:Return", "Pressed:GP_0_BTN_7"]
+        ShowMap:["Pressed:Space", "Pressed:GP_0_BTN_6"]
         EnterFootnote:["Pressed:O", "Pressed:GP_0_BTN_5", "Pressed:GP_0_AXIS_Z_RIGHT"]
         ExitFootnote:["Pressed:U", "Pressed:GP_0_BTN_4", "Pressed:GP_0_AXIS_Z_LEFT"]
 
@@ -37,7 +37,7 @@ Camera:
     yOffsetDown:65.0
 
 Experience: 
-# The experience formula is ((multiplier * (base ^ Level)) + addition) * ((100 - APRegen) / 100), rounded down.
+# The experience to level up formula is ((multiplier * (base ^ Level)) + addition) * ((100 - APRegen) / 100), rounded down.
     base:2.7
     multiplier:15
     addition: 25

@@ -1,10 +1,10 @@
 local vars = vili.from_file("root://saveData.vili")
 
 function Local.Init()
-    canvas = obe.Canvas.Canvas(1024, 640)
+    local canvas = obe.Canvas.Canvas(1024, 640)
     local xPoint = 32 * math.floor(vars.currentSquare.x)
     local yPoint = 32 * math.floor(vars.currentSquare.y)
-    rectObject = canvas:Rectangle("thing"){
+    canvas:Rectangle("thing"){
         x = xPoint,
         y = yPoint,
         width = 32.0,
@@ -19,6 +19,6 @@ function Event.Actions.Back()
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end
 
-function Event.Actions.PauseOrMap()
+function Event.Actions.ShowMap()
     Engine.Scene:loadFromFile(("Scenes/%s.map.vili"):format(vars.currentMap))
 end
