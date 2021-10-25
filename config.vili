@@ -36,8 +36,9 @@ Camera:
     xOffsetRight:0.0
     yOffsetDown:65.0
 
-Experience: 
+Experience:
+    XPGainPerAction:5
 # The experience to level up formula is ((multiplier * (base ^ Level)) + addition) * ((100 - APRegen) / 100), rounded down.
-    base:2.7
+    base:2.71828
     multiplier:15
-    addition: 25
+    addition:25
