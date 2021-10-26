@@ -1,0 +1,16 @@
+Meta:
+    name:"Walk_Left"
+    clock:0.2
+    mode:"Loop"
+Images:
+    images:[
+        "3.png",
+        "4.png"
+    ]
+Groups:
+    main:
+        content:[0, 1]
+Animation:
+    code:[
+        play_group { group:"main" }
+    ]

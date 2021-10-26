@@ -1,0 +1,16 @@
+Meta:
+    name:"Walk_Right"
+    clock:0.2
+    mode:"Loop"
+Images:
+    images:[
+        "5.png",
+        "6.png"
+    ]
+Groups:
+    main:
+        content:[0, 1]
+Animation:
+    code:[
+        play_group { group:"main" }
+    ]
