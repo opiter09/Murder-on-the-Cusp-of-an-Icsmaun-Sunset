@@ -24,7 +24,7 @@ function Local.Init(sprite, defeatedNumber, initX, initY, direction, distance, v
     startingX = initX
     startingY = initY
 
-    if (visibility == false) then
+    if (visibility == nil) or (visibility == false) then
         This.Sprite:setVisible(false)
         This.Collider:addTag(obe.Collision.ColliderTagType.Tag, "Invisible")
     end
@@ -52,10 +52,10 @@ local function pursuePlayer()
         up = thisY - playerY,
         down = playerY - thisY
     }
-    if (distTable.left < 0) then distTable.left = 10000 end
-    if (distTable.right < 0) then distTable.right = 10000 end
-    if (distTable.up < 0) then distTable.up = 10000 end
-    if (distTable.down < 0) then distTable.down = 10000 end
+    if (distTable.left <= 0) then distTable.left = 10000 end
+    if (distTable.right <= 0) then distTable.right = 10000 end
+    if (distTable.up <= 0) then distTable.up = 10000 end
+    if (distTable.down <= 0) then distTable.down = 10000 end
     local short = math.min(distTable.left, distTable.right, distTable.up, distTable.down)
 
     if (short == distTable.left) then
