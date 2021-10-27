@@ -6,6 +6,7 @@ local function addEvents()
     CustomGroup:add("spellsSelect")
     CustomGroup:add("beginNoMove")
     CustomGroup:add("endNoMove")
+    CustomGroup:add("Reveal")
 end
 
 function Game.Start()

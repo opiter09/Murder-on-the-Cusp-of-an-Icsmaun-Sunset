@@ -60,6 +60,8 @@ Sprites:
         yTransform:"Camera"
 
 GameObjects:
+    TextCanvas:
+        type:"TextCanvas"
     ExtraObject:
         type:"ExtraObject"
     Protagonist:

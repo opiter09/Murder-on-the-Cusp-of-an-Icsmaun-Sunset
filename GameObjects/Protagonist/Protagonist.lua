@@ -1,6 +1,6 @@
 local lastDirection = 0
 local noMove = false
-local runToggle = 32/30
+local runToggle = 16
 
 function UserEvent.Custom.beginNoMove(evt)
     noMove = true
@@ -88,18 +88,18 @@ if (noMove == true) then
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
-        if (check == true) and (v ~= This.Collider) then
+        if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
             break
         end
     end
     if (check == true) and (lastDirection == "Up") then
-        This.SceneNode:move(obe.Transform.UnitVector(0, (15*runToggle), obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle), obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Up"
     This.Animator:setKey("Walk_Up")
-    This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle), obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle/15), obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Down()
@@ -114,18 +114,18 @@ if (noMove == true) then
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
-        if (check == true) and (v ~= This.Collider) then
+        if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
             break
         end
     end
     if (check == true) and (lastDirection == "Down") then
-        This.SceneNode:move(obe.Transform.UnitVector(0, -(15*runToggle), obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle), obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Down"
     This.Animator:setKey("Walk_Down")
-    This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle), obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle/15), obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Left()
@@ -140,18 +140,18 @@ if (noMove == true) then
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
-        if (check == true) and (v ~= This.Collider) then
+        if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
             break
         end
     end
     if (check == true) and (lastDirection == "Left") then
-        This.SceneNode:move(obe.Transform.UnitVector((15*runToggle), 0, obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector((runToggle), 0, obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Left"
     This.Animator:setKey("Walk_Left")
-    This.SceneNode:move(obe.Transform.UnitVector(-(runToggle), 0, obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector(-(runToggle/15), 0, obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Right()
@@ -166,29 +166,29 @@ if (noMove == true) then
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
-        if (check == true) and (v ~= This.Collider) then
+        if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
             break
         end
     end
     if (check == true) and (lastDirection == "Right")  then
-        This.SceneNode:move(obe.Transform.UnitVector(-(15*runToggle), 0, obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(-(runToggle), 0, obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Right"
     This.Animator:setKey("Walk_Right")
-    This.SceneNode:move(obe.Transform.UnitVector((runToggle), 0, obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector((runToggle/15), 0, obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Run()
 if (noMove == true) then
         return
     end
-    if runToggle == 32/30 then
-        runToggle = 96/30
+    if runToggle == 16 then
+        runToggle = 48
         return
-    elseif runToggle == 96/30 then
-        runToggle = 32/30
+    elseif runToggle == 48 then
+        runToggle = 16
         return
     end
 end

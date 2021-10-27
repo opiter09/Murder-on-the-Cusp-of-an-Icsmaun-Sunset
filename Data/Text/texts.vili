@@ -24,6 +24,9 @@ introText: [
     "but determined to see beyond the coasts of Ixlima... >"
 ]
 
+astrayText: []
+astrayText2: []
+
 # To make a footnote, all you need to do is create a subdivider with the same name as a block
 # of text, and then put a table of strings in that. Then, in the text you want a footnote 
 # for, simply end a line with "FNXX /" (this, of course, means that that line will be a
