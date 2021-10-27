@@ -1,0 +1,32 @@
+Collider:
+    points:[
+        { x:0.0, y:0.0 },
+        { x:64.0, y:0.0 },
+        { x:32.0, y:32.0 },
+        { x:0.0, y:32.0 }
+    ]
+    unit:ScenePixels
+
+Sprite:
+    path:"sprites://GameObjects/GenericEnemyOverworld/Idle_Down/1.png"
+    xTransform:"Camera"
+    yTransform:"Camera"
+    rect:Rect{
+        x:0.0,
+        y:0.0,
+        width:32.0,
+        height:32.0,
+        unit:ScenePixels
+    }
+    rotation:0.0
+    layer:1
+    zdepth:0
+
+Animator:
+    path:"sprites://GameObjects/GenericEnemyOverworld"
+    default:"Idle_Down"
+
+Script:
+    source:"objects://EnemyOverworld/EnemyOverworld.lua"
+
+
