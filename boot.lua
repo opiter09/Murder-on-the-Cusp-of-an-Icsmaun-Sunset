@@ -1,14 +1,19 @@
-function Game.Start()
-    --local renderOptions = obe.Scene.SceneRenderOptions()
-    --renderOptions.collisions = true
-    --Engine.Scene:setRenderOptions(renderOptions)
-    Engine.Window:setClearColor(obe.Graphics.Color("#2C4DFF"))
-
+local function addEvents()
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:add("beginText")
     CustomGroup:add("endText")
     CustomGroup:add("equipmentSelect")
     CustomGroup:add("spellsSelect")
+    CustomGroup:add("beginNoMove")
+    CustomGroup:add("endNoMove")
+end
+
+function Game.Start()
+    --local renderOptions = obe.Scene.SceneRenderOptions()
+    --renderOptions.collisions = true
+    --Engine.Scene:setRenderOptions(renderOptions)
+    Engine.Window:setClearColor(obe.Graphics.Color("#2C4DFF"))
+    addEvents()
 
     local H = {
         currentMap = "Intro_Narration",
@@ -17,7 +22,6 @@ function Game.Start()
 --currentSquare tells you where to put the party's map marker. each square has four maps, so a warp adds/subtracts 0.5
         currentSquare = { x = 25, y = 8 },
         currentKey = "Idle_Up",
-        noMove = true,
         inventory = {"Vulnerary", 4 },
         equipment = { --order of sprites is left to right, top to bottom
             Vlyoaz = {Hat = "None", Cloak = "None", Shoes = "None"},

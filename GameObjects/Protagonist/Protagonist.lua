@@ -1,9 +1,16 @@
 local lastDirection = 0
+local noMove = false
 local runToggle = 32/30
 
+function UserEvent.Custom.beginNoMove(evt)
+    noMove = true
+end
+function UserEvent.Custom.endNoMove(evt)
+    noMove = false
+end
+
 function Event.Actions.ShowMap()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
 
@@ -14,6 +21,7 @@ function Event.Actions.ShowMap()
     Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
     local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
+    local vars = vili.from_file("root://saveData.vili")
     vars.currentX = position.x
     vars.currentY = position.y
     vars.currentKey = This.Animator:getKey()
@@ -22,8 +30,7 @@ function Event.Actions.ShowMap()
 end
 
 function Event.Actions.Inventory()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
 
@@ -34,6 +41,7 @@ function Event.Actions.Inventory()
     Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
     local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
+    local vars = vili.from_file("root://saveData.vili")
     vars.currentX = position.x
     vars.currentY = position.y
     vars.currentKey = This.Animator:getKey()
@@ -42,8 +50,7 @@ function Event.Actions.Inventory()
 end
 
 function Event.Actions.PauseOrStats()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
 
@@ -54,6 +61,7 @@ function Event.Actions.PauseOrStats()
     Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
     local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
+    local vars = vili.from_file("root://saveData.vili")
     vars.currentX = position.x
     vars.currentY = position.y
     vars.currentKey = This.Animator:getKey()
@@ -69,8 +77,7 @@ function Local.Init()
 end
 
 function Event.Actions.Up()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Up") and (lastDirection ~= 0)) then
@@ -96,8 +103,7 @@ function Event.Actions.Up()
 end
 
 function Event.Actions.Down()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Down") and (lastDirection ~= 0)) then
@@ -123,8 +129,7 @@ function Event.Actions.Down()
 end
 
 function Event.Actions.Left()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Left") and (lastDirection ~= 0)) then
@@ -150,8 +155,7 @@ function Event.Actions.Left()
 end
 
 function Event.Actions.Right()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Right") and (lastDirection ~= 0)) then
@@ -177,8 +181,7 @@ function Event.Actions.Right()
 end
 
 function Event.Actions.Run()
-    local vars = vili.from_file("root://saveData.vili")
-    if (vars.noMove == true) then
+if (noMove == true) then
         return
     end
     if runToggle == 32/30 then

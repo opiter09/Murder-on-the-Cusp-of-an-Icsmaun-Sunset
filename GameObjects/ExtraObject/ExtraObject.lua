@@ -1,9 +1,13 @@
 function Local.Init()
     local vars = vili.from_file("root://saveData.vili")
+    local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
 
     if (vars.currentMap == "Intro_Narration") then
-        local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
         CustomGroup:trigger("beginText", { theText = "introText" })
+    end
+
+    if (vars.currentMap == "myFirstMap") then
+        CustomGroup:trigger("beginNoMove", {})
     end
 end
 
