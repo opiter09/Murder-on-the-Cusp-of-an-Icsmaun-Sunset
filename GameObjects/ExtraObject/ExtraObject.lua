@@ -15,6 +15,8 @@ function UserEvent.Custom.endText(evt)
     local vars = vili.from_file("root://saveData.vili")
 
     if (vars.currentMap == "Intro_Narration") then
+        vars.currentMap = "myFirstMap"
+        vili.to_file("root://saveData.vili", vars)
         Engine.Scene:loadFromFile("scenes://myFirstMap.map.vili")
     end
 end
