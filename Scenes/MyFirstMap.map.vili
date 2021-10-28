@@ -62,6 +62,16 @@ Sprites:
 GameObjects:
     TextCanvas:
         type:"TextCanvas"
+    TutorialEnemy:
+        type:"EnemyOverworld"
+        Requires:
+            sprite:"GenericOverworldEnemy"
+            defeatedNumber:1
+            initX:704
+            initY:448
+            direction:"Down"
+            distance:4
+            visibility:false
     ExtraObject:
         type:"ExtraObject"
     Protagonist:

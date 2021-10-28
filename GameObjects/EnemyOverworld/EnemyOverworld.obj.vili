@@ -8,7 +8,7 @@ Collider:
     unit:ScenePixels
 
 Sprite:
-    path:"sprites://GameObjects/GenericEnemyOverworld/Idle_Down/1.png"
+    path:"sprites://GameObjects/GenericOverworldEnemy/Idle_Down/1.png"
     xTransform:"Camera"
     yTransform:"Camera"
     rect:Rect{
@@ -23,7 +23,7 @@ Sprite:
     zdepth:0
 
 Animator:
-    path:"sprites://GameObjects/GenericEnemyOverworld"
+    path:"sprites://GameObjects/GenericOverworldEnemy"
     default:"Idle_Down"
 
 Script:

@@ -3,24 +3,26 @@ local CustomGroup
 local function myFirstMapCutscene1()
     local vars = vili.from_file("root://saveData.vili")
     local framerate = vili.from_file("root://config.vili").Framerate.framerateTarget
-    local player = Engine.Scene:getGameObject("Protagonist")
     CustomGroup:trigger("beginNoMove", {})
 
-    for i = 1, ((12*30) + 1) do
-        if (i == ((12*30) + 1)) then
+    for i = 1, ((16*30) + 1) do
+        if (i == ((16*30) + 1)) then
             Engine.Events:schedule():after((i/framerate)):run(function()
-                player.Animator:setKey("Idle_Left")
+                local player = Engine.Scene:getGameObject("Protagonist")
+                player.Animation:setKey("Idle_Left")
                 CustomGroup:trigger("beginText", { theText = "astrayText", id = "tutorialEO1" })
             end)
-        elseif (i <= (7*30)) or (i > (10*30)) then
+        elseif (i <= (8*30)) or (i > (12*30)) then
             Engine.Events:schedule():after((i/framerate)):run(function()
-                player.Animator:setKey("Walk_Up")
-                This.SceneNode:move(obe.Transform.UnitVector(0, -(16/15), obe.Transform.Units.ScenePixels))
+                local player = Engine.Scene:getGameObject("Protagonist")
+                player.Animation:setKey("Walk_Up")
+                player.SceneNode:move(obe.Transform.UnitVector(0, -(16/15), obe.Transform.Units.ScenePixels))
             end)
         else
             Engine.Events:schedule():after((i/framerate)):run(function()
-                player.Animator:setKey("Walk_Left")
-                This.SceneNode:move(obe.Transform.UnitVector(-(16/15), 0, obe.Transform.Units.ScenePixels))
+                local player = Engine.Scene:getGameObject("Protagonist")
+                player.Animation:setKey("Walk_Left")
+                player.SceneNode:move(obe.Transform.UnitVector(-(16/15), 0, obe.Transform.Units.ScenePixels))
             end)
         end
     end
@@ -28,24 +30,25 @@ end
 local function myFirstMapCutscene2()
     local vars = vili.from_file("root://saveData.vili")
     local framerate = vili.from_file("root://config.vili").Framerate.framerateTarget
-    local player = Engine.Scene:getGameObject("Protagonist")
 
-    for i = 1, ((5*30) + 1) do
-        if (i == ((5*30) + 1)) then
+    for i = 1, ((6*30) + 1) do
+        if (i == ((6*30) + 1)) then
             Engine.Events:schedule():after((i/framerate)):run(function()
-                player.Animator:setKey("Idle_Left")
+                local player = Engine.Scene:getGameObject("Protagonist")
+                player.Animation:setKey("Idle_Left")
                 CustomGroup:trigger("beginText", { theText = "astrayText2", id = "tutorialEO2" })
             end)
         else
             Engine.Events:schedule():after((i/framerate)):run(function()
-                player.Animator:setKey("Walk_Left")
-                This.SceneNode:move(obe.Transform.UnitVector(-(16/15), 0, obe.Transform.Units.ScenePixels))
+                local player = Engine.Scene:getGameObject("Protagonist")
+                player.Animation:setKey("Walk_Left")
+                player.SceneNode:move(obe.Transform.UnitVector(-(16/15), 0, obe.Transform.Units.ScenePixels))
             end)
         end
     end
 end
 local function myFirstMapCutscene3()
-    Engine.Scene:getGameObject("Protagonist").Animator:setKey("Idle_Up")
+    Engine.Scene:getGameObject("Protagonist").Animation:setKey("Idle_Up")
     CustomGroup:trigger("Reveal", {})
 end
 
