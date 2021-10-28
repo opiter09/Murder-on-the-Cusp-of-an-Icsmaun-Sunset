@@ -2,11 +2,16 @@ local function addEvents()
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:add("beginText")
     CustomGroup:add("endText")
+
     CustomGroup:add("equipmentSelect")
     CustomGroup:add("spellsSelect")
+
     CustomGroup:add("beginNoMove")
     CustomGroup:add("endNoMove")
+
     CustomGroup:add("Reveal")
+    CustomGroup:add("beginNoRun")
+    CustomGroup:add("endNoRun")
 end
 
 function Game.Start()
