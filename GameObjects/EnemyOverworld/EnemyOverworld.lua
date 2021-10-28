@@ -1,9 +1,12 @@
 local chasing = false
+local CustomGroup
 local DefeatedNumber
 local Direction
 local Distance
 
 function Local.Init(sprite, defeatedNumber, initX, initY, direction, distance, visibility)
+    chasing = false
+    CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     This.Sprite:loadTexture(("sprites://GameObjects/%s/Walk_Down/1.png"):format(sprite))
     This.Animator:load(obe.System.Path(("sprites://GameObjects/%s"):format(sprite)))
     This.Animator:setKey(("Idle_%s"):format(direction))
@@ -56,16 +59,16 @@ local function pursuePlayer()
 
     if (short == distTable.left) then
         This.Animator:setKey("Walk_Left")
-        This.SceneNode:move(obe.Transform.UnitVector(-(16/15), 0, obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(-(32/15), 0, obe.Transform.Units.ScenePixels))
     elseif (short == distTable.right) then
         This.Animator:setKey("Walk_Right")
-        This.SceneNode:move(obe.Transform.UnitVector((16/15), 0, obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector((32/15), 0, obe.Transform.Units.ScenePixels))
     elseif (short == distTable.up) then
         This.Animator:setKey("Walk_Up")
-        This.SceneNode:move(obe.Transform.UnitVector(0, -(16/15), obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(0, -(32/15), obe.Transform.Units.ScenePixels))
     elseif (short == distTable.down) then
         This.Animator:setKey("Walk_Down")
-        This.SceneNode:move(obe.Transform.UnitVector(0, (16/15), obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(0, (32/15), obe.Transform.Units.ScenePixels))
     end
 
     local check
@@ -94,6 +97,7 @@ local function beginBattle()
     local vars = vili.from_file("root://saveData.vili")
 
     chasing = false
+    CustomGroup:trigger("endNoRun", {})
     local xThing = (-1) * config.Camera.xOffsetRight
     local yThing = (-1) * config.Camera.yOffsetDown
     Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
@@ -128,18 +132,22 @@ function Event.Game.Update()
     if (Direction == "Up") then
         if (math.abs(thisX - playerPos.x) < 32) and (math.max((thisY - playerPos.y), 0) < Distance) then
             chasing = true
+            CustomGroup:trigger("beginNoRun", {})
         end
     elseif (Direction == "Down") then
         if (math.abs(thisX - playerPos.x) < 32) and (math.max((playerPos.y - thisY), 0) < Distance) then
             chasing = true
+            CustomGroup:trigger("beginNoRun", {})
         end
     elseif (Direction == "Left") then
         if (math.abs(thisY - playerPos.y) < 32) and (math.max((thisX - playerPos.x), 0) < Distance) then
             chasing = true
+            CustomGroup:trigger("beginNoRun", {})
         end
     elseif (Direction == "Right") then
         if (math.abs(thisY - playerPos.y) < 32) and (math.max((playerPos.x - thisX), 0) < Distance) then
             chasing = true
+            CustomGroup:trigger("beginNoRun", {})
         end
     end
 end

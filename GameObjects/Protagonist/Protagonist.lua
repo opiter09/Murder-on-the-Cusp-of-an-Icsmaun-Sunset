@@ -1,3 +1,4 @@
+local chased = false
 local lastDirection = 0
 local noMove = false
 local runToggle = 16
@@ -7,6 +8,13 @@ function UserEvent.Custom.beginNoMove(evt)
 end
 function UserEvent.Custom.endNoMove(evt)
     noMove = false
+end
+function UserEvent.Custom.beginNoRun(evt)
+    runToggle = 16
+    chased = true
+end
+function UserEvent.Custom.endNoRun(evt)
+    chased = false
 end
 
 function Event.Actions.ShowMap()
@@ -74,6 +82,7 @@ function Local.Init()
 
     This.SceneNode:setPosition(obe.Transform.UnitVector(vars.currentX, vars.currentY, obe.Transform.Units.ScenePixels))
     This.Animator:setKey(vars.currentKey)
+    chased = false
 end
 
 function Event.Actions.Up()
@@ -181,9 +190,13 @@ if (noMove == true) then
 end
 
 function Event.Actions.Run()
-if (noMove == true) then
+    if (noMove == true) then
         return
     end
+    if (chased == true) then
+        return
+    end
+
     if runToggle == 16 then
         runToggle = 48
         return
