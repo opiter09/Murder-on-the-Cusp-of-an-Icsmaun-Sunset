@@ -64,7 +64,14 @@ function Game.Start()
         },
         defeated = {}
     }
-    local maps = {"myFirstMap"}
+
+    local maps = {}
+    local backdrops = vili.from_file("root://Data/Groups/battleBackdrops.vili")
+    for i = 1, backdrops.total do
+        for j = 2, #backdrops[("Backdrop%s"):format(i)] do
+            table.insert(maps, backdrops[("Backdrop%s"):format(i)][j])
+        end
+    end
     for i = 1, #maps do
         H.defeated[maps[i]] = {}
         for j = 1, 20 do

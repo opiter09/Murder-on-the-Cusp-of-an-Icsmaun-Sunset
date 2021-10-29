@@ -1,60 +1,78 @@
 total:19
 
-Backdrop1:
-    name:"Bar Fight"
+Backdrop1: [
+    "Bar Fight"
+]
 
-Backdrop2:
-    name:"Blue Bar Fight"
+Backdrop2: [
+    "Blue Bar Fight"
+]
 
-Backdrop3:
-    name:"Blue Ruins"
+Backdrop3: [
+    "Blue Ruins"
+]
 
-Backdrop4:
-    name:"Clothes Fight"
+Backdrop4: [
+    "Clothes Fight"
+]
 
-Backdrop5:
-    name:"Cloudy"
+Backdrop5: [
+    "Cloudy"
+]
 
-Backdrop6:
-    name:"Dark Forest"
-    myFirstMap:true
+Backdrop6: [
+    "Dark Forest",
+    "myFirstMap"
+]
 
-Backdrop7:
-    name:"Deep Dungeon"
+Backdrop7: [
+    "Deep Dungeon"
+]
 
-Backdrop8:
-    name:"Frozen Underground"
+Backdrop8: [
+    "Frozen Underground"
+]
 
-Backdrop9:
-    name:"Grassy"
+Backdrop9: [
+    "Grassy"
+]
 
-Backdrop10:
-    name:"Gray Bar Fight"
+Backdrop10: [
+    "Gray Bar Fight"
+]
 
-Backdrop11:
-    name:"Gray Ruins"
+Backdrop11: [
+    "Gray Ruins"
+]
 
-Backdrop12:
-    name:"Gray Town"
+Backdrop12: [
+    "Gray Town"
+]
 
-Backdrop13:
-    name:"In the Sky"
+Backdrop13: [
+    "In the Sky"
+]
 
-Backdrop14:
-    name:"Mineshaft"
+Backdrop14: [
+    "Mineshaft"
+]
 
-Backdrop15:
-    name:"Ocean"
+Backdrop15: [
+    "Ocean"
+]
 
-Backdrop16:
-    name:"Snow Forest"
+Backdrop16: [
+    "Snow Forest"
+]
 
-Backdrop17:
-    name:"Snow Island"
+Backdrop17: [
+    "Snow Island"
+]
 
-Backdrop18:
-    name:"Snow Town"
+Backdrop18: [
+    "Snow Town"
+]
 
-Backdrop19:
-    name:"Tropical"
-
+Backdrop19: [
+    "Tropical"
+]
