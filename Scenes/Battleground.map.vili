@@ -1,0 +1,32 @@
+Meta:
+    name:"Battleground"
+
+View:
+    size:1.0
+    position:
+        x:0.0
+        y:0.0
+        unit:SceneUnits
+    referential:TopLeft
+
+Sprites:
+    background:
+        path:""
+        rect:Rect{
+            x:448.0,
+            y:224.0,
+            width:1024.0,
+            height:640.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
+        zdepth:4
+        xTransform:"Camera"
+        yTransform:"Camera"
+
+GameObjects:
+    BattleBackground:
+        type:"BattleBackground"
+    Camera:
+        type:"Camera"
