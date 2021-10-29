@@ -1,60 +1,60 @@
 total:19
 
-Background1:
+Backdrop1:
     name:"Bar Fight"
 
-Background2:
+Backdrop2:
     name:"Blue Bar Fight"
 
-Background3:
+Backdrop3:
     name:"Blue Ruins"
 
-Background4:
+Backdrop4:
     name:"Clothes Fight"
 
-Background5:
+Backdrop5:
     name:"Cloudy"
 
-Background6:
+Backdrop6:
     name:"Dark Forest"
     myFirstMap:true
 
-Background7:
+Backdrop7:
     name:"Deep Dungeon"
 
-Background8:
+Backdrop8:
     name:"Frozen Underground"
 
-Background9:
+Backdrop9:
     name:"Grassy"
 
-Background10:
+Backdrop10:
     name:"Gray Bar Fight"
 
-Background11:
+Backdrop11:
     name:"Gray Ruins"
 
-Background12:
+Backdrop12:
     name:"Gray Town"
 
-Background13:
+Backdrop13:
     name:"In the Sky"
 
-Background14:
+Backdrop14:
     name:"Mineshaft"
 
-Background15:
+Backdrop15:
     name:"Ocean"
 
-Background16:
+Backdrop16:
     name:"Snow Forest"
 
-Background17:
+Backdrop17:
     name:"Snow Island"
 
-Background18:
+Backdrop18:
     name:"Snow Town"
 
-Background19:
+Backdrop19:
     name:"Tropical"
 

@@ -14,6 +14,6 @@ Sprite:
     zdepth:0
 
 Script:
-    source:"objects://BattleBackground/BattleBackground.lua"
+    source:"objects://BattleBackdrop/BattleBackdrop.lua"
 
 
