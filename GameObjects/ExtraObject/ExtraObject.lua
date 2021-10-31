@@ -9,7 +9,7 @@ local function myFirstMapCutscene1()
         if (i == ((16*30) + 1)) then
             Engine.Events:schedule():after((i/framerate)):run(function()
                 local player = Engine.Scene:getGameObject("Protagonist")
-                player.Animation:setKey("Idle_Left")
+                player.Animation:setKey("Hori_Converse")
                 CustomGroup:trigger("beginText", { theText = "astrayText", id = "tutorialEO1" })
             end)
         elseif (i <= (8*30)) or (i >= (12*30)) then

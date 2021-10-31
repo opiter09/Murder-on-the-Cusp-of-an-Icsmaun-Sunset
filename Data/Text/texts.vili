@@ -24,8 +24,41 @@ introText: [
     "but determined to see beyond the coasts of Ixlima... >"
 ]
 
-astrayText: [ "test >" ]
-astrayText2: [ "test >" ]
+astrayText: [
+    "Aclor: I'm so tired, we've been on the march for hours!",
+    "Can't we take a break?",
+    "Agwemnco: I'm not so sure that decamping here would be >",
+    "sensible--forks in the road are often the most dangerous",
+    "of places.",
+    "Vlyoaz: What is all this about a fork in the road? The >",
+    "path continues due north, as it has for many miles now.",
+    "Agwemnco: Look off to your left, there is very clearly",
+    "a strech of road there, beyond the bramble. This part of >",
+    "the track must simply not be visited often.",
+    "Ypvua: I for one say we should go investigate. Maybe there",
+    "is a secluded shorcut there, obscured for decades by the >",
+    "dark growth.",
+    "Vyloaz: Hold on just a minute! THe one thing most",
+    "forcefully impressed upon us is that straying from the >",
+    "path spells doom. And yet here we are, about to chase",
+    "after a mirage of a shortcut? Let's just make camp over",
+    "here to the side and forget about all this. >",
+    "Aclor: Yes precisely! I cannot walk another foot.",
+    "Agwemnco: Oh stop your complaining! Besides, this should",
+    "only take a moment to sort out. If there is nothing >",
+    "there, we'll make camp for the night, and you can have",
+    "your rest.",
+    "Aclor: Fiiine. Come on everyone, let's go see what the >",
+    "fuss is all about... >"
+]
+astrayText2: [
+    "Aclor: Uh, friends? Wh-what is that?",
+    "Vyloaz: What is what? I don't see anything.",
+    "Agwemnco: Wait! Something darted between the trees. >",
+    "Over there, on our right!",
+    "Ypvua: Calm down everyone I'm sure it's nothi...",
+    "AAAAHHH (Aclor lets out a high-pitched scream!) >"
+]
 
 # To make a footnote, all you need to do is create a subdivider with the same name as a block
 # of text, and then put a table of strings in that. Then, in the text you want a footnote 
