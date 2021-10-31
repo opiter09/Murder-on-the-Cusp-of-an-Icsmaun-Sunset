@@ -1,4 +1,4 @@
-local chased = false
+local chased = 0
 local lastDirection = 0
 local noMove = false
 local runToggle = 16
@@ -11,10 +11,10 @@ function UserEvent.Custom.endNoMove(evt)
 end
 function UserEvent.Custom.beginNoRun(evt)
     runToggle = 16
-    chased = true
+    chased = chased + 1
 end
 function UserEvent.Custom.endNoRun(evt)
-    chased = false
+    chased = math.max((chased - 1), 0)
 end
 
 function Event.Actions.ShowMap()
@@ -82,7 +82,7 @@ function Local.Init()
 
     This.SceneNode:setPosition(obe.Transform.UnitVector(vars.currentX, vars.currentY, obe.Transform.Units.ScenePixels))
     This.Animator:setKey(vars.currentKey)
-    chased = false
+    chased = 0
 end
 
 function Event.Actions.Up()
@@ -193,7 +193,7 @@ function Event.Actions.Run()
     if (noMove == true) then
         return
     end
-    if (chased == true) then
+    if (chased > 0) then
         return
     end
 

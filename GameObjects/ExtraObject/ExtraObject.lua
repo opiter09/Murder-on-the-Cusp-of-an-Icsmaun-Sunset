@@ -12,7 +12,7 @@ local function myFirstMapCutscene1()
                 player.Animation:setKey("Idle_Left")
                 CustomGroup:trigger("beginText", { theText = "astrayText", id = "tutorialEO1" })
             end)
-        elseif (i <= (8*30)) or (i > (12*30)) then
+        elseif (i <= (8*30)) or (i >= (12*30)) then
             Engine.Events:schedule():after((i/framerate)):run(function()
                 local player = Engine.Scene:getGameObject("Protagonist")
                 player.Animation:setKey("Walk_Up")
@@ -31,8 +31,8 @@ local function myFirstMapCutscene2()
     local vars = vili.from_file("root://saveData.vili")
     local framerate = vili.from_file("root://config.vili").Framerate.framerateTarget
 
-    for i = 1, ((6*30) + 1) do
-        if (i == ((6*30) + 1)) then
+    for i = 1, ((6*30) + 2) do
+        if (i == ((6*30) + 2)) then
             Engine.Events:schedule():after((i/framerate)):run(function()
                 local player = Engine.Scene:getGameObject("Protagonist")
                 player.Animation:setKey("Idle_Left")

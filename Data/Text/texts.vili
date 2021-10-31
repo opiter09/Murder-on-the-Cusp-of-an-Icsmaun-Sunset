@@ -1,5 +1,5 @@
 # Each string within a table is a line, and each line can have only 58 or so characters. 
-# Use "/" to mark a place where the player must input to continue. Since the game can 
+# Use ">" to mark a place where the player must input to continue. Since the game can 
 # only display three lines at a time, it is generally a good idea to have one at those 
 # points, unless, I suppose, you want to represent fast-moving dialogue or the like.
 #                                                              "should be here max.
@@ -29,7 +29,7 @@ astrayText2: [ "test >" ]
 
 # To make a footnote, all you need to do is create a subdivider with the same name as a block
 # of text, and then put a table of strings in that. Then, in the text you want a footnote 
-# for, simply end a line with "FNXX /" (this, of course, means that that line will be a
+# for, simply end a line with "FNXX >" (this, of course, means that that line will be a
 # button presser). Thence, the footnote will take the reader to the XX'th string in the
 # aforementioned table, allowing for many footnotes to the one block of text.
 Footnotes:[]
