@@ -40,6 +40,12 @@ Hat_of_Reportage_E: [
     "a special magic that helps them discern central truths."
 ]
 
+Planner: [
+    "Planner",
+    "This is a convenient way to remind the user what they"
+    "need to be doing at any given moment."
+]
+
 Vulnerary: [
     "Vulnerary",
     "Restores 20 Vitality. This bitter ointment is a common",
