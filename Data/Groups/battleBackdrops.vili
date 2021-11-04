@@ -1,78 +1,81 @@
-total:19
+total:20
 
 Backdrop1: [
     "Bar Fight"
 ]
 
 Backdrop2: [
-    "Blue Bar Fight"
+    "Beach"
 ]
 
 Backdrop3: [
-    "Blue Ruins"
+    "Blue Bar Fight"
 ]
 
 Backdrop4: [
-    "Clothes Fight"
+    "Blue Ruins"
 ]
 
 Backdrop5: [
-    "Cloudy"
+    "Clothes Fight"
 ]
 
 Backdrop6: [
+    "Cloudy"
+]
+
+Backdrop7: [
     "Dark Forest",
     "myFirstMap"
 ]
 
-Backdrop7: [
+Backdrop8: [
     "Deep Dungeon"
 ]
 
-Backdrop8: [
+Backdrop9: [
     "Frozen Underground"
 ]
-
-Backdrop9: [
+Backdrop10: [
     "Grassy"
 ]
 
-Backdrop10: [
+Backdrop11: [
     "Gray Bar Fight"
 ]
 
-Backdrop11: [
+Backdrop12: [
     "Gray Ruins"
 ]
 
-Backdrop12: [
+Backdrop13: [
     "Gray Town"
 ]
 
-Backdrop13: [
+Backdrop14: [
     "In the Sky"
 ]
 
-Backdrop14: [
+Backdrop15: [
     "Mineshaft"
 ]
 
-Backdrop15: [
+Backdrop16: [
     "Ocean"
 ]
 
-Backdrop16: [
+Backdrop17: [
     "Snow Forest"
 ]
 
-Backdrop17: [
+Backdrop18: [
     "Snow Island"
 ]
 
-Backdrop18: [
+Backdrop19: [
     "Snow Town"
 ]
 
-Backdrop19: [
+Backdrop20: [
     "Tropical"
 ]
