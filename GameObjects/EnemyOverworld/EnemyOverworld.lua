@@ -106,6 +106,7 @@ local function beginBattle()
     vars.currentX = position.x
     vars.currentY = position.y
     vars.currentKey = Engine.Scene:getGameObject("Protagonist").Animation:getKey()
+    vars.currentParty = DefeatedNumber
     vili.to_file("root://saveData.vili", vars)
     Engine.Scene:loadFromFile("scenes://Battleground.map.vili")
 end

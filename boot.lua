@@ -28,6 +28,7 @@ function Game.Start()
 --currentSquare tells you where to put the party's map marker. each square has four maps, so a warp adds/subtracts 0.5
         currentSquare = { x = 25, y = 8 },
         currentKey = "Idle_Up",
+        currentParty = 0,
         inventory = { "Planner", 1, "Vulnerary", 4 },
         equipment = { --order of sprites is left to right, top to bottom
             Vlyoaz = {Hat = "None", Cloak = "None", Shoes = "None"},
