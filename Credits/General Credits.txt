@@ -10,7 +10,10 @@
 * Split images using the Multi-Purpose Graphics Splitter, found at
   https://www.ascensiongamedev.com/files/file/16-multi-purpose-graphic-splitter/
 
-* Created map backgrounds out of tilesets using Tiled, found at
+* Combined images, and did other general-purpose image manipulation, using
+  IrfanView, found at https://www.irfanview.com/
+
+* Created map backgrounds and whatnot out of tilesets using Tiled, found at
   https://thorbjorn.itch.io/tiled
 
 * Decided upon theme (Murder Mystery) and setting (Dark Fantasy), using the Story Theme
@@ -22,3 +25,6 @@
 * The fictional name used in the game title, Icsmaun, is derived from an output of the
   Random Letter Generator (namely “Icksmawn”), while the names of the protagonists are
   unmodified outputs of it. This can be found at https://randomwordgenerator.com/letter.php
+
+* Most of the code was written using VSCode, which has many extremely useful features such
+  as syntax highlighting. It can be found at https://code.visualstudio.com/
