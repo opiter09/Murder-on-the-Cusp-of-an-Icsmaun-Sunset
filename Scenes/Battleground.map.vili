@@ -21,12 +21,153 @@ Sprites:
         }
         rotation:0.0
         layer:1
-        zdepth:4
+        zdepth:2
+        xTransform:"Camera"
+        yTransform:"Camera"
+    playerCamouflage:
+        path:""
+        rect:Rect{
+            x:811.0,
+            y:458.0,
+            width:102.0,
+            height:128.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
+        zdepth:-1
+        xTransform:"Camera"
+        yTransform:"Camera"
+    enemyCamouflage:
+        path:""
+        rect:Rect{
+            x:535.0,
+            y:458.0,
+            width:102.0,
+            height:128.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
+        zdepth:-1
         xTransform:"Camera"
         yTransform:"Camera"
 
 GameObjects:
     BattleBackdrop:
         type:"BattleBackdrop"
+    MagicEffects:
+        type:"MagicEffects"
+
+    Enemy1:
+        type:"BattleEnemy"
+        Requires:
+            Position:1
+            xPos:535
+            yPos:458
+    Enemy2:
+        type:"BattleEnemy"
+        Requires:
+            Position:2
+            xPos:535
+            yPos:596
+    Enemy3:
+        type:"BattleEnemy"
+        Requires:
+            Position:3
+            xPos:535
+            yPos:734
+    Enemy4:
+        type:"BattleEnemy"
+        Requires:
+            Position:2
+            xPos:397
+            yPos:458
+    Enemy5:
+        type:"BattleEnemy"
+        Requires:
+            Position:5
+            xPos:397
+            yPos:596
+    Enemy6:
+        type:"BattleEnemy"
+        Requires:
+            Position:6
+            xPos:397
+            yPos:734
+    Enemy7:
+        type:"BattleEnemy"
+        Requires:
+            Position:7
+            xPos:259
+            yPos:458
+    Enemy8:
+        type:"BattleEnemy"
+        Requires:
+            Position:8
+            xPos:259
+            yPos:596
+    Enemy9:
+        type:"BattleEnemy"
+        Requires:
+            Position:9
+            xPos:259
+            yPos:734
+
+    Player1:
+        type:"BattlePlayer"
+        Requires:
+            Position:1
+            xPos:673
+            yPos:458
+    Player2:
+        type:"BattlePlayer"
+        Requires:
+            Position:2
+            xPos:673
+            yPos:596
+    Player3:
+        type:"BattlePlayer"
+        Requires:
+            Position:3
+            xPos:673
+            yPos:734
+    Player4:
+        type:"BattlePlayer"
+        Requires:
+            Position:2
+            xPos:811
+            yPos:458
+    Player5:
+        type:"BattlePlayer"
+        Requires:
+            Position:5
+            xPos:811
+            yPos:596
+    Player6:
+        type:"BattlePlayer"
+        Requires:
+            Position:6
+            xPos:811
+            yPos:734
+    Player7:
+        type:"BattlePlayer"
+        Requires:
+            Position:7
+            xPos:949
+            yPos:458
+    Player8:
+        type:"BattlePlayer"
+        Requires:
+            Position:8
+            xPos:949
+            yPos:596
+    Player9:
+        type:"BattlePlayer"
+        Requires:
+            Position:9
+            xPos:949
+            yPos:734
+
     Camera:
         type:"Camera"
