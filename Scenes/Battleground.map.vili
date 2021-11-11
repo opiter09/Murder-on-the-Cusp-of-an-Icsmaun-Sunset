@@ -62,110 +62,110 @@ GameObjects:
     Enemy1:
         type:"BattleEnemy"
         Requires:
-            Position:1
+            Slot:1
             xPos:842
             yPos:458
     Enemy2:
         type:"BattleEnemy"
         Requires:
-            Position:2
+            Slot:2
             xPos:842
             yPos:596
     Enemy3:
         type:"BattleEnemy"
         Requires:
-            Position:3
+            Slot:3
             xPos:842
             yPos:734
     Enemy4:
         type:"BattleEnemy"
         Requires:
-            Position:4
+            Slot:4
             xPos:650
             yPos:458
     Enemy5:
         type:"BattleEnemy"
         Requires:
-            Position:5
+            Slot:5
             xPos:650
             yPos:596
     Enemy6:
         type:"BattleEnemy"
         Requires:
-            Position:6
+            Slot:6
             xPos:650
             yPos:734
     Enemy7:
         type:"BattleEnemy"
         Requires:
-            Position:7
+            Slot:7
             xPos:458
             yPos:458
     Enemy8:
         type:"BattleEnemy"
         Requires:
-            Position:8
+            Slot:8
             xPos:458
             yPos:596
     Enemy9:
         type:"BattleEnemy"
         Requires:
-            Position:9
+            Slot:9
             xPos:458
             yPos:734
 
     Player1:
         type:"BattlePlayer"
         Requires:
-            Position:1
+            Slot:1
             xPos:1078
             yPos:458
     Player2:
         type:"BattlePlayer"
         Requires:
-            Position:2
+            Slot:2
             xPos:1078
             yPos:596
     Player3:
         type:"BattlePlayer"
         Requires:
-            Position:3
+            Slot:3
             xPos:1078
             yPos:734
     Player4:
         type:"BattlePlayer"
         Requires:
-            Position:2
+            Slot:2
             xPos:1270
             yPos:458
     Player5:
         type:"BattlePlayer"
         Requires:
-            Position:5
+            Slot:5
             xPos:1270
             yPos:596
     Player6:
         type:"BattlePlayer"
         Requires:
-            Position:6
+            Slot:6
             xPos:1270
             yPos:734
     Player7:
         type:"BattlePlayer"
         Requires:
-            Position:7
+            Slot:7
             xPos:1462
             yPos:458
     Player8:
         type:"BattlePlayer"
         Requires:
-            Position:8
+            Slot:8
             xPos:1462
             yPos:596
     Player9:
         type:"BattlePlayer"
         Requires:
-            Position:9
+            Slot:9
             xPos:1462
             yPos:734
 

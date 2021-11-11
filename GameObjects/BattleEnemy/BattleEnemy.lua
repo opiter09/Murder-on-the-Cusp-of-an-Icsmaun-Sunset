@@ -4,5 +4,5 @@ function UserEvent.Custom.PausePressed(evt)
     Pause = not Pause
 end
 
-function Local.Init(Positon, xPos, yPos)
+function Local.Init(Slot, xPos, yPos)
 end
