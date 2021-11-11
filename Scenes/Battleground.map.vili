@@ -27,7 +27,7 @@ Sprites:
     playerCamouflage:
         path:""
         rect:Rect{
-            x:811.0,
+            x:1270.0,
             y:458.0,
             width:102.0,
             height:128.0,
@@ -41,7 +41,7 @@ Sprites:
     enemyCamouflage:
         path:""
         rect:Rect{
-            x:535.0,
+            x:842.0,
             y:458.0,
             width:102.0,
             height:128.0,
@@ -63,110 +63,110 @@ GameObjects:
         type:"BattleEnemy"
         Requires:
             Position:1
-            xPos:535
+            xPos:842
             yPos:458
     Enemy2:
         type:"BattleEnemy"
         Requires:
             Position:2
-            xPos:535
+            xPos:842
             yPos:596
     Enemy3:
         type:"BattleEnemy"
         Requires:
             Position:3
-            xPos:535
+            xPos:842
             yPos:734
     Enemy4:
         type:"BattleEnemy"
         Requires:
-            Position:2
-            xPos:397
+            Position:4
+            xPos:650
             yPos:458
     Enemy5:
         type:"BattleEnemy"
         Requires:
             Position:5
-            xPos:397
+            xPos:650
             yPos:596
     Enemy6:
         type:"BattleEnemy"
         Requires:
             Position:6
-            xPos:397
+            xPos:650
             yPos:734
     Enemy7:
         type:"BattleEnemy"
         Requires:
             Position:7
-            xPos:259
+            xPos:458
             yPos:458
     Enemy8:
         type:"BattleEnemy"
         Requires:
             Position:8
-            xPos:259
+            xPos:458
             yPos:596
     Enemy9:
         type:"BattleEnemy"
         Requires:
             Position:9
-            xPos:259
+            xPos:458
             yPos:734
 
     Player1:
         type:"BattlePlayer"
         Requires:
             Position:1
-            xPos:673
+            xPos:1078
             yPos:458
     Player2:
         type:"BattlePlayer"
         Requires:
             Position:2
-            xPos:673
+            xPos:1078
             yPos:596
     Player3:
         type:"BattlePlayer"
         Requires:
             Position:3
-            xPos:673
+            xPos:1078
             yPos:734
     Player4:
         type:"BattlePlayer"
         Requires:
             Position:2
-            xPos:811
+            xPos:1270
             yPos:458
     Player5:
         type:"BattlePlayer"
         Requires:
             Position:5
-            xPos:811
+            xPos:1270
             yPos:596
     Player6:
         type:"BattlePlayer"
         Requires:
             Position:6
-            xPos:811
+            xPos:1270
             yPos:734
     Player7:
         type:"BattlePlayer"
         Requires:
             Position:7
-            xPos:949
+            xPos:1462
             yPos:458
     Player8:
         type:"BattlePlayer"
         Requires:
             Position:8
-            xPos:949
+            xPos:1462
             yPos:596
     Player9:
         type:"BattlePlayer"
         Requires:
             Position:9
-            xPos:949
+            xPos:1462
             yPos:734
 
     Camera:
