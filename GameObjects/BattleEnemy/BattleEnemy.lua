@@ -1,6 +1,6 @@
 local Pause = false
 
-function UserEvent.Custom.PausePressed(evt)
+function Event.Actions.PauseOrStats()
     Pause = not Pause
 end
 

@@ -78,11 +78,16 @@ if (noMove == true) then
 end
 
 function Local.Init()
+    chased = 0
+
     local vars = vili.from_file("root://saveData.vili")
+    if (vars.currentParty > 0) then
+        Engine.Scene:loadFromFile("scenes://Battleground.map.vili")
+        return
+    end
 
     This.SceneNode:setPosition(obe.Transform.UnitVector(vars.currentX, vars.currentY, obe.Transform.Units.ScenePixels))
     This.Animator:setKey(vars.currentKey)
-    chased = 0
 end
 
 function Event.Actions.Up()

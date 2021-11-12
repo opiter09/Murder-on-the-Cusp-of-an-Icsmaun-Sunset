@@ -12,8 +12,6 @@ local function addEvents()
     CustomGroup:add("Reveal")
     CustomGroup:add("beginNoRun")
     CustomGroup:add("endNoRun")
-
-    CustomGroup:add("PausePressed")
 end
 
 function Game.Start()
@@ -38,9 +36,9 @@ function Game.Start()
             Aclor = {Hat = "None", Cloak = "None", Shoes = "None"},
             Agwemnco = {Hat = "Hat_of_Reportage_E", Cloak = "None", Shoes = "None"}
         },
---Magique is the communal pool of MP used to pay for spells. It regens every turn, up to a 
---certain maximum. Regen increases by 10, and max by 50, when each party member gets to 
---the next level. Magique APTime is how many out of 100 "AP" is regained every second, at which point 
+--Magique is the communal pool of MP used to pay for spells. It regens every turn, up to a
+--certain maximum. Regen increases by 10, and max by 50, when each party member gets to
+--the next level. Magique APTime is how many out of 100 "AP" is regained every second, at which point
 --the magique regen amount is gained. This number, like party members' APRegen, is static and just here for convenience.
         magiqueAPTime = 2,
         magiqueRegen = 50,
