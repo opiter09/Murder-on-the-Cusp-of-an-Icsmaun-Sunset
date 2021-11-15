@@ -38,22 +38,20 @@ function Game.Start()
         },
 --Magique is the communal pool of MP used to pay for spells. It regens every turn, up to a
 --certain maximum. Regen increases by 10, and max by 50, when each party member gets to
---the next level. Magique APTime is how many out of 100 "AP" is regained every second, at which point
---the magique regen amount is gained. This number, like party members' APRegen, is static and just here for convenience.
-        magiqueAPTime = 2,
+--the next level.
         magiqueRegen = 50,
         magiqueMax = 200,
-        stats = { --stats out of 100, levels go up to 25, absolute max Vitality is 300. APRegen is how many AP out of 100 you regain every second.
-            Vlyoaz = {APRegen = 14, XP = 0, Vitality = 22, Level = 1, Class = "Silvalis", numbers =
+        stats = { --stats out of 100, levels go up to 25, absolute max Vitality is 300.
+            Vlyoaz = {XP = 0, Vitality = 22, Level = 1, Class = "Silvalis", numbers =
                 {Might = 10, Agility = 25, Guard = 10, Insight = 20, Communication = 10}
             },
-            Ypvua = {APRegen = 8, XP = 0, Vitality = 26, Level = 1, Class = "Amuletalis", numbers =
+            Ypvua = {XP = 0, Vitality = 26, Level = 1, Class = "Amuletalis", numbers =
                 {Might = 15, Agility = 15, Guard = 15, Insight = 15, Communication = 15}
             },
-            Aclor = {APRegen = 4, XP = 0, Vitality = 34, Level = 1, Class = "Sanguinalis", numbers =
+            Aclor = {XP = 0, Vitality = 34, Level = 1, Class = "Sanguinalis", numbers =
                 {Might = 20, Agility = 20, Guard = 15, Insight= 15, Communication = 5}
             },
-            Agwemnco = {APRegen = 18, XP = 0, Vitality = 17, Level = 1, Class = "Actadiurnalis", numbers =
+            Agwemnco = {XP = 0, Vitality = 17, Level = 1, Class = "Actadiurnalis", numbers =
                 {Might = 5, Agility = 15, Guard = 15, Insight = 20, Communication = 20}
             }
         },
