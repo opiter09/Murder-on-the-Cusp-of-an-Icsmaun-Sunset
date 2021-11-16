@@ -55,7 +55,7 @@ local function drawStatistics()
             local name = mappingTable[("%s, %s"):format(i, j)]
             local statBlock = vars.stats[name]
             local maxXP = (config.Experience.multiplier * (config.Experience.base ^ statBlock.Level)) + config.Experience.addition
-            maxXP = math.floor(maxXP * ((100 - statBlock.APRegen) / 100))
+            maxXP = math.floor(maxXP * statBlock.classMaxXPMult)
 
             canvas:Text(("Name%s%s"):format(i , j)){
                 font = fontString,
