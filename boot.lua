@@ -56,10 +56,10 @@ function Game.Start()
             }
         },
         spells = {
-            Vlyoaz = {"Magic_Hand", "Camouflage"},
-            Ypvua = {"Magic_Hand", "Shift_Object"},
-            Aclor = {"Magic_Hand", "Blood_Pact"},
-            Agwemnco = {"Magic_Hand", "Investigate"}
+            Vlyoaz = {"Punch_Player", "Magic_Hand", "Camouflage"},
+            Ypvua = {"Kick_Player", "Magic_Hand", "Shift_Object"},
+            Aclor = {"Bite_Player", "Magic_Hand", "Blood_Pact"},
+            Agwemnco = {"Punch_Player", "Magic_Hand", "Investigate"}
         },
         defeated = {}
     }

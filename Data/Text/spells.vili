@@ -1,3 +1,15 @@
+Bite_Enemy: [
+    "Bite",
+    "Cost: 10. This simple physical attack deals damage equal",
+    "to half the user's Might."
+]
+
+Bite_Player: [
+    "Bite",
+    "Cost: 10. This simple physical attack deals a flat",
+    "10 damage."
+]
+
 Blood_Pact: [
     "Blood Pact",
     "Cost: 0. The caster spends 1/4 of their Vitality to deal",
@@ -19,11 +31,35 @@ Investigate: [
     "them knowledge of that enemy's spells and statistics."
 ]
 
+Kick_Enemy: [
+    "Kick",
+    "Cost: 10. This simple physical attack deals damage equal",
+    "to half the user's Might."
+]
+
+Kick_Player: [
+    "Kick",
+    "Cost: 10. This simple physical attack deals a flat",
+    "10 damage."
+]
+
 Magic_Hand: [
     "Magic Hand",
     "Cost: 10. This spell summons a floating, spectral hand,",
     "directly operated by the caster as though part of their",
     "own body. It can do anything a hand can do--get creative!"
+]
+
+Punch_Enemy: [
+    "Punch",
+    "Cost: 10. This simple physical attack deals damage equal",
+    "to half the user's Might."
+]
+
+Punch_Player: [
+    "Punch",
+    "Cost: 10. This simple physical attack deals a flat",
+    "10 damage."
 ]
 
 Shift_Object: [
