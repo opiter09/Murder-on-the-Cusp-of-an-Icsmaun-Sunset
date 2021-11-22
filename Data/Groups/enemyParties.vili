@@ -9,11 +9,14 @@ myFirstMap:
         magiqueRegen = 0
         magiqueMax = 0
         enemy1:
+            Name:"Fox"
             ID:"Fox"
             Level:1
         enemy2:
+            Name:"Fox"
             ID:"Fox"
             Level:1
         enemy3:
+            Name:"Fox"
             ID:"Fox"
             Level:1
