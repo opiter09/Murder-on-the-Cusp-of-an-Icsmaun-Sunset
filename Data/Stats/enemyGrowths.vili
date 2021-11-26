@@ -1,0 +1,8 @@
+# Since players get 5 points to spend on stats, these growths represent the odds any point randomly goes to that particular stat.
+# Vitality is not represented here, since like players enemies just get +5 per level.
+Fox:
+    Might:10
+    Agility:50
+    Guard:30
+    Insight:5
+    Communication:5

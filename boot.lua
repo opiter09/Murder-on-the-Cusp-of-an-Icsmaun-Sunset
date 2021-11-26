@@ -22,6 +22,7 @@ function Game.Start()
     addEvents()
 
     local H = {
+        egg = 0,
         currentMap = "Intro_Narration",
         currentX = 928.0,
         currentY = 800.0,
