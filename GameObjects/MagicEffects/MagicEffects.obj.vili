@@ -3,15 +3,16 @@ Sprite:
     xTransform:"Camera"
     yTransform:"Camera"
     rect:Rect{
-        x:0.0,
-        y:0.0,
-        width:102.0,
+        x:842.0,
+        y:458.0,
+        width:128.0,
         height:128.0,
         unit:ScenePixels
     }
     rotation:0.0
-    layer:-2
-    zdepth:0
+    layer:-1
 
 Script:
-    source:"objects://BattlePlayer/BattlePlayer.lua"
+    source:"objects://MagicEffects/MagicEffects.lua"
+
+

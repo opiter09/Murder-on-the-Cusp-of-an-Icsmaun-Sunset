@@ -10,7 +10,7 @@ Sprite:
         unit:ScenePixels
     }
     rotation:0.0
-    layer:1
+    layer:-2
     zdepth:0
 
 Script:

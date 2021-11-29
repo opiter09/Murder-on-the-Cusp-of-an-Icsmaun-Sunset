@@ -1,5 +1,6 @@
 Fox:
     Class:"Vulpalis"
+    Size:"Medium"
     Vitality:30
     Might:10
     Agility:20

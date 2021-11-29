@@ -12,6 +12,8 @@ local function addEvents()
     CustomGroup:add("Reveal")
     CustomGroup:add("beginNoRun")
     CustomGroup:add("endNoRun")
+
+    CustomGroup:add("SlotAction")
 end
 
 function Game.Start()

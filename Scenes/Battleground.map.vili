@@ -54,11 +54,6 @@ Sprites:
         yTransform:"Camera"
 
 GameObjects:
-    BattleBackdrop:
-        type:"BattleBackdrop"
-    MagicEffects:
-        type:"MagicEffects"
-
     Enemy1:
         type:"BattleEnemy"
         Requires:
@@ -135,7 +130,7 @@ GameObjects:
     Player4:
         type:"BattlePlayer"
         Requires:
-            Slot:2
+            Slot:4
             xPos:1270
             yPos:458
     Player5:
@@ -168,6 +163,11 @@ GameObjects:
             Slot:9
             xPos:1462
             yPos:734
-
+    BattleBackdrop:
+        type:"BattleBackdrop"
+    MagicEffects:
+        type:"MagicEffects"
     Camera:
         type:"Camera"
+    Protagonist:
+        type:"Protagonist"

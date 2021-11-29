@@ -189,8 +189,10 @@ function Event.Game.Update()
         return
     end
 
-    wordSound:stop()
-    wordSound:play()
+    if ((letter / 5) == math.floor(letter / 5)) then
+        wordSound:stop()
+        wordSound:play()
+    end
 
     newPrint = string.sub(currentPlace[index], letter, letter)
     H[placeIndex].text = ("%s%s"):format(H[placeIndex].text, newPrint)
