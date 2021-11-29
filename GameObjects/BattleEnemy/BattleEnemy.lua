@@ -28,81 +28,72 @@ function Local.Init(Slot, xPos, yPos)
     newSprite = Engine.Scene:createSprite(("enemyTextDisplay%s"):format(Slot))
     newSprite:setParentId(This:getId())
     newSprite:load(This.Sprite:dump())
+    newSprite:setLayer(-4)
     This.SceneNode:addChild(newSprite)
     This.SceneNode:setPosition(obe.Transform.UnitVector(xPos, yPos, obe.Transform.Units.ScenePixels))
 
     local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
     canvas = obe.Canvas.Canvas(256, 128)
 
-    canvas:Text("Name"){
-        font = fontString,
-        x = 100.0,
-        y = 0.0,
-        unit = obe.Transform.Units.ScenePixels,
-        size = 16,
-        layer = -3,
-        color = "#FAFAFA",
-        text = "Name"
-    }
-    canvas:Text("Vitality"){
-        font = fontString,
-        x = 100.0,
-        y = 18.0,
-        unit = obe.Transform.Units.ScenePixels,
-        size = 16,
-        layer = -3,
-        color = "#FAFAFA",
-        text = "100"
-    }
     canvas:Text("Flying"){
         font = fontString,
         x = 100.0,
-        y = 36.0,
+        y = 19.0,
         unit = obe.Transform.Units.ScenePixels,
         size = 16,
-        layer = -3,
+        layer = -4,
         color = "#FAFAFA",
         text = "Fly"
     }
     canvas:Text("Poison"){
         font = fontString,
         x = 100.0,
-        y = 54.0,
+        y = 37.0,
         unit = obe.Transform.Units.ScenePixels,
         size = 16,
-        layer = -3,
+        layer = -4,
         color = "#FAFAFA",
         text = "Pois"
+    }
+    canvas:Text("Name"){
+        font = fontString,
+        x = 100.0,
+        y = 55.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 16,
+        layer = -4,
+        color = "#FAFAFA",
+        text = "Name"
+    }
+    canvas:Text("Vitality"){
+        font = fontString,
+        x = 100.0,
+        y = 73.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 16,
+        layer = -4,
+        color = "#FAFAFA",
+        text = "100"
     }
     canvas:Text("Sleep"){
         font = fontString,
         x = 100.0,
-        y = 72.0,
+        y = 91.0,
         unit = obe.Transform.Units.ScenePixels,
         size = 16,
-        layer = -3,
+        layer = -4,
         color = "#FAFAFA",
         text = "Sleep"
     }
     canvas:Text("Confused"){
         font = fontString,
         x = 100.0,
-        y = 90.0,
-        layer = -3,
+        y = 109.0,
         unit = obe.Transform.Units.ScenePixels,
         size = 16,
+        layer = -4,
         color = "#FAFAFA",
         text = "Conf"
-    }
-    canvas:Text("Camouflaged"){
-        font = fontString,
-        x = 100.0,
-        y = 108.0,
-        unit = obe.Transform.Units.ScenePixels,
-        size = 16,
-        layer = -3,
-        color = "#FAFAFA",
-        text = "Camo"
     }
     canvas:render(newSprite)
 end

@@ -20,36 +20,36 @@ Sprites:
             unit:ScenePixels
         }
         rotation:0.0
-        layer:1
-        zdepth:2
+        layer:0
+        zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
     playerCamouflage:
         path:""
         rect:Rect{
-            x:1270.0,
-            y:458.0,
+            x:1172.0,
+            y:724.0,
             width:102.0,
             height:128.0,
             unit:ScenePixels
         }
         rotation:0.0
-        layer:1
-        zdepth:-1
+        layer:-3
+        zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
     enemyCamouflage:
         path:""
         rect:Rect{
-            x:842.0,
-            y:458.0,
+            x:758.0,
+            y:448.0,
             width:102.0,
             height:128.0,
             unit:ScenePixels
         }
         rotation:0.0
-        layer:1
-        zdepth:-1
+        layer:-3
+        zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
 

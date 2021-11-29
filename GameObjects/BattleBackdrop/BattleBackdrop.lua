@@ -8,9 +8,9 @@ function Local.Init()
             if (backdrops[("Backdrop%s"):format(i)][j] == vars.currentMap) then
                 This.Sprite:loadTexture(("sprites://LevelSprites/Backdrops/%s.BMP"):format(backdrops[("Backdrop%s"):format(i)][1]))
                 Engine.Scene:getSprite("playerCamouflage"):loadTexture(("sprites://LevelSprites/Backdrops/Camouflage/%s.png"):format(backdrops[("Backdrop%s"):format(i)][1]))
-                Engine.Scene:getSprite("playerCamouflage"):setVisible(false)
+                --Engine.Scene:getSprite("playerCamouflage"):setVisible(false)
                 Engine.Scene:getSprite("enemyCamouflage"):loadTexture(("sprites://LevelSprites/Backdrops/Camouflage/%s.png"):format(backdrops[("Backdrop%s"):format(i)][1]))
-                Engine.Scene:getSprite("enemyCamouflage"):setVisible(false)
+                --Engine.Scene:getSprite("enemyCamouflage"):setVisible(false)
                 check = 1
                 break
             end
