@@ -5,9 +5,8 @@
 
 myFirstMap:
     party1:
-        magiqueAPTime:1
-        magiqueRegen:0
-        magiqueMax:0
+        magiqueRegen:20
+        magiqueMax:150
         enemy1:
             Name:"Fox"
             ID:"Fox"

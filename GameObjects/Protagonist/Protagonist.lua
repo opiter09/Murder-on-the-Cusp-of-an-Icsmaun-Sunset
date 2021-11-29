@@ -18,7 +18,10 @@ function UserEvent.Custom.endNoRun(evt)
 end
 
 function Event.Actions.ShowMap()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
 
@@ -38,7 +41,10 @@ if (noMove == true) then
 end
 
 function Event.Actions.Inventory()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
 
@@ -58,7 +64,10 @@ if (noMove == true) then
 end
 
 function Event.Actions.PauseOrStats()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
 
@@ -93,7 +102,10 @@ function Local.Init()
 end
 
 function Event.Actions.Up()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Up") and (lastDirection ~= 0)) then
@@ -119,7 +131,10 @@ if (noMove == true) then
 end
 
 function Event.Actions.Down()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Down") and (lastDirection ~= 0)) then
@@ -145,7 +160,10 @@ if (noMove == true) then
 end
 
 function Event.Actions.Left()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Left") and (lastDirection ~= 0)) then
@@ -171,7 +189,10 @@ if (noMove == true) then
 end
 
 function Event.Actions.Right()
-if (noMove == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
         return
     end
     if (lastDirection == nil) or ((lastDirection ~= "Right") and (lastDirection ~= 0)) then
@@ -197,6 +218,9 @@ if (noMove == true) then
 end
 
 function Event.Actions.Run()
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
     if (noMove == true) then
         return
     end
@@ -214,6 +238,12 @@ function Event.Actions.Run()
 end
 
 function Event.Game.Update()
+    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+        return
+    end
+    if (noMove == true) then
+        return
+    end
     local inputs = Engine.Input:getPressedInputs()
     if (#inputs ~= 1) and (lastDirection ~= nil) and (lastDirection ~= 0) then
         if (#inputs == 0) then

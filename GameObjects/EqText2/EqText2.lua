@@ -21,7 +21,7 @@ local function drawSelection()
     canvas:clear()
     relevantItems = { [1] = "None" }
 
-    local checkTable = vili.from_file("root://Data/Groups/equipment.vili")
+    local checkTable = vili.from_file("root://Data/Groups/equipmentType.vili")
     local vars = vili.from_file("root://saveData.vili")
     local itemTexts = vili.from_file("text://items.vili")
     local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
@@ -180,11 +180,11 @@ function Event.Actions.Accept()
 
     local vars = vili.from_file("root://saveData.vili")
     local thing = (10 * (page - 1)) + cursorPlace
-    local map = relevantItems[thing]
+    local selection = relevantItems[thing]
 
     local check
     for i = 1, #vars.inventory do
-        if (vars.inventory[i] == map) then
+        if (vars.inventory[i] == selection) then
             check = i
             break
         end
@@ -197,7 +197,26 @@ function Event.Actions.Accept()
         end
     end
 
-    vars.equipment[Person][Type] = map
+    local equipmentMods = vili.from_file("root://Data/Stats/equipmentModifiers")
+    for i, v in pairs(equipmentMods[selection]) do
+        if (i == "Spells") then
+            for j = 1, #i do
+                local check = 0
+                for k = 1, #vars.spells[Person] do
+                    if i[j] == vars.spells[Person][k] then
+                        check = 1
+                    end
+                end
+                if (check == 0) then
+                    table.insert(vars.spells[Person], equipmentMods[selection][i][j])
+                end
+            end
+        else
+            vars.stats[Person].numbers[i] = vars.stats[Person].numbers[i] + v
+        end
+    end
+
+    vars.equipment[Person][Type] = selection
     vili.to_file("root://saveData.vili", vars)
 
     canvas:clear()

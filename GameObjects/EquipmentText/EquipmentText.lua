@@ -344,6 +344,21 @@ function Event.Actions.Accept()
         table.insert(vars.inventory, 1)
     end
 
+    local equipmentMods = vili.from_file("root://Data/Stats/equipmentModifiers")
+    for i, v in pairs(equipmentMods[vars.equipment[map.Person][map.Thing]]) do
+        if (i == "Spells") then
+            for j = 1, #i do
+                for k = 1, #vars.spells[map.Person] do
+                    if i[j] == vars.spells[map.Person][k] then
+                        table.remove(vars.spells[map.Person], k)
+                    end
+                end
+            end
+        else
+            vars.stats[map.Person].numbers[i] = vars.stats[map.Person].numbers[i] - v
+        end
+    end
+
     vars.equipment[map.Person][map.Thing] = "None"
     vili.to_file("root://saveData.vili", vars)
     picking = true

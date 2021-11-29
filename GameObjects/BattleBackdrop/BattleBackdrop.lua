@@ -20,10 +20,25 @@ function Local.Init()
         end
     end
 
+    local oldBattleTable = vili.from_file("root://Data/battleTable.vili")
+    if (oldBattleTable.returning ~= nil) and (oldBattleTable.returning == true) then
+        oldBattleTable.returning = false
+        vili.to_file("root://Data/battleTable.vili", oldBattleTable)
+        return
+    end
+
     local parties = vili.from_file("root://Data/Groups/enemyParties.vili")
     local baseStats = vili.from_file("root://Data/Stats/enemyBaseStats.vili")
     local growths = vili.from_file("root://Data/Stats/enemyGrowths.vili")
-    local battleTable = { enemies = {}, player = {} }
+    local battleTable = {
+        enemies = {
+            magiqueRegen = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueRegen,
+            magiqueMax = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueMax
+        },
+        player = { magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
+        returning = false
+    }
+    battleTable.inventory = vars.inventory
     for i = 1, 9 do
         local string = ("slot%s"):format(i)
         battleTable.enemies[string] = 0
@@ -55,21 +70,18 @@ function Local.Init()
         end
     end
 
-    battleTable.player.slot1 = { Name = "Agwemnco", ID = "Agwemnco", Sprite = "standing-combat" }
-    for k, v in pairs(vars.stats.Agwemnco) do
-        battleTable.player.slot1[k] = v
-    end
-    battleTable.player.slot3 = { Name = "Aclor", ID = "Aclor", Sprite = "standing-combat" }
-    for k, v in pairs(vars.stats.Aclor) do
-        battleTable.player.slot3[k] = v
-    end
-    battleTable.player.slot4 = { Name = "Ypvua", ID = "Ypvua", Sprite = "standing-combat" }
-    for k, v in pairs(vars.stats.Ypvua) do
-        battleTable.player.slot4[k] = v
-    end
-    battleTable.player.slot6 = { Name = "Vlyoaz", ID = "Vlyoaz", Sprite = "standing-combat" }
-    for k, v in pairs(vars.stats.Vlyoaz) do
-        battleTable.player.slot6[k] = v
+    local playerTable = {
+        slot1 = "Agwemnco",
+        slot3 = "Aclor",
+        slot4 = "Ypvua",
+        slot6 = "Vlyoaz"
+    }
+    for k, v in pairs(playerTable) do
+        battleTable.player[k] = { Name = v, ID = v, Sprite = "standing-combat" }
+        for o, p in pairs(vars.stats[v]) do
+            battleTable.player[k][o] = p
+        end
+        battleTable.player[k].spells = vars.spells[v]
     end
 
     vili.to_file("root://Data/battleTable.vili", battleTable)

@@ -1,112 +1,122 @@
+inventory: ["Planner", 1, "Vulnerary", 4]
 enemies:
-    slot9: 0
-    slot7: 0
+    magiqueMax: 150
     slot8: 0
-    slot6: 0
-    slot4: 0
     slot2:
+        Class: "Vulpalis"
         Size: "Medium"
-        Vitality: 30.0
+        Insight: 0
         Guard: 5
-        Agility: 24
         Name: "Fox"
+        Level: 1
         ID: "Fox"
         Spells: ["Bite_Enemy"]
-        Insight: 0
-        Class: "Vulpalis"
-        Level: 1
-        Communication: 10
-        Might: 11
-    slot3:
-        Size: "Medium"
         Vitality: 30.0
-        Guard: 5
-        Agility: 24
-        Name: "Fox"
-        ID: "Fox"
-        Spells: ["Bite_Enemy"]
-        Insight: 0
-        Class: "Vulpalis"
-        Level: 1
-        Communication: 10
-        Might: 11
-    slot5: 0
-    slot1:
-        Size: "Medium"
-        Vitality: 30.0
-        Guard: 5
-        Agility: 24
-        Name: "Fox"
-        ID: "Fox"
-        Spells: ["Bite_Enemy"]
-        Insight: 0
-        Class: "Vulpalis"
-        Level: 1
-        Communication: 10
-        Might: 11
-player:
+        Agility: 27
+        Might: 12
+        Communication: 6
+    magiqueRegen: 20
     slot9: 0
-    slot7: 0
-    slot8: 0
-    slot6:
-        Sprite: "standing-combat"
-        numbers:
-            Insight: 20
-            Guard: 10
-            Agility: 25
-            Communication: 10
-            Might: 10
-        XP: 0
-        Name: "Vlyoaz"
-        ID: "Vlyoaz"
-        classMaxXPMult: 0.91
+    slot4: 0
+    slot1:
+        Class: "Vulpalis"
+        Size: "Medium"
+        Insight: 0
+        Guard: 5
+        Name: "Fox"
         Level: 1
-        Vitality: 22
-        Class: "Silvalis"
+        ID: "Fox"
+        Spells: ["Bite_Enemy"]
+        Vitality: 30.0
+        Agility: 27
+        Might: 12
+        Communication: 6
+    slot5: 0
+    slot7: 0
+    slot3:
+        Class: "Vulpalis"
+        Size: "Medium"
+        Insight: 0
+        Guard: 5
+        Name: "Fox"
+        Level: 1
+        ID: "Fox"
+        Spells: ["Bite_Enemy"]
+        Vitality: 30.0
+        Agility: 27
+        Might: 12
+        Communication: 6
+    slot6: 0
+player:
+    magiqueMax: 200
+    slot8: 0
+    slot2: 0
+    magiqueRegen: 50
+    slot9: 0
     slot4:
-        Sprite: "standing-combat"
+        ID: "Ypvua"
+        Level: 1
+        spells: ["Kick_Player", "Magic_Hand", "Shift_Object"]
+        Vitality: 26
         numbers:
-            Insight: 15
-            Guard: 15
             Agility: 15
             Communication: 15
-            Might: 15
-        XP: 0
-        Name: "Ypvua"
-        ID: "Ypvua"
-        classMaxXPMult: 1
-        Level: 1
-        Vitality: 26
-        Class: "Amuletalis"
-    slot2: 0
-    slot3:
-        Sprite: "standing-combat"
-        numbers:
             Insight: 15
+            Might: 15
             Guard: 15
-            Agility: 20
-            Communication: 5
-            Might: 20
+        Name: "Ypvua"
+        Class: "Amuletalis"
         XP: 0
-        Name: "Aclor"
-        ID: "Aclor"
-        classMaxXPMult: 1.15
-        Level: 1
-        Vitality: 34
-        Class: "Sanguinalis"
-    slot5: 0
-    slot1:
+        classMaxXPMult: 1
         Sprite: "standing-combat"
+    slot1:
+        ID: "Agwemnco"
+        Level: 1
+        spells: ["Punch_Player", "Magic_Hand", "Investigate"]
+        Vitality: 17
         numbers:
-            Insight: 20
-            Guard: 15
             Agility: 15
             Communication: 20
+            Insight: 20
             Might: 5
-        XP: 0
+            Guard: 15
         Name: "Agwemnco"
-        ID: "Agwemnco"
-        classMaxXPMult: 0.85
-        Level: 1
-        Vitality: 17
         Class: "Actadiurnalis"
+        XP: 0
+        classMaxXPMult: 0.85
+        Sprite: "standing-combat"
+    slot5: 0
+    slot7: 0
+    slot3:
+        ID: "Aclor"
+        Level: 1
+        spells: ["Bite_Player", "Magic_Hand", "Blood_Pact"]
+        Vitality: 34
+        numbers:
+            Agility: 20
+            Communication: 5
+            Insight: 15
+            Might: 20
+            Guard: 15
+        Name: "Aclor"
+        Class: "Sanguinalis"
+        XP: 0
+        classMaxXPMult: 1.15
+        Sprite: "standing-combat"
+    slot6:
+        ID: "Vlyoaz"
+        Level: 1
+        spells: ["Punch_Player", "Magic_Hand", "Camouflage"]
+        Vitality: 22
+        numbers:
+            Agility: 25
+            Communication: 10
+            Insight: 20
+            Might: 10
+            Guard: 10
+        Name: "Vlyoaz"
+        Class: "Silvalis"
+        XP: 0
+        classMaxXPMult: 0.91
+        Sprite: "standing-combat"
+returning: false
