@@ -66,6 +66,12 @@ function Local.Init()
             for k, v in pairs(thisGuy) do
                 myStats[k] = v
             end
+            myStats.Status = { Flying = 0, Poison = 0, Sleep = 0, Confused = 0, Camouflaged = 0 }
+            for k, v in pairs(myStats.StartingStatus) do
+                if (myStats.Status[v] ~= nil) then
+                    myStats.Status[v] = 1
+                end
+            end
             battleTable.enemies[string] = myStats
         end
     end
@@ -82,6 +88,7 @@ function Local.Init()
             battleTable.player[k][o] = p
         end
         battleTable.player[k].spells = vars.spells[v]
+        battleTable.player[k].Status = { Flying = 0, Poison = 0, Sleep = 0, Confused = 0, Camouflaged = 0 }
     end
 
     vili.to_file("root://Data/battleTable.vili", battleTable)

@@ -11,11 +11,11 @@ myFirstMap:
             Name:"Fox"
             ID:"Fox"
             Level:1
-        enemy2:
+        enemy3:
             Name:"Fox"
             ID:"Fox"
             Level:1
-        enemy3:
+        enemy5:
             Name:"Fox"
             ID:"Fox"
             Level:1

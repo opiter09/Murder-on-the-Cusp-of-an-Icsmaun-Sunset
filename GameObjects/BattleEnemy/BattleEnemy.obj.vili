@@ -5,7 +5,7 @@ Sprite:
     rect:Rect{
         x:0.0,
         y:0.0,
-        width:128.0,
+        width:256.0,
         height:128.0,
         unit:ScenePixels
     }

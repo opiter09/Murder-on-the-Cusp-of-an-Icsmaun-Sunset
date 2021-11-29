@@ -10,8 +10,8 @@ Sprite:
         unit:ScenePixels
     }
     rotation:0.0
-    layer:1
-    zdepth:3
+    layer:-4
+    zdepth:0
 
 Script:
     source:"objects://Pause/Pause.lua"
