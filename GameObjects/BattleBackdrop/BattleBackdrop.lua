@@ -21,8 +21,8 @@ function Local.Init()
     end
 
     local oldBattleTable = vili.from_file("root://Data/battleTable.vili")
-    if (oldBattleTable.returning ~= nil) and (oldBattleTable.returning == true) then
-        oldBattleTable.returning = false
+    if (oldBattleTable.returning ~= nil) and (oldBattleTable.returning == 1) then
+        oldBattleTable.returning = 0
         vili.to_file("root://Data/battleTable.vili", oldBattleTable)
         return
     end
@@ -36,7 +36,7 @@ function Local.Init()
             magiqueMax = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueMax
         },
         player = { magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
-        returning = false
+        returning = 0
     }
     battleTable.inventory = vars.inventory
     for i = 1, 9 do
@@ -84,8 +84,7 @@ function Local.Init()
         slot1 = "Agwemnco",
         slot3 = "Aclor",
         slot4 = "Ypvua",
-        slot6 = "Vlyoaz",
-        slot9 = "Vlyoaz"
+        slot6 = "Vlyoaz"
     }
     for k, v in pairs(playerTable) do
         battleTable.player[k] = { Name = string.sub(v, 1, 6), ID = v, Sprite = "standing-combat" }
