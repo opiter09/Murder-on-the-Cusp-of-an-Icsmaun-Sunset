@@ -92,7 +92,7 @@ function Local.Init()
             battleTable.player[k][o] = p
         end
         battleTable.player[k].MaximumVitality = battleTable.player[k].Vitality
-        battleTable.player[k].spells = vars.spells[v]
+        battleTable.player[k].Spells = vars.spells[v]
         battleTable.player[k].Status = { Flying = 0, Poisoned = 0, Asleep = 0, Confused = 0, Camouflaged = 0 }
     end
 

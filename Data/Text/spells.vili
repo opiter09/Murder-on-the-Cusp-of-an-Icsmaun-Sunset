@@ -1,15 +1,15 @@
 Bite_Enemy: [
     "Bite",
     "Cost: 10. This simple physical attack deals damage equal",
-    "to half the user's Might. It is effective against Medium-",
-    "sized foes, and useless against Flying ones."
+    "to half the user's Might. It is especially effective",
+    "against Medium-sized foes."
 ]
 
 Bite_Player: [
     "Bite",
     "Cost: 10. This simple physical attack deals a flat",
-    "10 damage. It is effective against Medium-sized foes, and",
-    "useless against Flying ones."
+    "10 damage. It is especially effective against Medium-sized",
+    "foes."
 ]
 
 Blood_Pact: [
@@ -36,15 +36,15 @@ Investigate: [
 Kick_Enemy: [
     "Kick",
     "Cost: 10. This simple physical attack deals damage equal",
-    "to half the user's Might. It is effective against Small-",
-    "sized foes, and useless against Flying ones."
+    "to half the user's Might. It is especially effective",
+    "against Small-sized foes."
 ]
 
 Kick_Player: [
     "Kick",
     "Cost: 10. This simple physical attack deals a flat",
-    "10 damage. It is effective against Small-sized foes, and",
-    "useless against Flying ones."
+    "10 damage. It is especially effective against Small-sized",
+    "foes."
 ]
 
 Magic_Hand: [
@@ -57,15 +57,15 @@ Magic_Hand: [
 Punch_Enemy: [
     "Punch",
     "Cost: 10. This simple physical attack deals damage equal",
-    "to half the user's Might. It is effective against Large-",
-    "sized foes, and useless against Flying ones."
+    "to half the user's Might. It is especially effective",
+    "against Large-sized foes."
 ]
 
 Punch_Player: [
     "Punch",
     "Cost: 10. This simple physical attack deals a flat",
-    "10 damage. It is effective against Large-sized foes, and",
-    "useless against Flying ones."
+    "10 damage. It is especially effective against Large-sized",
+    "foes."
 ]
 
 Shift_Object: [
@@ -73,4 +73,11 @@ Shift_Object: [
     "Cost: 15. The Amulet spirit moves an object just enough",
     "to be noticeable, and lead the nearest enemy to attack",
     "it in vain. Flying enemies will be grounded for a turn."
+]
+
+Slap: [
+    "Slap",
+    "Cost: 5. A phantom hand has precious little in the way of",
+    "defenses, but it can muster a pitiable slap to the face.",
+    "This attack deals a flat 5 damage to foes of any size."
 ]

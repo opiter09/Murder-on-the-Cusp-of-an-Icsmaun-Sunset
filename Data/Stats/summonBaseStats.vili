@@ -1,0 +1,12 @@
+Magic_Hand:
+    Name:"Magic Hand"
+    Class:"Manualis"
+    Size:"Small"
+    Vitality:15
+    Might:5
+    Agility:25
+    Guard:5
+    Insight:0
+    Communication:0
+    Spells:["Slap"]
+    StartingStatus:["Flying"]

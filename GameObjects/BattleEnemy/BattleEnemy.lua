@@ -16,7 +16,12 @@ function UserEvent.Custom.SlotAction()
         newSprite:setVisible(false)
         return
     end
-    This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
+
+    if (battleTable.enemies[string].Owner == nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
+    else
+        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
+    end
     This.Sprite:useTextureSize()
     This.Sprite:setVisible(true)
 
