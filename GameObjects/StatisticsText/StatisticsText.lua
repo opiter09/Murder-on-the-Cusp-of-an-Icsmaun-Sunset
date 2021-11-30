@@ -109,7 +109,7 @@ local function drawStatistics()
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
-                text = ("Might: %s"):format(statBlock.numbers.Might)
+                text = ("Might: %s"):format(statBlock.Might)
             }
             canvas:Text(("Agility%s%s"):format(i , j)){
                 font = fontString,
@@ -118,7 +118,7 @@ local function drawStatistics()
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
-                text = ("Agility: %s"):format(statBlock.numbers.Agility)
+                text = ("Agility: %s"):format(statBlock.Agility)
             }
             canvas:Text(("Guard%s%s"):format(i , j)){
                 font = fontString,
@@ -127,7 +127,7 @@ local function drawStatistics()
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
-                text = ("Guard: %s"):format(statBlock.numbers.Guard)
+                text = ("Guard: %s"):format(statBlock.Guard)
             }
             canvas:Text(("Insight%s%s"):format(i , j)){
                 font = fontString,
@@ -136,7 +136,7 @@ local function drawStatistics()
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
-                text = ("Insight: %s"):format(statBlock.numbers.Insight)
+                text = ("Insight: %s"):format(statBlock.Insight)
             }
             canvas:Text(("Communication%s%s"):format(i , j)){
                 font = fontString,
@@ -145,7 +145,7 @@ local function drawStatistics()
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
-                text = ("Communication: %s"):format(statBlock.numbers.Communication)
+                text = ("Communication: %s"):format(statBlock.Communication)
             }
             canvas:Text(("Spells%s%s"):format(i , j)){
                 font = fontString,

@@ -27,7 +27,7 @@ Sprites:
     playerCamouflage:
         path:""
         rect:Rect{
-            x:1172.0,
+            x:1152.0,
             y:724.0,
             width:102.0,
             height:128.0,
@@ -41,7 +41,7 @@ Sprites:
     enemyCamouflage:
         path:""
         rect:Rect{
-            x:758.0,
+            x:778.0,
             y:448.0,
             width:102.0,
             height:128.0,
@@ -58,110 +58,110 @@ GameObjects:
         type:"BattleEnemy"
         Requires:
             Slot:1
-            xPos:758
+            xPos:778
             yPos:448
     Enemy2:
         type:"BattleEnemy"
         Requires:
             Slot:2
-            xPos:758
+            xPos:778
             yPos:586
     Enemy3:
         type:"BattleEnemy"
         Requires:
             Slot:3
-            xPos:758
+            xPos:778
             yPos:724
     Enemy4:
         type:"BattleEnemy"
         Requires:
             Slot:4
-            xPos:608
+            xPos:628
             yPos:448
     Enemy5:
         type:"BattleEnemy"
         Requires:
             Slot:5
-            xPos:608
+            xPos:628
             yPos:586
     Enemy6:
         type:"BattleEnemy"
         Requires:
             Slot:6
-            xPos:608
+            xPos:628
             yPos:724
     Enemy7:
         type:"BattleEnemy"
         Requires:
             Slot:7
-            xPos:458
+            xPos:478
             yPos:448
     Enemy8:
         type:"BattleEnemy"
         Requires:
             Slot:8
-            xPos:458
+            xPos:478
             yPos:586
     Enemy9:
         type:"BattleEnemy"
         Requires:
             Slot:9
-            xPos:458
+            xPos:478
             yPos:724
 
     Player1:
         type:"BattlePlayer"
         Requires:
             Slot:1
-            xPos:1022
+            xPos:1002
             yPos:448
     Player2:
         type:"BattlePlayer"
         Requires:
             Slot:2
-            xPos:1022
+            xPos:1002
             yPos:586
     Player3:
         type:"BattlePlayer"
         Requires:
             Slot:3
-            xPos:1022
+            xPos:1002
             yPos:724
     Player4:
         type:"BattlePlayer"
         Requires:
             Slot:4
-            xPos:1172
+            xPos:1152
             yPos:448
     Player5:
         type:"BattlePlayer"
         Requires:
             Slot:5
-            xPos:1172
+            xPos:1152
             yPos:586
     Player6:
         type:"BattlePlayer"
         Requires:
             Slot:6
-            xPos:1172
+            xPos:1152
             yPos:724
     Player7:
         type:"BattlePlayer"
         Requires:
             Slot:7
-            xPos:1322
+            xPos:1302
             yPos:448
     Player8:
         type:"BattlePlayer"
         Requires:
             Slot:8
-            xPos:1322
+            xPos:1302
             yPos:586
     Player9:
         type:"BattlePlayer"
         Requires:
             Slot:9
-            xPos:1322
+            xPos:1302
             yPos:724
 
     BattleBackdrop:

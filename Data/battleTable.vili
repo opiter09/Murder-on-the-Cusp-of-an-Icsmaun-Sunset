@@ -1,167 +1,191 @@
-inventory: ["Planner", 1, "Vulnerary", 4]
 returning: false
-enemies:
-    slot9: 0
-    slot1:
-        Vitality: 30.0
-        ID: "Fox"
-        StartingStatus: ["None"]
-        Size: "Medium"
-        Insight: 0
-        Agility: 26
-        Communication: 8
-        Might: 11
-        Name: "Fox"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Level: 1
-        Guard: 5
-        Spells: ["Bite_Enemy"]
-        Class: "Vulpalis"
-    slot6: 0
-    slot5:
-        Vitality: 30.0
-        ID: "Fox"
-        StartingStatus: ["None"]
-        Size: "Medium"
-        Insight: 0
-        Agility: 26
-        Communication: 8
-        Might: 11
-        Name: "Fox"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Level: 1
-        Guard: 5
-        Spells: ["Bite_Enemy"]
-        Class: "Vulpalis"
-    slot3:
-        Vitality: 30.0
-        ID: "Fox"
-        StartingStatus: ["None"]
-        Size: "Medium"
-        Insight: 0
-        Agility: 26
-        Communication: 8
-        Might: 11
-        Name: "Fox"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Level: 1
-        Guard: 5
-        Spells: ["Bite_Enemy"]
-        Class: "Vulpalis"
-    slot8: 0
-    slot7: 0
-    slot4: 0
-    magiqueRegen: 20
-    magiqueMax: 150
-    slot2: 0
 player:
-    slot9: 0
-    slot1:
-        Vitality: 17
-        ID: "Agwemnco"
-        Level: 1
-        spells: ["Punch_Player", "Magic_Hand", "Investigate"]
-        XP: 0
-        Name: "Agwemnco"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Sprite: "standing-combat"
-        classMaxXPMult: 0.85
-        numbers:
-            Communication: 20
-            Might: 5
-            Guard: 15
-            Insight: 20
-            Agility: 15
-        Class: "Actadiurnalis"
-    slot6:
-        Vitality: 22
-        ID: "Vlyoaz"
-        Level: 1
-        spells: ["Punch_Player", "Magic_Hand", "Camouflage"]
-        XP: 0
-        Name: "Vlyoaz"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Sprite: "standing-combat"
-        classMaxXPMult: 0.91
-        numbers:
-            Communication: 10
-            Might: 10
-            Guard: 10
-            Insight: 20
-            Agility: 25
-        Class: "Silvalis"
-    slot5: 0
+    slot8: 0
     slot3:
+        Sprite: "standing-combat"
+        Might: 20
+        Communication: 5
+        Guard: 15
+        Name: "Aclor"
+        Status:
+            Flying: 1
+            Asleep: 1
+            Confused: 1
+            Camouflaged: 1
+            Poisoned: 1
+        Agility: 20
+        Insight: 15
+        MaximumVitality: 1000
         Vitality: 34
-        ID: "Aclor"
         Level: 1
         spells: ["Bite_Player", "Magic_Hand", "Blood_Pact"]
         XP: 0
-        Name: "Aclor"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Sprite: "standing-combat"
         classMaxXPMult: 1.15
-        numbers:
-            Communication: 5
-            Might: 20
-            Guard: 15
-            Insight: 15
-            Agility: 20
         Class: "Sanguinalis"
-    slot8: 0
-    slot7: 0
+        ID: "Aclor"
+    slot5: 0
+    magiqueRegen: 50
+    slot6:
+        Sprite: "standing-combat"
+        Might: 10
+        Communication: 10
+        Guard: 10
+        Name: "Vlyoaz"
+        Status:
+            Flying: 1
+            Asleep: 1
+            Confused: 1
+            Camouflaged: 1
+            Poisoned: 1
+        Agility: 25
+        Insight: 20
+        MaximumVitality: 1000
+        Vitality: 22
+        Level: 1
+        spells: ["Punch_Player", "Magic_Hand", "Camouflage"]
+        XP: 0
+        classMaxXPMult: 0.91
+        Class: "Silvalis"
+        ID: "Vlyoaz"
+    slot2: 0
+    slot9:
+        Sprite: "standing-combat"
+        Might: 10
+        Communication: 10
+        Guard: 10
+        Name: "Vlyoaz"
+        Status:
+            Flying: 1
+            Asleep: 1
+            Confused: 1
+            Camouflaged: 1
+            Poisoned: 1
+        Agility: 25
+        Insight: 20
+        MaximumVitality: 1000
+        Vitality: 22
+        Level: 1
+        spells: ["Punch_Player", "Magic_Hand", "Camouflage"]
+        XP: 0
+        classMaxXPMult: 0.91
+        Class: "Silvalis"
+        ID: "Vlyoaz"
+    slot1:
+        Sprite: "standing-combat"
+        Might: 5
+        Communication: 20
+        Guard: 15
+        Name: "Agwemn"
+        Status:
+            Flying: 1
+            Asleep: 1
+            Confused: 1
+            Camouflaged: 1
+            Poisoned: 1
+        Agility: 15
+        Insight: 20
+        MaximumVitality: 1000
+        Vitality: 17
+        Level: 1
+        spells: ["Punch_Player", "Magic_Hand", "Investigate"]
+        XP: 0
+        classMaxXPMult: 0.85
+        Class: "Actadiurnalis"
+        ID: "Agwemnco"
     slot4:
+        Sprite: "standing-combat"
+        Might: 15
+        Communication: 15
+        Guard: 15
+        Name: "Ypvua"
+        Status:
+            Flying: 1
+            Asleep: 1
+            Confused: 1
+            Camouflaged: 1
+            Poisoned: 1
+        Agility: 15
+        Insight: 15
+        MaximumVitality: 1000
         Vitality: 26
-        ID: "Ypvua"
         Level: 1
         spells: ["Kick_Player", "Magic_Hand", "Shift_Object"]
         XP: 0
-        Name: "Ypvua"
-        Status:
-            Sleep: 0
-            Flying: 0
-            Poison: 0
-            Camouflaged: 0
-            Confused: 0
-        Sprite: "standing-combat"
         classMaxXPMult: 1
-        numbers:
-            Communication: 15
-            Might: 15
-            Guard: 15
-            Insight: 15
-            Agility: 15
         Class: "Amuletalis"
-    magiqueRegen: 50
+        ID: "Ypvua"
+    slot7: 0
     magiqueMax: 200
+inventory: ["Planner", 1, "Vulnerary", 4]
+enemies:
+    slot8: 0
+    slot3:
+        Might: 10
+        Communication: 9
+        Guard: 5
+        Name: "Fox"
+        Status:
+            Flying: 0
+            Asleep: 0
+            Confused: 0
+            Camouflaged: 0
+            Poisoned: 0
+        Vitality: 30
+        Insight: 0
+        Level: 1
+        Size: "Medium"
+        Agility: 26
+        Spells: ["Bite_Enemy"]
+        MaximumVitality: 30
+        StartingStatus: ["None"]
+        Class: "Vulpalis"
+        ID: "Fox"
+    slot5:
+        Might: 10
+        Communication: 9
+        Guard: 5
+        Name: "Fox"
+        Status:
+            Flying: 0
+            Asleep: 0
+            Confused: 0
+            Camouflaged: 0
+            Poisoned: 0
+        Vitality: 30
+        Insight: 0
+        Level: 1
+        Size: "Medium"
+        Agility: 26
+        Spells: ["Bite_Enemy"]
+        MaximumVitality: 30
+        StartingStatus: ["None"]
+        Class: "Vulpalis"
+        ID: "Fox"
+    magiqueRegen: 20
+    slot6: 0
     slot2: 0
+    slot9: 0
+    slot1:
+        Might: 10
+        Communication: 9
+        Guard: 5
+        Name: "Fox"
+        Status:
+            Flying: 0
+            Asleep: 0
+            Confused: 0
+            Camouflaged: 0
+            Poisoned: 0
+        Vitality: 30
+        Insight: 0
+        Level: 1
+        Size: "Medium"
+        Agility: 26
+        Spells: ["Bite_Enemy"]
+        MaximumVitality: 30
+        StartingStatus: ["None"]
+        Class: "Vulpalis"
+        ID: "Fox"
+    slot4: 0
+    slot7: 0
+    magiqueMax: 150

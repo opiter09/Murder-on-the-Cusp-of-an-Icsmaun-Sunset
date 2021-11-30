@@ -14,9 +14,9 @@ Bite_Player: [
 
 Blood_Pact: [
     "Blood Pact",
-    "Cost: 0. The caster spends 1/4 of their Vitality to deal",
-    "damage equal to twice their Might at the beginning of",
-    "their next turn."
+    "Cost: 0. The caster spends 1/4 of their total Vitality to",
+    "deal damage equal to twice their Might at the beginning",
+    "of their next turn."
 ]
 
 Camouflage: [

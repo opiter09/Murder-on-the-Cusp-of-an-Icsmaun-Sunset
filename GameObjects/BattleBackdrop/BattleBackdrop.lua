@@ -8,9 +8,9 @@ function Local.Init()
             if (backdrops[("Backdrop%s"):format(i)][j] == vars.currentMap) then
                 This.Sprite:loadTexture(("sprites://LevelSprites/Backdrops/%s.BMP"):format(backdrops[("Backdrop%s"):format(i)][1]))
                 Engine.Scene:getSprite("playerCamouflage"):loadTexture(("sprites://LevelSprites/Backdrops/Camouflage/%s.png"):format(backdrops[("Backdrop%s"):format(i)][1]))
-                --Engine.Scene:getSprite("playerCamouflage"):setVisible(false)
+                Engine.Scene:getSprite("playerCamouflage"):setVisible(false)
                 Engine.Scene:getSprite("enemyCamouflage"):loadTexture(("sprites://LevelSprites/Backdrops/Camouflage/%s.png"):format(backdrops[("Backdrop%s"):format(i)][1]))
-                --Engine.Scene:getSprite("enemyCamouflage"):setVisible(false)
+                Engine.Scene:getSprite("enemyCamouflage"):setVisible(false)
                 check = 1
                 break
             end
@@ -62,11 +62,15 @@ function Local.Init()
                     myStats.Communication = myStats.Communication + 1
                 end
             end
-            myStats.Vitality = myStats.Vitality * (1.1 ^ (thisGuy.Level - 1))
+            myStats.Vitality = math.floor(myStats.Vitality * (1.1 ^ (thisGuy.Level - 1)))
+            myStats.MaximumVitality = myStats.Vitality
             for k, v in pairs(thisGuy) do
                 myStats[k] = v
+                if (k == "Name") then
+                    myStats[k] = string.sub(v, 1, 6)
+                end
             end
-            myStats.Status = { Flying = 0, Poison = 0, Sleep = 0, Confused = 0, Camouflaged = 0 }
+            myStats.Status = { Flying = 0, Poisoned = 0, Asleep = 0, Confused = 0, Camouflaged = 0 }
             for k, v in pairs(myStats.StartingStatus) do
                 if (myStats.Status[v] ~= nil) then
                     myStats.Status[v] = 1
@@ -80,15 +84,17 @@ function Local.Init()
         slot1 = "Agwemnco",
         slot3 = "Aclor",
         slot4 = "Ypvua",
-        slot6 = "Vlyoaz"
+        slot6 = "Vlyoaz",
+        slot9 = "Vlyoaz"
     }
     for k, v in pairs(playerTable) do
-        battleTable.player[k] = { Name = v, ID = v, Sprite = "standing-combat" }
+        battleTable.player[k] = { Name = string.sub(v, 1, 6), ID = v, Sprite = "standing-combat" }
         for o, p in pairs(vars.stats[v]) do
             battleTable.player[k][o] = p
         end
+        battleTable.player[k].MaximumVitality = battleTable.player[k].Vitality
         battleTable.player[k].spells = vars.spells[v]
-        battleTable.player[k].Status = { Flying = 0, Poison = 0, Sleep = 0, Confused = 0, Camouflaged = 0 }
+        battleTable.player[k].Status = { Flying = 0, Poisoned = 0, Asleep = 0, Confused = 0, Camouflaged = 0 }
     end
 
     vili.to_file("root://Data/battleTable.vili", battleTable)

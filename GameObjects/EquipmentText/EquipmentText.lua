@@ -355,7 +355,7 @@ function Event.Actions.Accept()
                 end
             end
         else
-            vars.stats[map.Person].numbers[i] = vars.stats[map.Person].numbers[i] - v
+            vars.stats[map.Person][i] = vars.stats[map.Person][i] - v
         end
     end
 

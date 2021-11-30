@@ -212,7 +212,7 @@ function Event.Actions.Accept()
                 end
             end
         else
-            vars.stats[Person].numbers[i] = vars.stats[Person].numbers[i] + v
+            vars.stats[Person][i] = vars.stats[Person][i] + v
         end
     end
 

@@ -44,18 +44,18 @@ function Game.Start()
 --the next level.
         magiqueRegen = 50,
         magiqueMax = 200,
-        stats = { --stats out of 100, levels go up to 25, absolute max Vitality is 300.
+        stats = { --stats out of 100, levels go up to 25
             Vlyoaz = { XP = 0, Vitality = 22, Level = 1, Class = "Silvalis", classMaxXPMult = 0.91, size = "Medium",
-                numbers = { Might = 10, Agility = 25, Guard = 10, Insight = 20, Communication = 10 }
+                Might = 10, Agility = 25, Guard = 10, Insight = 20, Communication = 10
             },
             Ypvua = { XP = 0, Vitality = 26, Level = 1, Class = "Amuletalis",  classMaxXPMult = 1, size = "Medium",
-                numbers = { Might = 15, Agility = 15, Guard = 15, Insight = 15, Communication = 15 }
+                Might = 15, Agility = 15, Guard = 15, Insight = 15, Communication = 15
             },
             Aclor = { XP = 0, Vitality = 34, Level = 1, Class = "Sanguinalis",  classMaxXPMult = 1.15, size = "Medium",
-                numbers = { Might = 20, Agility = 20, Guard = 15, Insight= 15, Communication = 5 }
+                Might = 20, Agility = 20, Guard = 15, Insight= 15, Communication = 5
             },
             Agwemnco = { XP = 0, Vitality = 17, Level = 1, Class = "Actadiurnalis",  classMaxXPMult = 0.85, size = "Medium",
-                numbers = { Might = 5, Agility = 15, Guard = 15, Insight = 21, Communication = 20 }
+                Might = 5, Agility = 15, Guard = 15, Insight = 21, Communication = 20
             }
         },
         spells = {
