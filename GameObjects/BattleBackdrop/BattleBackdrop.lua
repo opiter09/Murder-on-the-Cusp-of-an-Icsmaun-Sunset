@@ -22,7 +22,7 @@ function Local.Init()
 
     local basePath = obe.System.Path("root://Data/battleTable.vili"):find()
     if (not basePath:success()) then
-        local fakeTable = {}
+        local fakeTable = { this = "this" }
         vili.to_file("root://Data/battleTable.vili", fakeTable)
     end
 
