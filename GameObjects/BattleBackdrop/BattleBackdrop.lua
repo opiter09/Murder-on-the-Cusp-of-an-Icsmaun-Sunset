@@ -20,6 +20,12 @@ function Local.Init()
         end
     end
 
+    local basePath = obe.System.Path("root://Data/battleTable.vili"):find()
+    if (not basePath:success()) then
+        local fakeTable = {}
+        vili.to_file("root://Data/battleTable.vili", fakeTable)
+    end
+
     local oldBattleTable = vili.from_file("root://Data/battleTable.vili")
     if (oldBattleTable.returning ~= nil) and (oldBattleTable.returning == 1) then
         oldBattleTable.returning = 0
