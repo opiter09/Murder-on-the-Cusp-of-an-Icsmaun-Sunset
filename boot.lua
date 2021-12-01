@@ -14,6 +14,7 @@ local function addEvents()
     CustomGroup:add("endNoRun")
 
     CustomGroup:add("SlotAction")
+    CustomGroup:add("MagiqueChange")
 end
 
 function Game.Start()

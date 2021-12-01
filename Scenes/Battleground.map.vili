@@ -24,6 +24,7 @@ Sprites:
         zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
+
     playerCamouflage:
         path:""
         rect:Rect{
@@ -54,6 +55,19 @@ Sprites:
         yTransform:"Camera"
 
 GameObjects:
+    PlayerMagique:
+        type:"MagiqueBox"
+        Requires:
+            Side:"Player"
+            xPos:1472
+            yPos:586
+    EnemyMagique:
+        type:"MagiqueBox"
+        Requires:
+            Side:"Enemies"
+            xPos:248
+            yPos:586
+
     Enemy1:
         type:"BattleEnemy"
         Requires:

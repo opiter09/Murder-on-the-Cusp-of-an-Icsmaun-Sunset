@@ -38,10 +38,11 @@ function Local.Init()
     local growths = vili.from_file("root://Data/Stats/enemyGrowths.vili")
     local battleTable = {
         enemies = {
+            currentMagique = 0,
             magiqueRegen = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueRegen,
             magiqueMax = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueMax
         },
-        player = { magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
+        player = { currentMagique = 0, magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
         returning = 0
     }
     battleTable.inventory = vars.inventory

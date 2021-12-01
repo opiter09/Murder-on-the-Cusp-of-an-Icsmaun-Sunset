@@ -1,0 +1,17 @@
+Sprite:
+    path:""
+    xTransform:"Camera"
+    yTransform:"Camera"
+    rect:Rect{
+        x:0.0,
+        y:0.0,
+        width:200.0,
+        height:128.0,
+        unit:ScenePixels
+    }
+    rotation:0.0
+    layer:-2
+    zdepth:0
+
+Script:
+    source:"objects://MagiqueBox/MagiqueBox.lua"

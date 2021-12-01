@@ -1,4 +1,3 @@
-local battleTable
 local canvas
 local newSprite
 local Pause
@@ -9,7 +8,7 @@ function Event.Actions.PauseOrStats()
 end
 
 function UserEvent.Custom.SlotAction()
-    battleTable = vili.from_file("root://Data/battleTable.vili")
+    local battleTable = vili.from_file("root://Data/battleTable.vili")
     local string = ("slot%s"):format(slot)
     if (battleTable.enemies[string] == 0) then
         This.Sprite:setVisible(false)

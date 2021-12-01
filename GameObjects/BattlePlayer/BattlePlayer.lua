@@ -1,4 +1,3 @@
-local battleTable
 local canvas
 local newSprite
 local Pause
@@ -9,7 +8,7 @@ function Event.Actions.PauseOrStats()
 end
 
 function UserEvent.Custom.SlotAction()
-    battleTable = vili.from_file("root://Data/battleTable.vili")
+    local battleTable = vili.from_file("root://Data/battleTable.vili")
     local string = ("slot%s"):format(slot)
     if (battleTable.player[string] == 0) then
         This.Sprite:setVisible(false)
@@ -32,9 +31,9 @@ function UserEvent.Custom.SlotAction()
     canvas.elements["Name"].text = battleTable.player[string].Name
     canvas.elements["Vitality"].text = tostring(battleTable.player[string].Vitality)
     if ((battleTable.player[string].MaximumVitality / 4) >= battleTable.player[string].Vitality) then
-        canvas.elements["Vitality"].color = "#B61B25"
+        canvas.elements["Vitality"].color = "#B61B25" --Red
     else
-        canvas.elements["Vitality"].color = "#216B1B"
+        canvas.elements["Vitality"].color = "#216B1B" --Green
     end
 
     for k, v in pairs(battleTable.player[string].Status) do
