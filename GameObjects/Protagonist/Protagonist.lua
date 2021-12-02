@@ -113,14 +113,34 @@ function Event.Actions.Up()
     end
 
     local check
+    local warpCheck
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
         if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
+            if (v == Engine.Scene:getCollider("topBoundary")) then
+                warpCheck = true
+            end
             break
         end
     end
     if (check == true) and (lastDirection == "Up") then
+        if (warpCheck == true) then
+            local config = vili.from_file("root://config.vili")
+            local xThing = (-1) * config.Camera.xOffsetRight
+            local yThing = (-1) * config.Camera.yOffsetDown
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+
+            local vars = vili.from_file("root://saveData.vili")
+            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
+            vars.currentX = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x
+            vars.currentY = 800
+            vars.currentMap = warps[vars.currentMap].North
+            vili.to_file("root://saveData.vili", vars)
+            Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
+            return
+        end
         This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle), obe.Transform.Units.ScenePixels))
         return
     end
@@ -142,14 +162,34 @@ function Event.Actions.Down()
     end
 
     local check
+    local warpCheck
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
         if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
+            if (v == Engine.Scene:getCollider("bottomBoundary")) then
+                warpCheck = true
+            end
             break
         end
     end
     if (check == true) and (lastDirection == "Down") then
+        if (warpCheck == true) then
+            local config = vili.from_file("root://config.vili")
+            local xThing = (-1) * config.Camera.xOffsetRight
+            local yThing = (-1) * config.Camera.yOffsetDown
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+
+            local vars = vili.from_file("root://saveData.vili")
+            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
+            vars.currentX = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x
+            vars.currentY = 224
+            vars.currentMap = warps[vars.currentMap].South
+            vili.to_file("root://saveData.vili", vars)
+            Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
+            return
+        end
         This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle), obe.Transform.Units.ScenePixels))
         return
     end
@@ -171,14 +211,34 @@ function Event.Actions.Left()
     end
 
     local check
+    local warpCheck
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
         if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
+            if (v == Engine.Scene:getCollider("leftBoundary")) then
+                warpCheck = true
+            end
             break
         end
     end
     if (check == true) and (lastDirection == "Left") then
+        if (warpCheck == true) then
+            local config = vili.from_file("root://config.vili")
+            local xThing = (-1) * config.Camera.xOffsetRight
+            local yThing = (-1) * config.Camera.yOffsetDown
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+
+            local vars = vili.from_file("root://saveData.vili")
+            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
+            vars.currentX = 1408
+            vars.currentY = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y
+            vars.currentMap = warps[vars.currentMap].West
+            vili.to_file("root://saveData.vili", vars)
+            Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
+            return
+        end
         This.SceneNode:move(obe.Transform.UnitVector((runToggle), 0, obe.Transform.Units.ScenePixels))
         return
     end
@@ -200,14 +260,34 @@ function Event.Actions.Right()
     end
 
     local check
+    local warpCheck
     local colliders = Engine.Scene:getAllColliders()
     for i, v in pairs(colliders) do
         check = This.Collider:doesCollide(v, obe.Transform.UnitVector(0, 0, obe.Transform.Units.ScenePixels), true)
         if (check == true) and (v ~= This.Collider) and (v:doesHaveTag(obe.Collision.ColliderTagType.Tag, "Invisible") == false) then
+            if (v == Engine.Scene:getCollider("rightBoundary")) then
+                warpCheck = true
+            end
             break
         end
     end
     if (check == true) and (lastDirection == "Right")  then
+        if (warpCheck == true) then
+            local config = vili.from_file("root://config.vili")
+            local xThing = (-1) * config.Camera.xOffsetRight
+            local yThing = (-1) * config.Camera.yOffsetDown
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+
+            local vars = vili.from_file("root://saveData.vili")
+            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
+            vars.currentX = 448
+            vars.currentY = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y
+            vars.currentMap = warps[vars.currentMap].East
+            vili.to_file("root://saveData.vili", vars)
+            Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
+            return
+        end
         This.SceneNode:move(obe.Transform.UnitVector(-(runToggle), 0, obe.Transform.Units.ScenePixels))
         return
     end

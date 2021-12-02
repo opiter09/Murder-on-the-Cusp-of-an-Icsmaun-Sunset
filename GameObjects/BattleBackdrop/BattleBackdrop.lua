@@ -72,9 +72,13 @@ function Local.Init()
             myStats.Vitality = math.floor(myStats.Vitality * (1.1 ^ (thisGuy.Level - 1)))
             myStats.MaximumVitality = myStats.Vitality
             for k, v in pairs(thisGuy) do
-                myStats[k] = v
                 if (k == "Name") then
                     myStats[k] = string.sub(v, 1, 6)
+                elseif (k == "LeveledAdd") then
+                    local avgLevel = (vars.Vlyoaz.Level + vars.Ypvua.Level + vars.Aclor.Level + vars.Agwemnco.Level) / 4
+                    myStats.Level = math.ceil(avgLevel) + v
+                else
+                    myStats[k] = v
                 end
             end
             myStats.Status = { Flying = 0, Poisoned = 0, Asleep = 0, Confused = 0, Camouflaged = 0 }

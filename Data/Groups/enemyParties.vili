@@ -3,7 +3,7 @@
 # 8 5 2
 # 9 6 3
 
-myFirstMap:
+MyFirstMap:
     party1:
         magiqueRegen:20
         magiqueMax:150

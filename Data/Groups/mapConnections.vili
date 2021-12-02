@@ -1,0 +1,5 @@
+MyFirstMap:
+    North:"MyFirstMap"
+    South:"MyFirstMap"
+    East:"MyFirstMap"
+    West:"MyFirstMap"
