@@ -1,7 +1,8 @@
 local chased = 0
 local lastDirection = 0
 local noMove = false
-local runToggle = 16
+local currentSpeed = 16
+local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
 
 function UserEvent.Custom.beginNoMove(evt)
     noMove = true
@@ -10,7 +11,7 @@ function UserEvent.Custom.endNoMove(evt)
     noMove = false
 end
 function UserEvent.Custom.beginNoRun(evt)
-    runToggle = 16
+    currentSpeed = 16
     chased = chased + 1
 end
 function UserEvent.Custom.endNoRun(evt)
@@ -125,15 +126,14 @@ function Event.Actions.Up()
         end
     end
     if (check == true) and (lastDirection == "Up") then
-        if (warpCheck == true) then
+        local vars = vili.from_file("root://saveData.vili")
+        if (warpCheck == true) and (warps[vars.currentMap].North ~= "None") then
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
             Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
-            local vars = vili.from_file("root://saveData.vili")
-            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
             vars.currentX = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x
             vars.currentY = 800
             vars.currentMap = warps[vars.currentMap].North
@@ -141,13 +141,13 @@ function Event.Actions.Up()
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
-        This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle), obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(0, (currentSpeed), obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Up"
     This.Animator:setKey("Walk_Up")
-    This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle/15), obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector(0, -(currentSpeed/15), obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Down()
@@ -174,15 +174,14 @@ function Event.Actions.Down()
         end
     end
     if (check == true) and (lastDirection == "Down") then
-        if (warpCheck == true) then
+        local vars = vili.from_file("root://saveData.vili")
+        if (warpCheck == true) and (warps[vars.currentMap].South ~= "None") then
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
             Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
-            local vars = vili.from_file("root://saveData.vili")
-            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
             vars.currentX = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x
             vars.currentY = 224
             vars.currentMap = warps[vars.currentMap].South
@@ -190,13 +189,13 @@ function Event.Actions.Down()
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
-        This.SceneNode:move(obe.Transform.UnitVector(0, -(runToggle), obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(0, -(currentSpeed), obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Down"
     This.Animator:setKey("Walk_Down")
-    This.SceneNode:move(obe.Transform.UnitVector(0, (runToggle/15), obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector(0, (currentSpeed/15), obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Left()
@@ -223,15 +222,14 @@ function Event.Actions.Left()
         end
     end
     if (check == true) and (lastDirection == "Left") then
-        if (warpCheck == true) then
+        local vars = vili.from_file("root://saveData.vili")
+        if (warpCheck == true) and (warps[vars.currentMap].West ~= "None") then
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
             Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
-            local vars = vili.from_file("root://saveData.vili")
-            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
             vars.currentX = 1408
             vars.currentY = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y
             vars.currentMap = warps[vars.currentMap].West
@@ -239,13 +237,13 @@ function Event.Actions.Left()
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
-        This.SceneNode:move(obe.Transform.UnitVector((runToggle), 0, obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector((currentSpeed), 0, obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Left"
     This.Animator:setKey("Walk_Left")
-    This.SceneNode:move(obe.Transform.UnitVector(-(runToggle/15), 0, obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector(-(currentSpeed/15), 0, obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Right()
@@ -272,15 +270,14 @@ function Event.Actions.Right()
         end
     end
     if (check == true) and (lastDirection == "Right")  then
-        if (warpCheck == true) then
+        local vars = vili.from_file("root://saveData.vili")
+        if (warpCheck == true) and (warps[vars.currentMap].East ~= "None") then
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
             Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
 
-            local vars = vili.from_file("root://saveData.vili")
-            local warps = vili.from_file("root://Data/Groups/mapConnections.vili")
             vars.currentX = 448
             vars.currentY = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y
             vars.currentMap = warps[vars.currentMap].East
@@ -288,13 +285,13 @@ function Event.Actions.Right()
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
-        This.SceneNode:move(obe.Transform.UnitVector(-(runToggle), 0, obe.Transform.Units.ScenePixels))
+        This.SceneNode:move(obe.Transform.UnitVector(-(currentSpeed), 0, obe.Transform.Units.ScenePixels))
         return
     end
 
     lastDirection = "Right"
     This.Animator:setKey("Walk_Right")
-    This.SceneNode:move(obe.Transform.UnitVector((runToggle/15), 0, obe.Transform.Units.ScenePixels))
+    This.SceneNode:move(obe.Transform.UnitVector((currentSpeed/15), 0, obe.Transform.Units.ScenePixels))
 end
 
 function Event.Actions.Run()
@@ -308,11 +305,11 @@ function Event.Actions.Run()
         return
     end
 
-    if runToggle == 16 then
-        runToggle = 48
+    if currentSpeed == 16 then
+        currentSpeed = 48
         return
-    elseif runToggle == 48 then
-        runToggle = 16
+    elseif currentSpeed == 48 then
+        currentSpeed = 16
         return
     end
 end
