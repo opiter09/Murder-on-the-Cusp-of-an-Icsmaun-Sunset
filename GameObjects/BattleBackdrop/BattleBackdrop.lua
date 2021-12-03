@@ -36,6 +36,7 @@ function Local.Init()
     local parties = vili.from_file("root://Data/Groups/enemyParties.vili")
     local baseStats = vili.from_file("root://Data/Stats/enemyBaseStats.vili")
     local growths = vili.from_file("root://Data/Stats/enemyGrowths.vili")
+    local levelSpells = vili.from_file("root://Data/Groups/enemyLevelSpells")
     local battleTable = {
         enemies = {
             currentMagique = 0,
@@ -85,6 +86,13 @@ function Local.Init()
             for k, v in pairs(myStats.StartingStatus) do
                 if (myStats.Status[v] ~= nil) then
                     myStats.Status[v] = 1
+                end
+            end
+            myStats.Spells = {}
+            for j = 1, myStats.Level do
+                if (levelSpells[thisGuy.ID][("Level%s"):format(j)] ~= nil) then
+                    local rand = math.random(1, #levelSpells[thisGuy.ID][("Level%s"):format(j)])
+                    table.insert(myStats.Spells, levelSpells[thisGuy.ID][("Level%s"):format(j)][rand])
                 end
             end
             battleTable.enemies[string] = myStats

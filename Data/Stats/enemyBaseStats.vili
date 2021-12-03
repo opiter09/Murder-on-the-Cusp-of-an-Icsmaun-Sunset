@@ -6,5 +6,4 @@ Fox:
     Guard:5
     Insight:0
     Communication:0
-    Spells:["Bite_Enemy"]
     StartingStatus:["None"]
