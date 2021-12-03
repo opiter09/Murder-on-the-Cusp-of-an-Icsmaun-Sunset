@@ -55,7 +55,7 @@ local function drawStatistics()
             local name = mappingTable[("%s, %s"):format(i, j)]
             local statBlock = vars.stats[name]
             local maxXP = (config.Experience.multiplier * (config.Experience.base ^ statBlock.Level)) + config.Experience.addition
-            maxXP = math.floor(maxXP * statBlock.classMaxXPMult)
+            maxXP = math.floor(maxXP * statBlock.maxXPMult)
 
             canvas:Text(("Name%s%s"):format(i , j)){
                 font = fontString,
@@ -93,19 +93,10 @@ local function drawStatistics()
                 color = "#FAFAFA",
                 text = ("Experience: %s/%s"):format(statBlock.XP, maxXP)
             }
-            canvas:Text(("Class%s%s"):format(i , j)){
-                font = fontString,
-                x = startingX,
-                y = startingY + 110,
-                unit = obe.Transform.Units.ScenePixels,
-                size = 16,
-                color = "#FAFAFA",
-                text = ("Class: %s"):format(statBlock.Class)
-            }
             canvas:Text(("Might%s%s"):format(i , j)){
                 font = fontString,
                 x = startingX,
-                y = startingY + 140,
+                y = startingY + 110,
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
@@ -114,7 +105,7 @@ local function drawStatistics()
             canvas:Text(("Agility%s%s"):format(i , j)){
                 font = fontString,
                 x = startingX,
-                y = startingY + 170,
+                y = startingY + 140,
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
@@ -123,7 +114,7 @@ local function drawStatistics()
             canvas:Text(("Guard%s%s"):format(i , j)){
                 font = fontString,
                 x = startingX,
-                y = startingY + 200,
+                y = startingY + 170,
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
@@ -132,7 +123,7 @@ local function drawStatistics()
             canvas:Text(("Insight%s%s"):format(i , j)){
                 font = fontString,
                 x = startingX,
-                y = startingY + 230,
+                y = startingY + 200,
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
@@ -141,7 +132,7 @@ local function drawStatistics()
             canvas:Text(("Communication%s%s"):format(i , j)){
                 font = fontString,
                 x = startingX,
-                y = startingY + 260,
+                y = startingY + 230,
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
@@ -150,7 +141,7 @@ local function drawStatistics()
             canvas:Text(("Spells%s%s"):format(i , j)){
                 font = fontString,
                 x = startingX,
-                y = startingY + 290,
+                y = startingY + 260,
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",

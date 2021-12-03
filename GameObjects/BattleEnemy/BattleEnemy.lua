@@ -16,7 +16,7 @@ function UserEvent.Custom.SlotAction()
         return
     end
 
-    if (battleTable.enemies[string].Owner == nil) then
+    if (battleTable.enemies[string].Summoner == nil) then
         This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
     else
         This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s.png"):format(battleTable.enemies[string].ID))

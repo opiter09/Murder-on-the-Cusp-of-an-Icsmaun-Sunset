@@ -38,7 +38,7 @@ Camera:
 
 Experience:
     XPGainPerAction:5
-# The experience to level up formula is ((multiplier * (base ^ Level)) + addition) * classMaxXPMult, rounded down.
+# The experience to level up formula is ((multiplier * (base ^ Level)) + addition) * maxXPMult, rounded down.
     base:2.71828
     multiplier:15
     addition:25
