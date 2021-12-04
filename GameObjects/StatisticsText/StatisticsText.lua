@@ -73,7 +73,7 @@ local function drawStatistics()
                 unit = obe.Transform.Units.ScenePixels,
                 size = 16,
                 color = "#FAFAFA",
-                text = ("Vitality: %s"):format(statBlock.Vitality)
+                text = ("Max. Vitality: %s"):format(statBlock.Vitality)
             }
             canvas:Text(("Level%s%s"):format(i , j)){
                 font = fontString,
