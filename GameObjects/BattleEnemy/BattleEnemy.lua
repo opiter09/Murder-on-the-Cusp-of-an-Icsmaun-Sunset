@@ -16,10 +16,14 @@ function UserEvent.Custom.SlotAction()
         return
     end
 
-    if (battleTable.enemies[string].Summoner == nil) then
-        This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
+    if (battleTable.enemies[string].Transformation ~= nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/TransformBattleSprites/%s_Enemy.png"):format(battleTable.enemies[string].ID))
+    elseif (battleTable.enemies[string].Summoner ~= nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s_Enemy.png"):format(battleTable.enemies[string].ID))
+    elseif (battleTable.enemies[string].Sprite ~= nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s/%s.png"):format(battleTable.enemies[string].ID, battleTable.enemies[string].Sprite))
     else
-        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
+        This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
     end
     This.Sprite:useTextureSize()
     This.Sprite:setVisible(true)

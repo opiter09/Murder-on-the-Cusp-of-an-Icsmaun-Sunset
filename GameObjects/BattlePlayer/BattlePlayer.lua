@@ -16,14 +16,14 @@ function UserEvent.Custom.SlotAction()
         return
     end
 
-    if (battleTable.player[string].Summoner == nil) then
-        if (battleTable.player[string].Sprite ~= nil) then
-            This.Sprite:loadTexture(("sprites://GameObjects/PlayerBattleSprites/%s/%s.png"):format(battleTable.player[string].ID, battleTable.player[string].Sprite))
-        else
-            This.Sprite:loadTexture(("sprites://GameObjects/PlayerBattleSprites/%s.png"):format(battleTable.player[string].ID))
-        end
+    if (battleTable.player[string].Transformation ~= nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/TransformBattleSprites/%s_Player.png"):format(battleTable.player[string].ID))
+    elseif (battleTable.player[string].Summoner ~= nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s_Player.png"):format(battleTable.player[string].ID))
+    elseif (battleTable.player[string].Sprite ~= nil) then
+        This.Sprite:loadTexture(("sprites://GameObjects/PlayerBattleSprites/%s/%s.png"):format(battleTable.player[string].ID, battleTable.player[string].Sprite))
     else
-        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s.png"):format(battleTable.player[string].ID))
+        This.Sprite:loadTexture(("sprites://GameObjects/PlayerBattleSprites/%s.png"):format(battleTable.player[string].ID))
     end
     This.Sprite:useTextureSize()
     This.Sprite:setVisible(true)
