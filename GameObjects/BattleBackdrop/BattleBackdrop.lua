@@ -37,6 +37,8 @@ function Local.Init()
     local baseStats = vili.from_file("root://Data/Stats/enemyBaseStats.vili")
     local growths = vili.from_file("root://Data/Stats/enemyGrowths.vili")
     local levelSpells = vili.from_file("root://Data/Groups/enemyLevelSpells")
+
+    local rand = math.random(0, 5)
     local battleTable = {
         enemies = {
             currentMagique = 0,
@@ -44,7 +46,8 @@ function Local.Init()
             magiqueMax = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueMax
         },
         player = { currentMagique = 0, magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
-        returning = 0
+        returning = 0,
+        objectCount = rand
     }
     battleTable.inventory = vars.inventory
     for i = 1, 9 do

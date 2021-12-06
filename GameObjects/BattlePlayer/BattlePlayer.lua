@@ -17,9 +17,9 @@ function UserEvent.Custom.SlotAction()
     end
 
     if (battleTable.player[string].Transformation ~= nil) then
-        This.Sprite:loadTexture(("sprites://GameObjects/TransformBattleSprites/%s_Player.png"):format(battleTable.player[string].ID))
+        This.Sprite:loadTexture(("sprites://GameObjects/TransformBattleSprites/%s.png"):format(battleTable.player[string].ID))
     elseif (battleTable.player[string].Summoner ~= nil) then
-        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s_Player.png"):format(battleTable.player[string].ID))
+        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s.png"):format(battleTable.player[string].ID))
     elseif (battleTable.player[string].Sprite ~= nil) then
         This.Sprite:loadTexture(("sprites://GameObjects/PlayerBattleSprites/%s/%s.png"):format(battleTable.player[string].ID, battleTable.player[string].Sprite))
     else

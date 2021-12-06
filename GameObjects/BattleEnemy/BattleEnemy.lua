@@ -17,15 +17,19 @@ function UserEvent.Custom.SlotAction()
     end
 
     if (battleTable.enemies[string].Transformation ~= nil) then
-        This.Sprite:loadTexture(("sprites://GameObjects/TransformBattleSprites/%s_Enemy.png"):format(battleTable.enemies[string].ID))
+        This.Sprite:loadTexture(("sprites://GameObjects/TransformBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
     elseif (battleTable.enemies[string].Summoner ~= nil) then
-        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s_Enemy.png"):format(battleTable.enemies[string].ID))
+        This.Sprite:loadTexture(("sprites://GameObjects/SummonBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
     elseif (battleTable.enemies[string].Sprite ~= nil) then
         This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s/%s.png"):format(battleTable.enemies[string].ID, battleTable.enemies[string].Sprite))
     else
         This.Sprite:loadTexture(("sprites://GameObjects/EnemyBattleSprites/%s.png"):format(battleTable.enemies[string].ID))
     end
     This.Sprite:useTextureSize()
+    if (battleTable.enemies[string].Transformation ~= nil) or (battleTable.enemies[string].Summoner ~= nil) then
+        --Flips the sprite horizontally. So make sure transform and summon images always face to the left.
+        This.Sprite:scale(obe.Transform.UnitVector(1, -1))
+    end
     This.Sprite:setVisible(true)
 
     canvas.elements["Name"].text = battleTable.enemies[string].Name
