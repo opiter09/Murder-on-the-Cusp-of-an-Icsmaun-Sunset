@@ -37,9 +37,9 @@ function UserEvent.Custom.SlotAction()
     canvas.elements["Name"].text = battleTable.enemies[string].Name
     canvas.elements["Vitality"].text = tostring(battleTable.enemies[string].Vitality)
     if ((battleTable.enemies[string].MaximumVitality / 4) >= battleTable.enemies[string].Vitality) then
-        canvas.elements["Vitality"].color = "#B61B25"
+        canvas.elements["Vitality"].color = "#B61B25" --Red
     else
-        canvas.elements["Vitality"].color = "#216B1B"
+        canvas.elements["Vitality"].color = "#216B1B" --Green
     end
 
     for k, v in pairs(battleTable.enemies[string].Status) do

@@ -7,7 +7,15 @@ local Distance
 function Local.Init(sprite, defeatedNumber, initX, initY, direction, distance, visibility)
     chasing = false
     CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
-    This.Sprite:loadTexture(("sprites://GameObjects/%s/Walk_Down/1.png"):format(sprite))
+    local path = ("sprites://GameObjects/%s/Idle_%s"):format(sprite, direction)
+    local files = obe.Utils.File.getFileList(obe.System.Path(path):find():path())
+    for i = 1, #files do
+        local len = string.len(files[i])
+        if (string.lower(string.sub(files[i], (len - 2), len)) == "png") then
+            This.Sprite:loadTexture(("%s/%s"):format(path, files[i]))
+            break
+        end
+    end
     This.Animator:load(obe.System.Path(("sprites://GameObjects/%s"):format(sprite)))
     This.Animator:setKey(("Idle_%s"):format(direction))
     This.SceneNode:setPosition(obe.Transform.UnitVector(initX, initY, obe.Transform.Units.ScenePixels))
