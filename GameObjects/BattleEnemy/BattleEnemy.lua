@@ -29,6 +29,8 @@ function UserEvent.Custom.SlotAction()
     if (battleTable.enemies[string].Transformation ~= nil) or (battleTable.enemies[string].Summoner ~= nil) then
         --Flips the sprite horizontally. So make sure transform and summon images always face to the left.
         This.Sprite:scale(obe.Transform.UnitVector(1, -1))
+    else
+        This.Sprite:scale(obe.Transform.UnitVector(1, 1))
     end
     This.Sprite:setVisible(true)
 
