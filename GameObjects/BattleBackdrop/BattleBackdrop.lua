@@ -38,17 +38,20 @@ function Local.Init()
     local growths = vili.from_file("root://Data/Stats/enemyGrowths.vili")
     local levelSpells = vili.from_file("root://Data/Groups/enemyLevelSpells")
 
-    local rand = math.random(0, 5)
+    local randObj = math.random(0, 5)
     local battleTable = {
         enemies = {
+            turnCount = 0,
             currentMagique = 0,
             magiqueRegen = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueRegen,
             magiqueMax = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueMax
         },
-        player = { currentMagique = 0, magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
+        player = { turnCount = 0, currentMagique = 0, magiqueRegen = vars.magiqueRegen, magiqueMax = vars.magiqueMax },
         returning = 0,
-        objectCount = rand
+        objectCount = randObj,
+        currentTurn = vars.firstTurn
     }
+    battleTable[string.lower(vars.firstTurn)].turnCount = 1
     battleTable.inventory = vars.inventory
     for i = 1, 9 do
         local string = ("slot%s"):format(i)

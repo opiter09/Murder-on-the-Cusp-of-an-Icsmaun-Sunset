@@ -182,6 +182,8 @@ GameObjects:
         type:"BattleBackdrop"
     BattleTextCanvas:
         type:"BattleTextCanvas"
+    TextCanvas:
+        type:"TextCanvas"
     MagicEffects:
         type:"MagicEffects"
     Protagonist:
