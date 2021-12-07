@@ -104,6 +104,14 @@ local function beginBattle()
     local config = vili.from_file("root://config.vili")
     local vars = vili.from_file("root://saveData.vili")
 
+    local playerKey = Engine.Scene:getGameObject("Protagonist").Animation:getKey()
+    local myKey = This.Animator:getKey()
+    if (string.sub(myKey, (string.len(myKey) - 2), string.len(myKey)) == string.sub(myKey, (string.len(playerKey) - 2), string.len(playerKey))) then
+        vars.firstTurn = "Enemies"
+    else
+        vars.firstTurn = "Player"
+    end
+
     chasing = false
     CustomGroup:trigger("endNoRun", {})
     local xThing = (-1) * config.Camera.xOffsetRight
@@ -113,7 +121,7 @@ local function beginBattle()
     local position = Engine.Scene:getGameObject("Protagonist").Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
     vars.currentX = position.x
     vars.currentY = position.y
-    vars.currentKey = Engine.Scene:getGameObject("Protagonist").Animation:getKey()
+    vars.currentKey = playerKey
     vars.currentParty = DefeatedNumber
     vili.to_file("root://saveData.vili", vars)
     Engine.Scene:loadFromFile("scenes://Battleground.map.vili")
