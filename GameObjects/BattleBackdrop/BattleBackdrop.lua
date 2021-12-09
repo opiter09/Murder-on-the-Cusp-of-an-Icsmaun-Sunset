@@ -88,7 +88,7 @@ function Local.Init()
                     myStats[k] = v
                 end
             end
-            myStats.Status = { Flying = 0, Poisoned = 0, Asleep = 0, Confused = 0, Camouflaged = 0 }
+            myStats.Status = { Flying = 0, Poisoned = 0, Asleep = 0, Stressed = 0, Camouflaged = 0 }
             for k, v in pairs(myStats.StartingStatus) do
                 if (myStats.Status[v] ~= nil) then
                     myStats.Status[v] = 1
@@ -118,7 +118,7 @@ function Local.Init()
         end
         battleTable.player[k].MaximumVitality = battleTable.player[k].Vitality
         battleTable.player[k].Spells = vars.spells[v]
-        battleTable.player[k].Status = { Flying = 0, Poisoned = 0, Asleep = 0, Confused = 0, Camouflaged = 0 }
+        battleTable.player[k].Status = { Flying = 0, Poisoned = 0, Asleep = 0, Stressed = 0, Camouflaged = 0 }
     end
 
     vili.to_file("root://Data/battleTable.vili", battleTable)

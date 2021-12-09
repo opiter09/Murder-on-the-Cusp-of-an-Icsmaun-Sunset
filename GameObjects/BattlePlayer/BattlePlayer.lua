@@ -110,7 +110,7 @@ function Local.Init(Slot, xPos, yPos)
         color = "#FF8096",
         text = "Asleep"
     }
-    canvas:Text("Confused"){
+    canvas:Text("Stressed"){
         font = fontString,
         x = 80.0,
         y = 109.0,
@@ -118,7 +118,7 @@ function Local.Init(Slot, xPos, yPos)
         size = 16,
         layer = -4,
         color = "#FAFA96",
-        text = "Confus"
+        text = "Stress"
     }
     canvas:render(newSprite)
 end
