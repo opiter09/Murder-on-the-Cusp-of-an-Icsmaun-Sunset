@@ -1,0 +1,8 @@
+# To make a footnote, all you need to do is create a block with the same name as a block of 
+# text in texts.vili, and then put a table of strings in that. Then, in the text you want a
+# footnote for, simply end a line with "FNXX >" (this, of course, means that that line will
+# be a button presser). Thence, the footnote will take the reader to the XX'th string in
+# the aforementioned table, allowing for many footnotes to the one block of text.
+
+astrayText: []
+astrayText2: []

@@ -1,4 +1,5 @@
 local allTexts = vili.from_file("text://texts.vili")
+local footnoteTexts = vili.from_file("text://footnotes.vili")
 
 local canvas
 local footnoteOn = false
@@ -154,7 +155,7 @@ function Event.Game.Update()
 
     local currentPlace = allTexts[startingPoint]
     if (footnoteOn == true) then
-        currentPlace = allTexts.Footnotes[startingPoint]
+        currentPlace = footnoteTexts[startingPoint]
     end
 
     if (index > #currentPlace) then
