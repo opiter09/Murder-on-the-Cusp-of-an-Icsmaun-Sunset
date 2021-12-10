@@ -99,9 +99,9 @@ function Event.Actions.EnterFootnote(event)
         return
     end
 
-    if (newPrint == ">") and (string.sub(allTexts[startingPoint][index], (letter - 6), (letter - 4)) == " FN") then
+    if (newPrint == ">") and (string.sub(allTexts[startingPoint][index], (letter - 7), (letter - 5)) == " FN") then
         tempDial = { [1] = index, [2] = placeIndex, [3] = letter }
-        index = tonumber(string.sub(allTexts[startingPoint][index], (letter - 3), (letter - 2)))
+        index = tonumber(string.sub(allTexts[startingPoint][index], (letter - 4), (letter - 2)))
         placeIndex = 1
         letter = 0
         newPrint = "0"
@@ -199,7 +199,9 @@ function Event.Game.Update()
     H[placeIndex].text = ("%s%s"):format(H[placeIndex].text, newPrint)
     canvas:render(This.Sprite)
 
-    if (string.sub(currentPlace[index], (letter - 2), letter) == " FN") then
-        letter = letter + 2
+    if (string.sub(currentPlace[index], (letter + 1), (letter + 2)) == "FN") then
+        if (tonumber(string.sub(currentPlace[index], (letter + 3), (letter + 5))) ~= nil) then
+            letter = letter + 5
+        end
     end
 end
