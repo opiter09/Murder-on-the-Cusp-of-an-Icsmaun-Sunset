@@ -130,8 +130,8 @@ function Event.Actions.ExitFootnote(event)
     footnoteOn = false
     tempDial = {}
 
-    local recentString = string.sub(allTexts[startingPoint][index], 1, (letter - 4))
-    recentString = ("%s%s"):format(recentString, " >")
+    local recentString = string.sub(allTexts[startingPoint][index], 1, (letter - 7))
+    recentString = ("%s%s"):format(recentString, ">")
     if (placeIndex == 1) then
         textObject.text = recentString
         textObject2.text = ""
@@ -161,7 +161,7 @@ function Event.Game.Update()
     if (index > #currentPlace) then
         return
     end
-    if (newPrint == ">") then
+    if (newPrint == ">") or (newPrint == "|") then
         wordSound:stop()
         return
     end
@@ -201,7 +201,7 @@ function Event.Game.Update()
 
     if (string.sub(currentPlace[index], (letter + 1), (letter + 2)) == "FN") then
         if (tonumber(string.sub(currentPlace[index], (letter + 3), (letter + 5))) ~= nil) then
-            letter = letter + 5
+            letter = letter + 6
         end
     end
 end
