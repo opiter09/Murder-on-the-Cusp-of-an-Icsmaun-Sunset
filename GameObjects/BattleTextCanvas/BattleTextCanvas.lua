@@ -19,7 +19,12 @@ function UserEvent.Custom.beginTurn(evt)
     local battleTable = vili.from_file("root://Data/battleTable.vili")
     canvas:clear()
 
+    local soundPath = "evretro://alert-video-game-sound.wav"
+    local thisSound = Engine.Audio:load(obe.System.Path(soundPath), obe.Audio.LoadPolicy.Stream)
+    thisSound:play()
+
     if (battleTable.currentTurn == "Enemies") then
         CustomGroup:trigger("magiqueChange", { Side = "Enemies", Amount = battleTable.enemies.magiqueRegen })
+        return
     end
 end

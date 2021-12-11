@@ -7,17 +7,20 @@ function Event.Actions.PauseOrStats()
     Pause = not Pause
 end
 
+local function processAILogic()
+end
+
 function UserEvent.Custom.MagiqueChange(evt)
     if (evt.Side == side) then
-        local soundPath = "evretro://alert-video-game-sound.wav"
-        local thisSound = Engine.Audio:load(obe.System.Path(soundPath), obe.Audio.LoadPolicy.Stream)
-        thisSound:play()
-
         local battleTable = vili.from_file("root://Data/battleTable.vili")
         battleTable[string.lower(side)].currentMagique = battleTable[string.lower(side)].currentMagique + evt.Amount
         numberText.text = tostring(battleTable[string.lower(side)].currentMagique)
         vili.to_file("root://Data/battleTable.vili", battleTable)
         canvas:render(This.Sprite)
+
+        if (side == "Enemies") and (battleTable.currentTurn == "Enemies") and (evt.Amount == battleTable.enemies.magiqueRegen) then
+            processAILogic()
+        end
     end
 end
 
