@@ -15,3 +15,5 @@ mounts:
     objects: "root://GameObjects"
     sprites: "root://Sprites"
     text: "root://Data/Text"
+    music: "root://Data/Music"
+    evretro: "root://Data/Sound FX/EVRetro Video Game Noises"

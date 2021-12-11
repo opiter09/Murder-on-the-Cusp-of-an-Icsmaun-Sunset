@@ -67,7 +67,7 @@ function Local.Init()
     canvas:render(This.Sprite)
 
     H = { [1] = textObject, [2] = textObject2, [3] = textObject3 }
-    local soundPath = "root://Data/Music/SomeGuy22 TextSound.wav"
+    local soundPath = "root://Data/Sound FX/SomeGuy22 TextSound.wav"
     wordSound = Engine.Audio:load(obe.System.Path(soundPath), obe.Audio.LoadPolicy.Stream)
     wordSound:setVolume(0.2)
 end

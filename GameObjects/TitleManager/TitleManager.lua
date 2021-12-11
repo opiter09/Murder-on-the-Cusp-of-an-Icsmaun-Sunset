@@ -16,7 +16,7 @@ function Local.Init()
 
     Engine.Events:schedule():after(4):run(function()
         This.Sprite:setVisible(false)
-        song = Engine.Audio:load(obe.System.Path("root://Data/Music/Title Theme.wav"), obe.Audio.LoadPolicy.Stream)
+        song = Engine.Audio:load(obe.System.Path("music://Title Theme.wav"), obe.Audio.LoadPolicy.Stream)
         song:setSpeed(0.5)
         song:play()
         accept = 1
