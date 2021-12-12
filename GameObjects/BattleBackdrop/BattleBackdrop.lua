@@ -101,6 +101,7 @@ function Local.Init()
                     table.insert(myStats.Spells, levelSpells[thisGuy.ID][("Level%s"):format(j)][rand])
                 end
             end
+            myStats.canAct = 1
             battleTable.enemies[string] = myStats
         end
     end
@@ -119,6 +120,7 @@ function Local.Init()
         battleTable.player[k].MaximumVitality = battleTable.player[k].Vitality
         battleTable.player[k].Spells = vars.spells[v]
         battleTable.player[k].Status = { Flying = 0, Poisoned = 0, Asleep = 0, Stressed = 0, Camouflaged = 0 }
+        battleTable.player[k].canAct = 1
     end
 
     vili.to_file("root://Data/battleTable.vili", battleTable)
