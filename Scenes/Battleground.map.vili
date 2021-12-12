@@ -53,6 +53,20 @@ Sprites:
         zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
+    bigCursor:
+        path:""
+        rect:Rect{
+            x:1002.0,
+            y:448.0,
+            width:102.0,
+            height:128.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:-4
+        zdepth:0
+        xTransform:"Camera"
+        yTransform:"Camera"
 
 GameObjects:
     PlayerMagique:
