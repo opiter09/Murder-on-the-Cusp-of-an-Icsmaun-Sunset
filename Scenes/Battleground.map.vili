@@ -54,11 +54,11 @@ Sprites:
         xTransform:"Camera"
         yTransform:"Camera"
     bigCursor:
-        path:""
+        path:"sprites://LevelSprites/bigCursor.png"
         rect:Rect{
             x:1002.0,
             y:448.0,
-            width:102.0,
+            width:128.0,
             height:128.0,
             unit:ScenePixels
         }
