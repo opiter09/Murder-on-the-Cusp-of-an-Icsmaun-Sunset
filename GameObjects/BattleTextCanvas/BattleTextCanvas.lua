@@ -1,3 +1,4 @@
+local bigCursorPos = { side = "player", slot = "slot1" }
 local canvas
 local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
 local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
@@ -17,6 +18,27 @@ function Local.Init()
     canvas:render(This.Sprite)
 end
 
+local function displaySlotStats()
+    local battleTable = vili.from_file("root://Data/battleTable.vili")
+    local thisThing = battleTable[bigCursorPos.side][bigCursorPos.slot]
+    canvas:clear()
+
+    if (thisThing == 0) then
+        return
+    end
+
+    canvas:Text("NameText"){
+        font = fontString,
+        x = 8.0,
+        y = 8.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = thisThing.Name
+    }
+    -- three rows of three gets us name, health, level, size, and the five stats
+end
+
 function UserEvent.Custom.beginTurn(evt)
     local battleTable = vili.from_file("root://Data/battleTable.vili")
 
@@ -29,6 +51,7 @@ function UserEvent.Custom.beginTurn(evt)
         return
     end
 
-    menuType = "playerChooseCursor"
+    menuType = "slotChooseCursor"
     Engine.Scene:getSprite("bigCursor"):setVisible(true)
+    displaySlotStats()
 end
