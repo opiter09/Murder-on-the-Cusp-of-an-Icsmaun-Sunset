@@ -43,6 +43,7 @@ function Local.Init()
         enemies = {
             turnCount = 0,
             currentMagique = 0,
+            isBoss = parties[vars.currentMap][("party%s"):format(vars.currentParty)].isBoss,
             magiqueRegen = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueRegen,
             magiqueMax = parties[vars.currentMap][("party%s"):format(vars.currentParty)].magiqueMax
         },
@@ -126,12 +127,20 @@ function Local.Init()
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:trigger("SlotAction", {})
 
-    local battleSong = "music://Battle Theme (String Quartet).mp3"
-    local sound = Engine.Audio:load(obe.System.Path(battleSong), obe.Audio.LoadPolicy.Cache)
-    sound:setOffset(vars.battleSongPlace)
-    sound:setVolume(0.75)
-    sound:setLooping(true)
-    sound:play()
+    if (battleTable.enemies.isBoss == nil) or (battleTable.enemies.isBoss == 0) then
+        local battleSong = "music://Battle Theme (String Quartet).mp3"
+        local sound = Engine.Audio:load(obe.System.Path(battleSong), obe.Audio.LoadPolicy.Cache)
+        sound:setOffset(vars.battleSongPlace)
+        sound:setVolume(0.75)
+        sound:setLooping(true)
+        sound:play()
+    else
+        local battleSong = "music://Boss Battle Theme (Tempest).mp3"
+        local sound = Engine.Audio:load(obe.System.Path(battleSong), obe.Audio.LoadPolicy.Cache)
+        sound:setVolume(0.75)
+        sound:setLooping(true)
+        sound:play()
+    end
     Engine.Events:schedule():after(0.25):run(function()
         CustomGroup:trigger("beginTurn", {})
     end)

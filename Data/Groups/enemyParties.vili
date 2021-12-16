@@ -5,6 +5,7 @@
 
 MyFirstMap:
     party1:
+        isBoss:0
         magiqueRegen:20
         magiqueMax:150
         enemy1:
