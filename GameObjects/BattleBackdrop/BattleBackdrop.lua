@@ -79,9 +79,7 @@ function Local.Init()
             myStats.Vitality = math.floor(myStats.Vitality * (1.1 ^ (thisGuy.Level - 1)))
             myStats.MaximumVitality = myStats.Vitality
             for k, v in pairs(thisGuy) do
-                if (k == "Name") then
-                    myStats[k] = string.sub(v, 1, 6)
-                elseif (k == "LeveledAdd") then
+                if (k == "LeveledAdd") then
                     local avgLevel = (vars.Vlyoaz.Level + vars.Ypvua.Level + vars.Aclor.Level + vars.Agwemnco.Level) / 4
                     myStats.Level = math.ceil(avgLevel) + v
                 else
@@ -114,7 +112,7 @@ function Local.Init()
         slot6 = "Vlyoaz"
     }
     for k, v in pairs(playerTable) do
-        battleTable.player[k] = { Name = string.sub(v, 1, 6), ID = v, Sprite = "standing-combat" }
+        battleTable.player[k] = { Name = v, ID = v, Sprite = "standing-combat" }
         for o, p in pairs(vars.stats[v]) do
             battleTable.player[k][o] = p
         end

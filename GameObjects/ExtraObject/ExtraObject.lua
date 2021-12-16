@@ -54,6 +54,10 @@ end
 
 function Local.Init()
     local vars = vili.from_file("root://saveData.vili")
+    if (vars.currentParty > 0) then
+        return
+    end
+
     CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
 
     if (vars.currentMap == "Intro_Narration") then

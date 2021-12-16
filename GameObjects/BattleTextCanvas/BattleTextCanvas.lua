@@ -39,7 +39,7 @@ local function displaySlotStats()
         unit = obe.Transform.Units.ScenePixels,
         size = 22,
         color = "#FAFAFA",
-        text = thisThing.Name
+        text = ("Name: %s"):format(thisThing.Name)
     }
     canvas:Text("HealthText"){
         font = fontString,
@@ -48,7 +48,7 @@ local function displaySlotStats()
         unit = obe.Transform.Units.ScenePixels,
         size = 22,
         color = "#FAFAFA",
-        text = ("%s/%s"):format(thisThing.Vitality, thisThing.MaximumVitality)
+        text = ("Vitality: %s/%s"):format(thisThing.Vitality, thisThing.MaximumVitality)
     }
     canvas:Text("SizeText"){
         font = fontString,
@@ -57,34 +57,33 @@ local function displaySlotStats()
         unit = obe.Transform.Units.ScenePixels,
         size = 22,
         color = "#FAFAFA",
-        text = thisThing.Size
+        text = ("Size: %s"):format(thisThing.Size)
     }
 
     local statsTable = {}
     if (bigCursorPos.side == "Enemies") and (thisThing.isKnown == 0) then
         statsTable = {
-            Level = "???",
-            Might = "???",
-            Agility = "???",
-            Guard = "???",
-            Insight = "???",
-            Communication = "???"
+            Level = {"???", 2, 1},
+            Might = {"???", 2, 2},
+            Agility = {"???", 2, 3},
+            Guard = {"???", 3, 1},
+            Insight = {"???", 3, 2},
+            Communication = {"???", 3, 3}
         }
     else
         statsTable = {
-            Level = thisThing.Level,
-            Might = thisThing.Might,
-            Agility = thisThing.Agility,
-            Guard = thisThing.Guard,
-            Insight = thisThing.Insight,
-            Communication = thisThing.Communication
+            Level = {thisThing.Level, 2, 1},
+            Might = {thisThing.Might, 2, 2},
+            Agility = {thisThing.Agility, 2, 3},
+            Guard = {thisThing.Guard, 3, 1},
+            Insight = {thisThing.Insight, 3, 2},
+            Communication = {thisThing.Communication, 3, 3}
         }
     end
-    local index = 0
+
     for k, v in pairs(statsTable) do
-        index = index + 1
-        local xPos = 8 + (341 * ((math.fmod(index, 3) - 1)))
-        local yPos = 8 + (40 * ((math.fmod(index, 3) - 1)))
+        local xPos = 8 + (341 * (v[3] - 1))
+        local yPos = 8 + (40 * (v[2] - 1))
         canvas:Text(("%sText"):format(k)){
             font = fontString,
             x = xPos,
@@ -92,7 +91,7 @@ local function displaySlotStats()
             unit = obe.Transform.Units.ScenePixels,
             size = 22,
             color = "#FAFAFA",
-            text = ("%s: %s"):format(k, v)
+            text = ("%s: %s"):format(k, v[1])
         }
     end
     canvas:render(This.Sprite)
@@ -108,11 +107,11 @@ function UserEvent.Custom.beginTurn(evt)
 
     if (battleTable.currentTurn == "Enemies") then
         menuType = "Waiting"
-        CustomGroup:trigger("magiqueChange", { SideM = "Enemies", Amount = battleTable.enemies.magiqueRegen })
+        CustomGroup:trigger("MagiqueChange", { SideM = "Enemies", Amount = battleTable.enemies.magiqueRegen })
         return
     end
 
-    CustomGroup:trigger("magiqueChange", { SideM = "Player", Amount = battleTable.player.magiqueRegen })
+    CustomGroup:trigger("MagiqueChange", { SideM = "Player", Amount = battleTable.player.magiqueRegen })
     menuType = "slotChooseCursor"
     Engine.Scene:getSprite("bigCursor"):setVisible(true)
     displaySlotStats()
@@ -129,7 +128,7 @@ function Event.Actions.Up()
         if (bigCursorPos.slot ~= "slot1") and (bigCursorPos.slot ~= "slot4") and (bigCursorPos.slot ~= "slot7") then
             local oldNumber = tonumber(string.sub(bigCursorPos.slot, -1))
             bigCursorPos.slot = ("slot%s"):format(oldNumber - 1)
-            Engine.Scene:getGameObject("%s%s"):format(bigCursorPos.side, (oldNumber - 1)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
+            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, (oldNumber - 1))).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end
@@ -146,7 +145,7 @@ function Event.Actions.Down()
         if (bigCursorPos.slot ~= "slot3") and (bigCursorPos.slot ~= "slot6") and (bigCursorPos.slot ~= "slot9") then
             local oldNumber = tonumber(string.sub(bigCursorPos.slot, -1))
             bigCursorPos.slot = ("slot%s"):format(oldNumber + 1)
-            Engine.Scene:getGameObject("%s%s"):format(bigCursorPos.side, (oldNumber + 1)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
+            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, (oldNumber + 1))).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end
@@ -166,9 +165,14 @@ function Event.Actions.Left()
                 bigCursorPos.side = "Enemies"
                 oldNumber = oldNumber - 3 --in this scenario, the slot # does not actually change, but oldNumber must be adjusted so our GO-getting always works
             else
-                bigCursorPos.slot = ("slot%s"):format(oldNumber + 3)
+                if (bigCursorPos.side == "Enemies") then
+                    bigCursorPos.slot = ("slot%s"):format(oldNumber + 3)
+                else
+                    bigCursorPos.slot = ("slot%s"):format(oldNumber - 3)
+                end
             end
-            Engine.Scene:getGameObject("%s%s"):format(bigCursorPos.side, (oldNumber + 3)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
+            local newNumber = tonumber(string.sub(bigCursorPos.slot, -1))
+            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, newNumber)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end
@@ -188,9 +192,14 @@ function Event.Actions.Right()
                 bigCursorPos.side = "Player"
                 oldNumber = oldNumber + 3 --in this scenario, the slot # does not actually change, but oldNumber must be adjusted so our GO-getting always works
             else
-                bigCursorPos.slot = ("slot%s"):format(oldNumber - 3)
+                if (bigCursorPos.side == "Enemies") then
+                    bigCursorPos.slot = ("slot%s"):format(oldNumber - 3)
+                else
+                    bigCursorPos.slot = ("slot%s"):format(oldNumber + 3)
+                end
             end
-            Engine.Scene:getGameObject("%s%s"):format(bigCursorPos.side, (oldNumber - 3)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
+            local newNumber = tonumber(string.sub(bigCursorPos.slot, -1))
+            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, newNumber)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end

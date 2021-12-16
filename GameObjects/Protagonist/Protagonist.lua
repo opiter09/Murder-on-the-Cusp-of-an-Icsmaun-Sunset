@@ -19,7 +19,7 @@ function UserEvent.Custom.endNoRun(evt)
 end
 
 function Event.Actions.ShowMap()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -42,7 +42,7 @@ function Event.Actions.ShowMap()
 end
 
 function Event.Actions.Inventory()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -65,7 +65,7 @@ function Event.Actions.Inventory()
 end
 
 function Event.Actions.PauseOrStats()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -94,7 +94,7 @@ function Local.Init()
     This.Animator:setKey(vars.currentKey)
 
     if (vars.currentParty > 0) then
-        if (Engine.Scene:doesGameObjectExists("Enemy1") == false) then
+        if (Engine.Scene:doesGameObjectExists("Enemies1") == false) then
             Engine.Scene:loadFromFile("scenes://Battleground.map.vili")
         else
             This.Sprite:setVisible(false)
@@ -103,7 +103,7 @@ function Local.Init()
 end
 
 function Event.Actions.Up()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -151,7 +151,7 @@ function Event.Actions.Up()
 end
 
 function Event.Actions.Down()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -199,7 +199,7 @@ function Event.Actions.Down()
 end
 
 function Event.Actions.Left()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -247,7 +247,7 @@ function Event.Actions.Left()
 end
 
 function Event.Actions.Right()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -295,7 +295,7 @@ function Event.Actions.Right()
 end
 
 function Event.Actions.Run()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then
@@ -315,7 +315,7 @@ function Event.Actions.Run()
 end
 
 function Event.Game.Update()
-    if (Engine.Scene:doesGameObjectExists("Enemy1") == true) then
+    if (Engine.Scene:doesGameObjectExists("Enemies1") == true) then
         return
     end
     if (noMove == true) then

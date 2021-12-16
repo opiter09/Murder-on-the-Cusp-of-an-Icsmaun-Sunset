@@ -34,7 +34,7 @@ function UserEvent.Custom.SlotAction()
     end
     This.Sprite:setVisible(true)
 
-    canvas.elements["Name"].text = battleTable.enemies[string].Name
+    canvas.elements["Name"].text = string.sub(battleTable.enemies[string].Name, 1, 6)
     canvas.elements["Vitality"].text = tostring(battleTable.enemies[string].Vitality)
     if ((battleTable.enemies[string].MaximumVitality / 4) >= battleTable.enemies[string].Vitality) then
         canvas.elements["Vitality"].color = "#B61B25" --Red

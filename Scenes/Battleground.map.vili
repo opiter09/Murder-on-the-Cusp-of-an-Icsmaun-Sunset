@@ -82,55 +82,55 @@ GameObjects:
             xPos:248
             yPos:586
 
-    Enemy1:
+    Enemies1:
         type:"BattleEnemy"
         Requires:
             Slot:1
             xPos:778
             yPos:448
-    Enemy2:
+    Enemies2:
         type:"BattleEnemy"
         Requires:
             Slot:2
             xPos:778
             yPos:586
-    Enemy3:
+    Enemies3:
         type:"BattleEnemy"
         Requires:
             Slot:3
             xPos:778
             yPos:724
-    Enemy4:
+    Enemies4:
         type:"BattleEnemy"
         Requires:
             Slot:4
             xPos:628
             yPos:448
-    Enemy5:
+    Enemies5:
         type:"BattleEnemy"
         Requires:
             Slot:5
             xPos:628
             yPos:586
-    Enemy6:
+    Enemies6:
         type:"BattleEnemy"
         Requires:
             Slot:6
             xPos:628
             yPos:724
-    Enemy7:
+    Enemies7:
         type:"BattleEnemy"
         Requires:
             Slot:7
             xPos:478
             yPos:448
-    Enemy8:
+    Enemies8:
         type:"BattleEnemy"
         Requires:
             Slot:8
             xPos:478
             yPos:586
-    Enemy9:
+    Enemies9:
         type:"BattleEnemy"
         Requires:
             Slot:9
