@@ -27,6 +27,7 @@ function Game.Start()
 
     local H = {
         egg = 0,
+        battleSongPlace = 0,
         firstTurn = "Player",
         currentMap = "Intro_Narration",
         currentX = 928.0,

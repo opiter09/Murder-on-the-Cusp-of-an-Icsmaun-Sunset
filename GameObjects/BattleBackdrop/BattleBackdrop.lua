@@ -125,7 +125,14 @@ function Local.Init()
     vili.to_file("root://Data/battleTable.vili", battleTable)
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:trigger("SlotAction", {})
-    Engine.Events:schedule():after(0.5):run(function()
+
+    local battleSong = "music://Battle Theme (String Quartet).mp3"
+    local sound = Engine.Audio:load(obe.System.Path(battleSong), obe.Audio.LoadPolicy.Cache)
+    sound:setOffset(vars.battleSongPlace)
+    sound:setVolume(0.75)
+    sound:setLooping(true)
+    sound:play()
+    Engine.Events:schedule():after(0.25):run(function()
         CustomGroup:trigger("beginTurn", {})
     end)
 end

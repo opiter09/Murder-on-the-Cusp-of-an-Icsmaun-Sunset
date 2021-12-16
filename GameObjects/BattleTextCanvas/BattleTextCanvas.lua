@@ -1,7 +1,7 @@
 local bigCursorPos = { side = "Player", slot = "slot1" }
 local canvas
 local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
-local menuType
+local menuType = "None"
 
 local timerUp = 0
 local timerDown = 0
@@ -43,7 +43,7 @@ local function displaySlotStats()
         unit = obe.Transform.Units.ScenePixels,
         size = 22,
         color = "#FAFAFA",
-        text = ("Name: %s"):format(thisThing.Name)
+        text = thisThing.Name
     }
     canvas:Text("HealthText"){
         font = fontString,
