@@ -23,6 +23,10 @@ function Local.Init()
 end
 
 local function displaySlotStats()
+    local newNumber = tonumber(string.sub(bigCursorPos.slot, -1))
+    local unitPos = Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, newNumber)).SceneNode:getPosition()
+    Engine.Scene:getSprite("bigCursor"):setPosition(unitPos)
+
     local battleTable = vili.from_file("root://Data/battleTable.vili")
     local thisThing = battleTable[string.lower(bigCursorPos.side)][bigCursorPos.slot]
     canvas:clear()
@@ -43,7 +47,7 @@ local function displaySlotStats()
     }
     canvas:Text("HealthText"){
         font = fontString,
-        x = 341.0,
+        x = 349.0,
         y = 8.0,
         unit = obe.Transform.Units.ScenePixels,
         size = 22,
@@ -128,7 +132,6 @@ function Event.Actions.Up()
         if (bigCursorPos.slot ~= "slot1") and (bigCursorPos.slot ~= "slot4") and (bigCursorPos.slot ~= "slot7") then
             local oldNumber = tonumber(string.sub(bigCursorPos.slot, -1))
             bigCursorPos.slot = ("slot%s"):format(oldNumber - 1)
-            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, (oldNumber - 1))).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end
@@ -145,7 +148,6 @@ function Event.Actions.Down()
         if (bigCursorPos.slot ~= "slot3") and (bigCursorPos.slot ~= "slot6") and (bigCursorPos.slot ~= "slot9") then
             local oldNumber = tonumber(string.sub(bigCursorPos.slot, -1))
             bigCursorPos.slot = ("slot%s"):format(oldNumber + 1)
-            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, (oldNumber + 1))).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end
@@ -171,8 +173,6 @@ function Event.Actions.Left()
                     bigCursorPos.slot = ("slot%s"):format(oldNumber - 3)
                 end
             end
-            local newNumber = tonumber(string.sub(bigCursorPos.slot, -1))
-            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, newNumber)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end
@@ -198,8 +198,6 @@ function Event.Actions.Right()
                     bigCursorPos.slot = ("slot%s"):format(oldNumber + 3)
                 end
             end
-            local newNumber = tonumber(string.sub(bigCursorPos.slot, -1))
-            Engine.Scene:getGameObject(("%s%s"):format(bigCursorPos.side, newNumber)).SceneNode:addChild(Engine.Scene:getSprite("bigCursor"))
             displaySlotStats()
         end
     end

@@ -63,7 +63,7 @@ Sprites:
             unit:ScenePixels
         }
         rotation:0.0
-        layer:-4
+        layer:-3
         zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
