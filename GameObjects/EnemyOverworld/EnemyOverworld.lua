@@ -106,7 +106,7 @@ local function beginBattle()
 
     local playerKey = Engine.Scene:getGameObject("Protagonist").Animation:getKey()
     local myKey = This.Animator:getKey()
-    if (string.sub(myKey, (string.len(myKey) - 2), string.len(myKey)) == string.sub(myKey, (string.len(playerKey) - 2), string.len(playerKey))) then
+    if (string.sub(myKey, (string.len(myKey) - 2), string.len(myKey)) == string.sub(playerKey, (string.len(playerKey) - 2), string.len(playerKey))) then
         vars.firstTurn = "Enemies"
     else
         vars.firstTurn = "Player"

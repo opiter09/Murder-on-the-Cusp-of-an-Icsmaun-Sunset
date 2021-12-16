@@ -102,6 +102,7 @@ function Local.Init()
                 end
             end
             myStats.canAct = 1
+            myStats.isKnown = 0
             battleTable.enemies[string] = myStats
         end
     end
@@ -126,4 +127,7 @@ function Local.Init()
     vili.to_file("root://Data/battleTable.vili", battleTable)
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
     CustomGroup:trigger("SlotAction", {})
+    Engine.Events:schedule():after(0.5):run(function()
+        CustomGroup:trigger("beginTurn", {})
+    end)
 end

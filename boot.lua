@@ -15,6 +15,7 @@ local function addEvents()
 
     CustomGroup:add("SlotAction")
     CustomGroup:add("MagiqueChange")
+    CustomGroup:add("beginTurn")
 end
 
 function Game.Start()

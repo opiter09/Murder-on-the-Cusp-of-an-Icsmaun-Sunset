@@ -11,7 +11,7 @@ local function processAILogic()
 end
 
 function UserEvent.Custom.MagiqueChange(evt)
-    if (evt.Side == side) then
+    if (evt.SideM == side) then
         local battleTable = vili.from_file("root://Data/battleTable.vili")
         battleTable[string.lower(side)].currentMagique = battleTable[string.lower(side)].currentMagique + evt.Amount
         numberText.text = tostring(battleTable[string.lower(side)].currentMagique)
