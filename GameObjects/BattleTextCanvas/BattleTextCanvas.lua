@@ -1,3 +1,4 @@
+local bigAcceptable = "None"
 local bigCursorPos = { side = "Player", slot = "slot1" }
 local canvas
 local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
@@ -7,6 +8,16 @@ local timerUp = 0
 local timerDown = 0
 local timerLeft = 0
 local timerRight = 0
+
+local topLeft
+local topCenter
+local topRight
+local middleLeft
+local middleCenter
+local middleRight
+local bottomLeft
+local bottomCenter
+local bottomRight
 
 function UserEvent.Custom.beginText(evt)
     This.Sprite:setVisible(false)
@@ -19,6 +30,88 @@ end
 function Local.Init()
     Engine.Scene:getSprite("bigCursor"):setVisible(false)
     canvas = obe.Canvas.Canvas(1024, 640)
+
+    topLeft = canvas:Text("TopLeft"){
+        font = fontString,
+        x = 8.0,
+        y = 8.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    topCenter = canvas:Text("TopCenter"){
+        font = fontString,
+        x = 349.0,
+        y = 8.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    topRight = canvas:Text("TopRight"){
+        font = fontString,
+        x = 690.0,
+        y = 8.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    middleLeft = canvas:Text("MiddleLeft"){
+        font = fontString,
+        x = 8.0,
+        y = 48.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    middleCenter = canvas:Text("MiddleCenter"){
+        font = fontString,
+        x = 349.0,
+        y = 48.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    middleRight = canvas:Text("MiddleRight"){
+        font = fontString,
+        x = 690.0,
+        y = 48.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    bottomLeft = canvas:Text("BottomLeft"){
+        font = fontString,
+        x = 8.0,
+        y = 88.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    bottomCenter = canvas:Text("BottomCenter"){
+        font = fontString,
+        x = 349.0,
+        y = 88.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
+    bottomRight = canvas:Text("BottomRight"){
+        font = fontString,
+        x = 690.0,
+        y = 88.0,
+        unit = obe.Transform.Units.ScenePixels,
+        size = 22,
+        color = "#FAFAFA",
+        text = ""
+    }
     canvas:render(This.Sprite)
 end
 
@@ -29,75 +122,42 @@ local function displaySlotStats()
 
     local battleTable = vili.from_file("root://Data/battleTable.vili")
     local thisThing = battleTable[string.lower(bigCursorPos.side)][bigCursorPos.slot]
-    canvas:clear()
 
-    if (thisThing == 0) then
-        canvas:render(This.Sprite)
-        return
+    local nineTable = {}
+    for i = 1, 9 do
+        nineTable[i] = ""
     end
 
-    canvas:Text("NameText"){
-        font = fontString,
-        x = 8.0,
-        y = 8.0,
-        unit = obe.Transform.Units.ScenePixels,
-        size = 22,
-        color = "#FAFAFA",
-        text = thisThing.Name
-    }
-    canvas:Text("HealthText"){
-        font = fontString,
-        x = 349.0,
-        y = 8.0,
-        unit = obe.Transform.Units.ScenePixels,
-        size = 22,
-        color = "#FAFAFA",
-        text = ("Vitality: %s/%s"):format(thisThing.Vitality, thisThing.MaximumVitality)
-    }
-    canvas:Text("SizeText"){
-        font = fontString,
-        x = 690.0,
-        y = 8.0,
-        unit = obe.Transform.Units.ScenePixels,
-        size = 22,
-        color = "#FAFAFA",
-        text = ("Size: %s"):format(thisThing.Size)
-    }
-
-    local statsTable = {}
-    if (bigCursorPos.side == "Enemies") and (thisThing.isKnown == 0) then
-        statsTable = {
-            Level = {"???", 2, 1},
-            Might = {"???", 2, 2},
-            Agility = {"???", 2, 3},
-            Guard = {"???", 3, 1},
-            Insight = {"???", 3, 2},
-            Communication = {"???", 3, 3}
-        }
-    else
-        statsTable = {
-            Level = {thisThing.Level, 2, 1},
-            Might = {thisThing.Might, 2, 2},
-            Agility = {thisThing.Agility, 2, 3},
-            Guard = {thisThing.Guard, 3, 1},
-            Insight = {thisThing.Insight, 3, 2},
-            Communication = {thisThing.Communication, 3, 3}
-        }
+    if (thisThing ~= 0) then
+        nineTable[1] = thisThing.Name
+        nineTable[2] = ("Vitality: %s/%s"):format(thisThing.Vitality, thisThing.MaximumVitality)
+        nineTable[3] = ("Size: %s"):format(thisThing.Size)
+        if (bigCursorPos.side == "Enemies") and (thisThing.isKnown == 0) then
+            nineTable[4] = "Level: ???"
+            nineTable[5] = "Might: ???"
+            nineTable[6] = "Agility: ???"
+            nineTable[7] = "Guard: ???"
+            nineTable[8] = "Insight: ???"
+            nineTable[9] = "Communication: ???"
+        else
+            nineTable[4] = ("Level: %s"):format(thisThing.Level)
+            nineTable[5] = ("Might: %s"):format(thisThing.Might)
+            nineTable[6] = ("Agility: %s"):format(thisThing.Agility)
+            nineTable[7] = ("Guard: %s"):format(thisThing.Guard)
+            nineTable[8] = ("Insight: %s"):format(thisThing.Insight)
+            nineTable[9] = ("Communication: %s"):format(thisThing.Communication)
+        end
     end
 
-    for k, v in pairs(statsTable) do
-        local xPos = 8 + (341 * (v[3] - 1))
-        local yPos = 8 + (40 * (v[2] - 1))
-        canvas:Text(("%sText"):format(k)){
-            font = fontString,
-            x = xPos,
-            y = yPos,
-            unit = obe.Transform.Units.ScenePixels,
-            size = 22,
-            color = "#FAFAFA",
-            text = ("%s: %s"):format(k, v[1])
-        }
-    end
+    topLeft.text = nineTable[1]
+    topCenter.text = nineTable[2]
+    topRight.text = nineTable[3]
+    middleLeft.text = nineTable[4]
+    middleCenter.text = nineTable[5]
+    middleRight.text = nineTable[6]
+    bottomLeft.text = nineTable[7]
+    bottomCenter.text = nineTable[8]
+    bottomRight.text = nineTable[9]
     canvas:render(This.Sprite)
 end
 
@@ -117,6 +177,7 @@ function UserEvent.Custom.beginTurn(evt)
 
     CustomGroup:trigger("MagiqueChange", { SideM = "Player", Amount = battleTable.player.magiqueRegen })
     menuType = "slotChooseCursor"
+    bigAcceptable = "Player"
     Engine.Scene:getSprite("bigCursor"):setVisible(true)
     displaySlotStats()
 end
