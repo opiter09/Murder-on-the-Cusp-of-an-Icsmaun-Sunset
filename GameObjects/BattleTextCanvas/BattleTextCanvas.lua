@@ -1,4 +1,5 @@
 local bigAcceptable = "None"
+local bigCurrentAttack = "None"
 local bigCursorPos = { side = "Player", slot = "slot1" }
 local canvas
 local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
@@ -28,6 +29,18 @@ function UserEvent.Custom.endText(evt)
 end
 
 function Local.Init()
+    local boxCanvas = obe.Canvas.Canvas(338, 32)
+    boxCanvas:Rectangle("blackBox"){
+        x = 0.0,
+        y = 0.0,
+        width = 338.0,
+        height = 32.0,
+        unit = obe.Transform.Units.ScenePixels,
+        color = "#030303"
+    }
+    boxCanvas:render(Engine.Scene:getSprite("smallCursorBox"))
+    Engine.Scene:getSprite("smallCursorBox"):setVisible(false)
+
     Engine.Scene:getSprite("bigCursor"):setVisible(false)
     canvas = obe.Canvas.Canvas(1024, 640)
 
@@ -260,6 +273,33 @@ function Event.Actions.Right()
                 end
             end
             displaySlotStats()
+        end
+    end
+end
+
+function Event.Actions.Accept()
+    local battleTable = vili.from_file("root://Data/battleTable.vili")
+    local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
+
+    if (menuType == "slotChooseCursor") then
+        local check = 0
+        if (bigAcceptable == bigCursorPos.side) then
+            check = 1
+        elseif (string.sub(bigAcceptable, -5) == "Blank") then
+            if (string.sub(bigAcceptable, 1, 6) == string.sub(bigCursorPos.side, 1, 6)) then
+                if (battleTable[string.lower(bigCursorPos.side)][bigCursorPos.slot] == 0) then
+                    check = 1
+                end
+            end
+        end
+        if (check == 0) then
+            local soundPath = "evretro://8-bit-damage-sound.wav"
+            local thisSound = Engine.Audio:load(obe.System.Path(soundPath), obe.Audio.LoadPolicy.Stream)
+            thisSound:play()
+            return
+        end
+
+        if (bigCurrentAttack == "None") then
         end
     end
 end

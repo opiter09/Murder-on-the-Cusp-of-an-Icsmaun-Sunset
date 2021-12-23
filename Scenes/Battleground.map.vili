@@ -53,6 +53,7 @@ Sprites:
         zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
+
     bigCursor:
         path:"sprites://LevelSprites/bigCursor.png"
         rect:Rect{
@@ -64,6 +65,20 @@ Sprites:
         }
         rotation:0.0
         layer:-3
+        zdepth:0
+        xTransform:"Camera"
+        yTransform:"Camera"
+    smallCursorBox:
+        path:""
+        rect:Rect{
+            x:452.0,
+            y:867.0,
+            width:338.0,
+            height:32.0,
+            unit:ScenePixels
+        }
+        rotation:0.0
+        layer:1
         zdepth:0
         xTransform:"Camera"
         yTransform:"Camera"
