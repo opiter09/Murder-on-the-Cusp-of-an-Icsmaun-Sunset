@@ -4,6 +4,7 @@ local bigCursorPos = { side = "Player", slot = "slot1" }
 local canvas
 local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
 local menuType = "None"
+local smallCursorPos = "TopLeft"
 
 local timerUp = 0
 local timerDown = 0
@@ -298,8 +299,10 @@ function Event.Actions.Accept()
             thisSound:play()
             return
         end
+        Engine.Scene:getSprite("bigCursor"):setVisible(false)
 
         if (bigCurrentAttack == "None") then
+            Engine.Scene:getSprite("smallCursorBox"):setVisible(true)
         end
     end
 end
