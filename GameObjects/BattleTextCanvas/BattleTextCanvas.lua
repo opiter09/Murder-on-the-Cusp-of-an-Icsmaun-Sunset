@@ -213,6 +213,11 @@ function Event.Actions.Up()
             displaySlotStats()
         end
     else
+        local config = vili.from_file("root://config.vili")
+        local xThing = (-1) * config.Camera.xOffsetRight
+        local yThing = (-1) * config.Camera.yOffsetDown
+        Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
         local shift
         if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y == 867) then
             shift = 0
@@ -220,6 +225,8 @@ function Event.Actions.Up()
             shift = -40
         end
         Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(0, shift, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(config.Camera.xOffsetRight, config.Camera.yOffsetDown, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     end
 end
 
@@ -241,6 +248,11 @@ function Event.Actions.Down()
             displaySlotStats()
         end
     else
+        local config = vili.from_file("root://config.vili")
+        local xThing = (-1) * config.Camera.xOffsetRight
+        local yThing = (-1) * config.Camera.yOffsetDown
+        Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
         local shift
         if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y > 907) then
             shift = 0
@@ -248,6 +260,8 @@ function Event.Actions.Down()
             shift = 40
         end
         Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(0, shift, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(config.Camera.xOffsetRight, config.Camera.yOffsetDown, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     end
 end
 
@@ -278,6 +292,11 @@ function Event.Actions.Left()
             displaySlotStats()
         end
     else
+        local config = vili.from_file("root://config.vili")
+        local xThing = (-1) * config.Camera.xOffsetRight
+        local yThing = (-1) * config.Camera.yOffsetDown
+        Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
         local shift
         if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x == 452) then
             shift = 0
@@ -285,6 +304,8 @@ function Event.Actions.Left()
             shift = -341
         end
         Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(shift, 0, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(config.Camera.xOffsetRight, config.Camera.yOffsetDown, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     end
 end
 
@@ -315,6 +336,11 @@ function Event.Actions.Right()
             displaySlotStats()
         end
     else
+        local config = vili.from_file("root://config.vili")
+        local xThing = (-1) * config.Camera.xOffsetRight
+        local yThing = (-1) * config.Camera.yOffsetDown
+        Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
         local shift
         if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x == 1134) then
             shift = 0
@@ -322,6 +348,8 @@ function Event.Actions.Right()
             shift = 341
         end
         Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(shift, 0, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():move(obe.Transform.UnitVector(config.Camera.xOffsetRight, config.Camera.yOffsetDown, obe.Transform.Units.ScenePixels))
+        Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     end
 end
 

@@ -29,8 +29,8 @@ function Event.Actions.ShowMap()
     local config = vili.from_file("root://config.vili")
     local xThing = (-1) * config.Camera.xOffsetRight
     local yThing = (-1) * config.Camera.yOffsetDown
-    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
     Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
     local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
     local vars = vili.from_file("root://saveData.vili")
@@ -38,6 +38,9 @@ function Event.Actions.ShowMap()
     vars.currentY = position.y
     vars.currentKey = This.Animator:getKey()
     vili.to_file("root://saveData.vili", vars)
+
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+    Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     Engine.Scene:loadFromFile("scenes://Map_Menu.map.vili")
 end
 
@@ -52,8 +55,8 @@ function Event.Actions.Inventory()
     local config = vili.from_file("root://config.vili")
     local xThing = (-1) * config.Camera.xOffsetRight
     local yThing = (-1) * config.Camera.yOffsetDown
-    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
     Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
     local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
     local vars = vili.from_file("root://saveData.vili")
@@ -61,6 +64,9 @@ function Event.Actions.Inventory()
     vars.currentY = position.y
     vars.currentKey = This.Animator:getKey()
     vili.to_file("root://saveData.vili", vars)
+
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+    Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     Engine.Scene:loadFromFile("scenes://Inventory_Menu.map.vili")
 end
 
@@ -75,8 +81,8 @@ function Event.Actions.PauseOrStats()
     local config = vili.from_file("root://config.vili")
     local xThing = (-1) * config.Camera.xOffsetRight
     local yThing = (-1) * config.Camera.yOffsetDown
-    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
     Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
     local position = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels)
     local vars = vili.from_file("root://saveData.vili")
@@ -84,6 +90,9 @@ function Event.Actions.PauseOrStats()
     vars.currentY = position.y
     vars.currentKey = This.Animator:getKey()
     vili.to_file("root://saveData.vili", vars)
+
+    Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+    Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
     Engine.Scene:loadFromFile("scenes://Statistics_Menu.map.vili")
 end
 
@@ -131,13 +140,16 @@ function Event.Actions.Up()
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
-            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
             vars.currentX = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x
             vars.currentY = 800
             vars.currentMap = warps[vars.currentMap].North
             vili.to_file("root://saveData.vili", vars)
+
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
@@ -179,13 +191,16 @@ function Event.Actions.Down()
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
-            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
             vars.currentX = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x
             vars.currentY = 224
             vars.currentMap = warps[vars.currentMap].South
             vili.to_file("root://saveData.vili", vars)
+
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
@@ -227,13 +242,16 @@ function Event.Actions.Left()
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
-            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
             vars.currentX = 1408
             vars.currentY = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y
             vars.currentMap = warps[vars.currentMap].West
             vili.to_file("root://saveData.vili", vars)
+
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
@@ -275,13 +293,16 @@ function Event.Actions.Right()
             local config = vili.from_file("root://config.vili")
             local xThing = (-1) * config.Camera.xOffsetRight
             local yThing = (-1) * config.Camera.yOffsetDown
-            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
             Engine.Scene:getCamera():scale(config.Camera.zoom, obe.Transform.Referential.Center)
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector(xThing, yThing, obe.Transform.Units.ScenePixels))
 
             vars.currentX = 448
             vars.currentY = This.Sprite:getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y
             vars.currentMap = warps[vars.currentMap].East
             vili.to_file("root://saveData.vili", vars)
+
+            Engine.Scene:getCamera():move(obe.Transform.UnitVector((-1) * xThing, (-1) * yThing, obe.Transform.Units.ScenePixels))
+            Engine.Scene:getCamera():scale((1 / config.Camera.zoom), obe.Transform.Referential.Center)
             Engine.Scene:loadFromFile(("scenes://%s.map.vili"):format(vars.currentMap))
             return
         end
