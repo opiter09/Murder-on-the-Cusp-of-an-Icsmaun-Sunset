@@ -4,7 +4,6 @@ local bigCursorPos = { side = "Player", slot = "slot1" }
 local canvas
 local fontString = "root://Data/Fonts/dogica/TTF/dogicapixel.ttf"
 local menuType = "None"
-local smallCursorPos = "TopLeft"
 
 local timerUp = 0
 local timerDown = 0
@@ -197,6 +196,10 @@ function UserEvent.Custom.beginTurn(evt)
 end
 
 function Event.Actions.Up()
+    if (menuType == "None") then
+        return
+    end
+
     timerUp = timerUp + 1
     if (timerUp < 10) then
         return
@@ -209,10 +212,22 @@ function Event.Actions.Up()
             bigCursorPos.slot = ("slot%s"):format(oldNumber - 1)
             displaySlotStats()
         end
+    else
+        local shift
+        if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y == 867) then
+            shift = 0
+        else
+            shift = -40
+        end
+        Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(0, shift, obe.Transform.Units.ScenePixels))
     end
 end
 
 function Event.Actions.Down()
+    if (menuType == "None") then
+        return
+    end
+
     timerDown = timerDown + 1
     if (timerDown < 10) then
         return
@@ -225,10 +240,22 @@ function Event.Actions.Down()
             bigCursorPos.slot = ("slot%s"):format(oldNumber + 1)
             displaySlotStats()
         end
+    else
+        local shift
+        if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).y > 907) then
+            shift = 0
+        else
+            shift = 40
+        end
+        Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(0, shift, obe.Transform.Units.ScenePixels))
     end
 end
 
 function Event.Actions.Left()
+    if (menuType == "None") then
+        return
+    end
+
     timerLeft = timerLeft + 1
     if (timerLeft < 10) then
         return
@@ -250,10 +277,22 @@ function Event.Actions.Left()
             end
             displaySlotStats()
         end
+    else
+        local shift
+        if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x == 452) then
+            shift = 0
+        else
+            shift = -341
+        end
+        Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(shift, 0, obe.Transform.Units.ScenePixels))
     end
 end
 
 function Event.Actions.Right()
+    if (menuType == "None") then
+        return
+    end
+
     timerRight = timerRight + 1
     if (timerRight < 10) then
         return
@@ -275,10 +314,22 @@ function Event.Actions.Right()
             end
             displaySlotStats()
         end
+    else
+        local shift
+        if (Engine.Scene:getSprite("smallCursorBox"):getPosition(obe.Transform.Referential.TopLeft):to(obe.Transform.Units.ScenePixels).x == 1134) then
+            shift = 0
+        else
+            shift = 341
+        end
+        Engine.Scene:getSprite("smallCursorBox"):move(obe.Transform.UnitVector(shift, 0, obe.Transform.Units.ScenePixels))
     end
 end
 
 function Event.Actions.Accept()
+    if (menuType == "None") then
+        return
+    end
+
     local battleTable = vili.from_file("root://Data/battleTable.vili")
     local CustomGroup = Engine.Events:getNamespace("UserEvent"):joinGroup("Custom")
 
@@ -303,6 +354,7 @@ function Event.Actions.Accept()
 
         if (bigCurrentAttack == "None") then
             Engine.Scene:getSprite("smallCursorBox"):setVisible(true)
+            menuType = "actionSelect"
         end
     end
 end
